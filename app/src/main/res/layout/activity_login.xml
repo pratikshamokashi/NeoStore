@@ -66,18 +66,11 @@
 
         <Button
             android:id="@+id/btn_login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margin_left_34dp"
-            android:layout_marginRight="@dimen/margin_right_34dp"
+            style="@style/style_button"
             android:background="@drawable/rounded_btn"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
             android:text="@string/login"
-            android:textAllCaps="true"
             android:textColor="@color/red"
-            android:textSize="30sp"
-            android:textStyle="normal" />
+            />
 
         <Space
             android:layout_width="match_parent"
