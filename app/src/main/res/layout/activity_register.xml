@@ -46,17 +46,13 @@
 
         <EditText
             android:id="@+id/et_firstName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/style_register"
             android:layout_marginLeft="@dimen/margin_left_34dp"
             android:layout_marginRight="@dimen/margin_right_34dp"
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/username_icon"
-            android:drawablePadding="20dp"
-            android:paddingLeft="10dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
             android:text="First Name"
+
             />
 
         <Space
@@ -65,21 +61,15 @@
 
         <EditText
             android:id="@+id/et_lastName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/style_register"
+
             android:layout_marginLeft="@dimen/margin_left_34dp"
             android:layout_marginRight="@dimen/margin_right_34dp"
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/username_icon"
-            android:drawablePadding="20dp"
-            android:paddingLeft="10dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
             android:text="Last Name"
             android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="normal" />
+             />
 
         <Space
             android:layout_width="match_parent"
@@ -87,21 +77,15 @@
 
         <EditText
             android:id="@+id/et_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/style_register"
+
             android:layout_marginLeft="@dimen/margin_left_34dp"
             android:layout_marginRight="@dimen/margin_right_34dp"
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/email_icon"
             android:drawablePadding="20dp"
-            android:paddingLeft="10dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
             android:text="@string/email"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            />
+                       />
 
         <Space
             android:layout_width="match_parent"
@@ -109,21 +93,14 @@
 
         <EditText
             android:id="@+id/et_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/style_register"
+
             android:layout_marginLeft="@dimen/margin_left_34dp"
             android:layout_marginRight="@dimen/margin_right_34dp"
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/cpassword_icon"
-            android:drawablePadding="20dp"
-            android:paddingLeft="10dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
             android:text="Password"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="normal" />
+             />
 
         <Space
             android:layout_width="match_parent"
@@ -131,21 +108,15 @@
 
         <EditText
             android:id="@+id/et_confirm_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/style_register"
+
             android:layout_marginLeft="@dimen/margin_left_34dp"
             android:layout_marginRight="@dimen/margin_right_34dp"
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/password_icon"
-            android:drawablePadding="20dp"
-            android:paddingLeft="10dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
+
             android:text="@string/confirm_password"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="normal" />
+            />
 
         <Space
             android:layout_width="match_parent"
@@ -199,21 +170,14 @@
 
         <EditText
             android:id="@+id/et_phn_no"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/style_register"
             android:layout_marginLeft="@dimen/margin_left_34dp"
             android:layout_marginRight="@dimen/margin_right_34dp"
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/cellphone"
-            android:drawablePadding="20dp"
-            android:paddingLeft="10dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
+
             android:text="Phone Number"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="normal" />
+             />
 
         <Space
             android:layout_width="match_parent"
