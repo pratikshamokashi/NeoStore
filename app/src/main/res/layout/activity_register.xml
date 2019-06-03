@@ -46,12 +46,11 @@
 
         <EditText
             android:id="@+id/et_firstName"
-            style="@style/style_register"
-            android:layout_marginLeft="@dimen/margin_left_34dp"
-            android:layout_marginRight="@dimen/margin_right_34dp"
+            style="@style/style_one"
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/username_icon"
             android:text="First Name"
+            android:textSize="20sp"
 
             />
 
@@ -61,14 +60,12 @@
 
         <EditText
             android:id="@+id/et_lastName"
-            style="@style/style_register"
-
-            android:layout_marginLeft="@dimen/margin_left_34dp"
-            android:layout_marginRight="@dimen/margin_right_34dp"
+            style="@style/style_one"
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/username_icon"
             android:text="Last Name"
             android:textAllCaps="false"
+            android:textSize="20sp"
              />
 
         <Space
@@ -77,15 +74,14 @@
 
         <EditText
             android:id="@+id/et_email"
-            style="@style/style_register"
-
-            android:layout_marginLeft="@dimen/margin_left_34dp"
-            android:layout_marginRight="@dimen/margin_right_34dp"
+            style="@style/style_one"
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/email_icon"
             android:drawablePadding="20dp"
             android:text="@string/email"
-                       />
+            android:textSize="20sp"
+
+        />
 
         <Space
             android:layout_width="match_parent"
@@ -93,14 +89,13 @@
 
         <EditText
             android:id="@+id/et_password"
-            style="@style/style_register"
-
-            android:layout_marginLeft="@dimen/margin_left_34dp"
-            android:layout_marginRight="@dimen/margin_right_34dp"
+            style="@style/style_one"
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/cpassword_icon"
             android:text="Password"
-             />
+            android:textSize="20sp"
+
+        />
 
         <Space
             android:layout_width="match_parent"
@@ -108,15 +103,13 @@
 
         <EditText
             android:id="@+id/et_confirm_password"
-            style="@style/style_register"
-
-            android:layout_marginLeft="@dimen/margin_left_34dp"
-            android:layout_marginRight="@dimen/margin_right_34dp"
+            style="@style/style_one"
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/password_icon"
-
             android:text="@string/confirm_password"
-            />
+            android:textSize="20sp"
+
+        />
 
         <Space
             android:layout_width="match_parent"
@@ -170,14 +163,13 @@
 
         <EditText
             android:id="@+id/et_phn_no"
-            style="@style/style_register"
-            android:layout_marginLeft="@dimen/margin_left_34dp"
-            android:layout_marginRight="@dimen/margin_right_34dp"
+            style="@style/style_one"
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/cellphone"
-
             android:text="Phone Number"
-             />
+            android:textSize="20sp"
+
+        />
 
         <Space
             android:layout_width="match_parent"
