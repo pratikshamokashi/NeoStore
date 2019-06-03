@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">NeoStoreApp</string>
-    <string name="underline_key">I agree the<u> terms and conditions</u></string>
+    <string name="underline_key">I agree the
+        <u>terms and conditions</u>
+    </string>
     <string name="neostore">NeoSTORE</string>
     <string name="register">Register</string>
     <string name="username">Username</string>

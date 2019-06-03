@@ -14,27 +14,22 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
+        <android.support.v7.widget.Toolbar
+               android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/red"
+                android:id="@+id/toolbar"
+               app:title="@string/register"
+               app:titleTextColor="@color/white"
+               app:titleMarginStart="150dp"
+               app:titleMarginEnd="100dp"
+        />
         <Space
             android:layout_width="match_parent"
-            android:layout_height="5dp" />
+            android:layout_height="15dp" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margin_left_34dp"
-            android:layout_marginRight="@dimen/margin_right_34dp"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="@string/register"
-            android:textColor="@color/white"
-            android:textSize="25sp"
-            android:textStyle="normal" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="28dp" />
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_left_34dp"
@@ -62,10 +57,7 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:text="First Name"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="normal" />
+            />
 
         <Space
             android:layout_width="match_parent"
