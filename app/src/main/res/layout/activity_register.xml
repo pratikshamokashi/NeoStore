@@ -46,7 +46,7 @@
 
         <EditText
             android:id="@+id/et_firstName"
-            style="@style/style_one"
+            style="@style/style_EditText"
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/username_icon"
             android:text="First Name"
@@ -60,7 +60,7 @@
 
         <EditText
             android:id="@+id/et_lastName"
-            style="@style/style_one"
+            style="@style/style_EditText"
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/username_icon"
             android:text="Last Name"
@@ -74,7 +74,7 @@
 
         <EditText
             android:id="@+id/et_email"
-            style="@style/style_one"
+            style="@style/style_EditText"
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/email_icon"
             android:drawablePadding="20dp"
@@ -89,7 +89,7 @@
 
         <EditText
             android:id="@+id/et_password"
-            style="@style/style_one"
+            style="@style/style_EditText"
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/cpassword_icon"
             android:text="Password"
@@ -103,7 +103,7 @@
 
         <EditText
             android:id="@+id/et_confirm_password"
-            style="@style/style_one"
+            style="@style/style_EditText"
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/password_icon"
             android:text="@string/confirm_password"
@@ -163,7 +163,7 @@
 
         <EditText
             android:id="@+id/et_phn_no"
-            style="@style/style_one"
+            style="@style/style_EditText"
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/cellphone"
             android:text="Phone Number"

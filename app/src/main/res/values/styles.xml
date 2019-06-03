@@ -7,7 +7,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/white</item>
     </style>
-        <style name="style_one">
+        <style name="style_EditText">
             <item name="android:layout_width">match_parent</item>
             <item name="android:layout_height">wrap_content</item>
             <item name="android:layout_marginLeft">34dp</item>

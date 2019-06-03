@@ -38,7 +38,7 @@
 
         <EditText
             android:id="@+id/et_username"
-            style="@style/style_one"
+            style="@style/style_EditText"
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/username_icon"
             android:text="@string/username"
@@ -53,7 +53,7 @@
 
         <EditText
             android:id="@+id/et_password"
-            style="@style/style_one"
+            style="@style/style_EditText"
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/password_icon"
             android:text="@string/password"
