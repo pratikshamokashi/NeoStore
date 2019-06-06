@@ -5,24 +5,23 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import kotlinx.android.synthetic.main.activity_login.*
 
-class LoginActivity : AppCompatActivity() {
+ class LoginActivity : BaseActivity() {
+    override var value= R.layout.activity_login
+       override fun getvalue() {
+           btn_login.setOnClickListener {
+               val intent = Intent(this, HomeActivity::class.java)
+               startActivity(intent)
+           }
+           img_account.setOnClickListener {
+             val intent = Intent(this, RegisterActivity::class.java)
+             startActivity(intent)
+         }
+         txt_forgot_password.setOnClickListener {
+         val intent = Intent(this,ForgotPasswordActivity::class.java)
+             startActivity(intent)
+         }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
-
-        val img_account = findViewById(R.id.img_account) as ImageView
-        img_account.setOnClickListener {
-
-            val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
-        }
-        val txt_forgot_password = findViewById(R.id.txt_forgot_password) as TextView
-        txt_forgot_password.setOnClickListener {
-
-            val intent1 = Intent(this, ForgotPasswordActivity::class.java)
-            startActivity(intent1)
-        }
-    }
+     }
 }

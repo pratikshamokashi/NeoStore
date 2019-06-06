@@ -43,8 +43,6 @@
             android:drawableLeft="@drawable/username_icon"
             android:text="@string/username"
             android:textSize="30sp"
-
-
         />
 
         <Space

@@ -192,7 +192,7 @@
             android:layout_height="15dp" />
 
         <Button
-            android:id="@+id/btn_login"
+            android:id="@+id/btn_register"
             style="@style/style_button"
             android:background="@drawable/rounded_btn"
             android:text="@string/register"

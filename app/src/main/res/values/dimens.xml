@@ -6,5 +6,9 @@
     <dimen name="margin_left_34dp">34dp</dimen>
     <dimen name="margin_right_34dp">34dp</dimen>
     <dimen name="margin_bottom_10dp">10dp</dimen>
+    <dimen name="margin_50">50dp</dimen>
+    <dimen name="margin_90">90dp</dimen>
+    <dimen name="margin_320">320dp</dimen>
+    <dimen name="margin_15">10dp</dimen>
 
 </resources>
