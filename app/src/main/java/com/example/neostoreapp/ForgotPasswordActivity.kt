@@ -8,8 +8,7 @@ import kotlinx.android.synthetic.main.activity_register.*
 
 class ForgotPasswordActivity :BaseActivity(){
     override var value= R.layout.activity_forgot_password
-
-    override  fun getvalue()
+    override  fun init()
     {
        btn_resend.setOnClickListener {
             val intent = Intent(this,RegisterActivity::class.java)

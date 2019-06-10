@@ -24,82 +24,60 @@
                app:titleMarginStart="150dp"
                app:titleMarginEnd="100dp"
         />
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="15dp" />
-
         <TextView
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margin_left_34dp"
-            android:layout_marginRight="@dimen/margin_right_34dp"
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:layout_marginRight="@dimen/margin_right_medium"
+            android:layout_marginTop="18dp"
             android:gravity="center"
             android:text="@string/neostore"
             android:textColor="@color/white"
             android:textSize="45sp"
             android:textStyle="bold" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp" />
-
         <EditText
             android:id="@+id/et_firstName"
             style="@style/style_EditText"
+            android:layout_marginTop="20dp"
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/username_icon"
             android:text="First Name"
-            android:textSize="20sp"
 
             />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="10dp" />
 
         <EditText
             android:id="@+id/et_lastName"
             style="@style/style_EditText"
+            android:layout_marginTop="10dp"
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/username_icon"
             android:text="Last Name"
             android:textAllCaps="false"
-            android:textSize="20sp"
              />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="13dp" />
-
-        <EditText
+         <EditText
             android:id="@+id/et_email"
             style="@style/style_EditText"
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/email_icon"
             android:drawablePadding="20dp"
             android:text="@string/email"
-            android:textSize="20sp"
+            android:layout_marginTop="13dp"
 
-        />
+         />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="13dp" />
-
-        <EditText
+          <EditText
             android:id="@+id/et_password"
             style="@style/style_EditText"
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/cpassword_icon"
             android:text="Password"
-            android:textSize="20sp"
+            android:layout_marginTop="13dp"
 
-        />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="13dp" />
+          />
 
         <EditText
             android:id="@+id/et_confirm_password"
@@ -107,27 +85,24 @@
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/password_icon"
             android:text="@string/confirm_password"
-            android:textSize="20sp"
+            android:layout_marginTop="13dp"
+
 
         />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+             android:layout_marginTop="20dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin_left_34dp"
+                android:layout_marginLeft="@dimen/margin_medium"
                 android:gravity="left"
                 android:text="Gender"
                 android:textColor="@color/white"
-                android:textSize="20sp"
                 android:textStyle="normal" />
 
             <RadioGroup
@@ -157,9 +132,6 @@
             </RadioGroup>
         </LinearLayout>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="10dp" />
 
         <EditText
             android:id="@+id/et_phn_no"
@@ -167,19 +139,15 @@
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/cellphone"
             android:text="Phone Number"
-            android:textSize="20sp"
-
-        />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="15dp" />
+            android:layout_marginTop="10dp"
+           />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
+            android:layout_marginTop="15dp"
             android:gravity="center"
             android:drawableLeft="@drawable/checked_icon"
             android:text="@string/underline_key"
@@ -187,18 +155,14 @@
             android:textSize="15sp"
             android:textStyle="bold" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="15dp" />
-
-        <Button
+         <Button
             android:id="@+id/btn_register"
             style="@style/style_button"
             android:background="@drawable/rounded_btn"
             android:text="@string/register"
             android:textColor="@color/red"
+            android:layout_marginTop="15dp"
             />
-
 
     </LinearLayout>
 

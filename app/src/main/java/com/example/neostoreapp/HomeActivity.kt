@@ -3,10 +3,10 @@ package com.example.neostoreapp
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 
-class HomeActivity : AppCompatActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+class HomeActivity : BaseActivity() {
+    override var value = R.layout.activity_home
+    override fun init() {
+       // setToolbar("home")
     }
+
 }

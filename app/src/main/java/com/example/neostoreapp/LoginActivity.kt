@@ -9,12 +9,12 @@ import kotlinx.android.synthetic.main.activity_login.*
 
  class LoginActivity : BaseActivity() {
     override var value= R.layout.activity_login
-       override fun getvalue() {
+       override fun init() {
            btn_login.setOnClickListener {
                val intent = Intent(this, HomeActivity::class.java)
                startActivity(intent)
            }
-           img_account.setOnClickListener {
+           btn_plus.setOnClickListener {
              val intent = Intent(this, RegisterActivity::class.java)
              startActivity(intent)
          }

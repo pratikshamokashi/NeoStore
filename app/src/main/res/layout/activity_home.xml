@@ -13,10 +13,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/red"
-            android:id="@+id/toolbar"
+            android:id="@+id/id_toolbar"
             app:title="NeoSTORE"
-            app:titleMarginStart="@dimen/margin_90"
-            app:titleMarginEnd="@dimen/margin_50"
+            app:titleMarginStart="@dimen/margin_large"
+            app:titleMarginEnd="50dp"
             app:titleTextColor="@color/white"
             android:textAlignment="gravity"
             app:navigationIcon="@drawable/menu_icon">
@@ -28,8 +28,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/search_icon"
-        android:layout_marginLeft="@dimen/margin_320"
-        android:layout_marginRight="@dimen/margin_15"
-        android:layout_marginTop="@dimen/margin_15"/>
+        android:layout_marginLeft="@dimen/margin_extra_large"
+        android:layout_marginRight="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_small"/>
 
 </RelativeLayout>

@@ -17,4 +17,9 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="email">Email</string>
 
+    <string name="app_name1">Kotlin - Navigation Drawer Example</string>
+
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+
 </resources>
