@@ -1,13 +1,8 @@
-package com.example.neostoreapp.activity
+package com.example.neostoreapp.features.login
 
-import android.util.Log
-import android.widget.Toast
-import com.example.neostoreapp.Presenter.LoginPresenter
 import com.example.neostoreapp.R.layout.activity_login
-import com.example.neostoreapp.View.LoginView
-import com.example.neostoreapp.models.LoginResponse
 import kotlinx.android.synthetic.main.activity_login.*
-import com.example.neostoreapp.activity.BaseActivity as BaseActivity
+import com.example.neostoreapp.features.base.BaseActivity as BaseActivity
 
 class LoginActivity(): BaseActivity(), LoginView {
   override var value= activity_login

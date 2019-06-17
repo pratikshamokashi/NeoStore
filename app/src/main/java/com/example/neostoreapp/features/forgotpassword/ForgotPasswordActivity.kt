@@ -1,7 +1,9 @@
-package com.example.neostoreapp.activity
+package com.example.neostoreapp.features.forgotpassword
 
 import android.content.Intent
 import com.example.neostoreapp.R
+import com.example.neostoreapp.features.base.BaseActivity
+import com.example.neostoreapp.features.registration.RegisterActivity
 import kotlinx.android.synthetic.main.activity_forgot_password.*
 
 class ForgotPasswordActivity : BaseActivity(){

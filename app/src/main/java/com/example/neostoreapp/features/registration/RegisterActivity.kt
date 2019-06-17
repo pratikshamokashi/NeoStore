@@ -1,7 +1,9 @@
-package com.example.neostoreapp.activity
+package com.example.neostoreapp.features.registration
 
 import android.content.Intent
 import com.example.neostoreapp.R
+import com.example.neostoreapp.features.home.HomeActivity
+import com.example.neostoreapp.features.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : BaseActivity() {

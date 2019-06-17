@@ -1,15 +1,13 @@
-package com.example.neostoreapp.Presenter
-
+package com.example.neostoreapp.features.login
 
     import android.text.TextUtils
-    import com.example.neostoreapp.View.LoginView
-    import com.example.neostoreapp.models.LoginResponse
+    import android.util.Log
     import com.example.neostoreapp.services.ApiClient
     import retrofit2.Call
     import retrofit2.Callback
     import retrofit2.Response
 
-    class LoginPresenter():LoginInterface {
+    class LoginPresenter(): LoginInterface {
 
         lateinit var mView: LoginView
 
@@ -27,21 +25,23 @@ package com.example.neostoreapp.Presenter
                     override fun onResponse(call: Call<LoginResponse>?, response: Response<LoginResponse>?) {
                         if(response != null)
                         {
+                            Log.d("tag","resblock1")
+
                             val res =response.body()
 
-                            if (res != null)
-                            {
+                            if (res != null) {
+                                Log.d("tag", "resblock2")
                                 mView.loginSucess()
                                 mView.response(res)
+                            } else {
+                                mView.loginFailure()
                             }
                         }
-                        else{
-                            mView.loginFailure()
-                        }
-
                     }
 
                     override fun onFailure(call: Call<LoginResponse>?, t: Throwable?) {
+                        Log.d("tag","resblock3")
+
                         mView.loginFailure()
                     }
 

@@ -1,6 +1,4 @@
-package com.example.neostoreapp.View
-
-import com.example.neostoreapp.models.LoginResponse
+package com.example.neostoreapp.features.login
 
 interface LoginView {
     fun loginValidation()

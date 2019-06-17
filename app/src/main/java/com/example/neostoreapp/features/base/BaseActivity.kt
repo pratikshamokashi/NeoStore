@@ -1,4 +1,4 @@
-package com.example.neostoreapp.activity
+package com.example.neostoreapp.features.base
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -12,11 +12,6 @@ abstract class BaseActivity : AppCompatActivity() {
        setContentView(value)
        init()
     }
-    /*fun setToolbar(title:String)
-    {
-        setSupportActionBar(id_toolbar)
-        setToolbar(title)
-    }*/
     abstract fun init()
     fun showToast(message:String){
         Toast.makeText(applicationContext,message, Toast.LENGTH_SHORT).show()

@@ -1,23 +1,19 @@
 package com.example.neostoreapp.services
 
-
+import com.example.neostoreapp.utilities.Utils.Companion.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-
 class ApiClient {
-
     private var retrofit: Retrofit? = null
-
     init {
         retrofit = retrofitInstance
     }
     companion object {
-
-        private const val URL = "http://staging.php-dev.in:8844/trainingapp/api/"
+        //private const val URL = "http://staging.php-dev.in:8844/trainingapp/api/"
         private var apiService : ApiClient? = null
 
         val instance : ApiClient
@@ -27,13 +23,12 @@ class ApiClient {
                 }
                 return apiService as ApiClient
             }
-
     }
 
     private val retrofitInstance : Retrofit
         get() {
             retrofit = Retrofit.Builder()
-                .baseUrl(URL)
+                .baseUrl(BASE_URL)
                 .client(clientInstance)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
@@ -43,10 +38,8 @@ class ApiClient {
 
     private val clientInstance: OkHttpClient
         get() {
-
             val logging = HttpLoggingInterceptor()
             logging.level = HttpLoggingInterceptor.Level.BODY
-
             val httpClient = OkHttpClient.Builder()
             httpClient.addInterceptor(logging)
             httpClient.connectTimeout(3, TimeUnit.MINUTES)
