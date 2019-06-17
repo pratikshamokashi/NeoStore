@@ -1,17 +1,15 @@
-package com.example.neostoreapp
+package com.example.neostoreapp.activity
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
+import com.example.neostoreapp.R
 import kotlinx.android.synthetic.main.activity_forgot_password.*
-import kotlinx.android.synthetic.main.activity_register.*
 
-class ForgotPasswordActivity :BaseActivity(){
+class ForgotPasswordActivity : BaseActivity(){
     override var value= R.layout.activity_forgot_password
     override  fun init()
     {
        btn_resend.setOnClickListener {
-            val intent = Intent(this,RegisterActivity::class.java)
+            val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }    }
 }

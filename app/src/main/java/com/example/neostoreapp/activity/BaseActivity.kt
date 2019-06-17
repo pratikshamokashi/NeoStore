@@ -1,7 +1,8 @@
-package com.example.neostoreapp
+package com.example.neostoreapp.activity
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_home.*
 
 abstract class BaseActivity : AppCompatActivity() {
@@ -17,4 +18,7 @@ abstract class BaseActivity : AppCompatActivity() {
         setToolbar(title)
     }*/
     abstract fun init()
+    fun showToast(message:String){
+        Toast.makeText(applicationContext,message, Toast.LENGTH_SHORT).show()
+    }
 }

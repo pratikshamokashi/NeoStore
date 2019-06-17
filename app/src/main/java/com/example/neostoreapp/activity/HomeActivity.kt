@@ -1,7 +1,6 @@
-package com.example.neostoreapp
+package com.example.neostoreapp.activity
 
-import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
+import com.example.neostoreapp.R
 
 class HomeActivity : BaseActivity() {
     override var value = R.layout.activity_home

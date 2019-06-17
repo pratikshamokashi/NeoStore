@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity">
+    tools:context=".activity.RegisterActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,6 +41,8 @@
             android:id="@+id/et_firstName"
             style="@style/style_EditText"
             android:layout_marginTop="20dp"
+            android:hint="firstname"
+
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/username_icon"
             android:text="First Name"
@@ -53,27 +55,27 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/username_icon"
-            android:text="Last Name"
+            android:hint="lastname"
             android:textAllCaps="false"
              />
 
          <EditText
-            android:id="@+id/et_email"
+            android:id="@+id/et_registerEmail"
             style="@style/style_EditText"
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/email_icon"
             android:drawablePadding="20dp"
-            android:text="@string/email"
+            android:hint="email"
             android:layout_marginTop="13dp"
 
          />
 
           <EditText
-            android:id="@+id/et_password"
+            android:id="@+id/et_registerPassword"
             style="@style/style_EditText"
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/cpassword_icon"
-            android:text="Password"
+            android:hint="Password"
             android:layout_marginTop="13dp"
 
 
@@ -84,7 +86,7 @@
             style="@style/style_EditText"
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/password_icon"
-            android:text="@string/confirm_password"
+            android:hint="@string/confirm_password"
             android:layout_marginTop="13dp"
 
 
@@ -101,7 +103,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_medium"
                 android:gravity="left"
-                android:text="Gender"
+                android:hint="Gender"
                 android:textColor="@color/white"
                 android:textStyle="normal" />
 
@@ -116,7 +118,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="35dp"
                     android:layout_marginRight="55dp"
-                    android:text="Male"
+                    android:hint="Male"
                     android:textColor="@color/white"
                     android:textSize="15sp"
                     android:textStyle="normal" />
@@ -125,7 +127,7 @@
                     android:id="@+id/rb_female"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Female"
+                    android:hint="Female"
                     android:textColor="@color/white"
                     android:textSize="15dp"
                     android:textStyle="normal" />
@@ -138,7 +140,7 @@
             style="@style/style_EditText"
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/cellphone"
-            android:text="Phone Number"
+            android:hint="Phone Number"
             android:layout_marginTop="10dp"
            />
 

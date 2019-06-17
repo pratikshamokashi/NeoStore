@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
           package="com.example.neostoreapp">
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
             android:allowBackup="true"
@@ -11,12 +12,12 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".HomeActivity">
+        <activity android:name=".activity.HomeActivity">
         </activity>
 
-        <activity android:name=".RegisterActivity"/>
-        <activity android:name=".ForgotPasswordActivity"/>
-        <activity android:name=".LoginActivity">
+        <activity android:name=".activity.RegisterActivity"/>
+        <activity android:name=".activity.ForgotPasswordActivity"/>
+        <activity android:name=".activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
