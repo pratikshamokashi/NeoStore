@@ -1,39 +1,41 @@
-package com.example.neostoreapp.features.login
+package com.example.neostoreapp.ui.login
 
 import com.example.neostoreapp.R.layout.activity_login
+import com.example.neostoreapp.ui.base.BasePresenter
+import com.example.neostoreapp.ui.login.LoginContract.Presenter
 import kotlinx.android.synthetic.main.activity_login.*
-import com.example.neostoreapp.features.base.BaseActivity as BaseActivity
+import com.example.neostoreapp.ui.base.BaseActivity as BaseActivity
 
-class LoginActivity(): BaseActivity(), LoginView {
-  override var value= activity_login
+class LoginActivity(): BaseActivity(), LoginContract.LoginView {
+
+    override var layout= activity_login
     override fun init() {
         btn_login.setOnClickListener() {
             getApi()
         }
     }
-    lateinit var loginpresenter: LoginPresenter
+    override var getPresenter: BasePresenter
+        get() = presenter
+        set(value) {}
+    var presenter=LoginPresenter(this)
+   // lateinit var loginpresenter: LoginPresenter
     fun getApi() {
+        lateinit var loginpresenter: LoginPresenter
+
         val email = et_email.text.toString()
         val password = et_password.text.toString()
         loginpresenter = LoginPresenter(this)
         loginpresenter.login(email, password)
     }
 
-    override fun response(res: LoginResponse) {
+    override fun loginSucess(res: LoginResponse) {
         showToast(res.message)
-        //Toast.makeText(this,res.message,Toast.LENGTH_SHORT).show()
-
     }
     override fun loginValidation() {
         showToast("Enter email and Password")
     }
 
-    override fun loginSucess() {
-        showToast("Login Sucessfully..")
-    }
-
     override fun loginFailure() {
         showToast("Login failed")
     }
-
 }

@@ -1,4 +1,4 @@
-package com.example.neostoreapp.features.login
+package com.example.neostoreapp.ui.login
 
 data class LoginResponse(
 

@@ -12,12 +12,12 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".features.home.HomeActivity">
+        <activity android:name=".ui.home.HomeActivity">
         </activity>
 
-        <activity android:name=".features.registration.RegisterActivity"/>
-        <activity android:name=".features.forgotpassword.ForgotPasswordActivity"/>
-        <activity android:name=".features.login.LoginActivity">
+        <activity android:name=".ui.registration.RegisterActivity"/>
+        <activity android:name=".ui.forgotpassword.ForgotPasswordActivity"/>
+        <activity android:name=".ui.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

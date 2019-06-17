@@ -1,13 +1,17 @@
-package com.example.neostoreapp.features.registration
+package com.example.neostoreapp.ui.registration
 
 import android.content.Intent
 import com.example.neostoreapp.R
-import com.example.neostoreapp.features.home.HomeActivity
-import com.example.neostoreapp.features.base.BaseActivity
+import com.example.neostoreapp.ui.home.HomeActivity
+import com.example.neostoreapp.ui.base.BaseActivity
+import com.example.neostoreapp.ui.base.BasePresenter
 import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : BaseActivity() {
-    override var value = R.layout.activity_register
+    override var getPresenter: BasePresenter
+        get() = getPresenter
+        set(value) {}
+    override var layout = R.layout.activity_register
     override fun init() {
         btn_register.setOnClickListener {
             // getApiCall()

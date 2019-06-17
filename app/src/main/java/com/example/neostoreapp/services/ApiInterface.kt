@@ -1,6 +1,6 @@
 package com.example.neostoreapp.services
 
-import com.example.neostoreapp.features.login.LoginResponse
+import com.example.neostoreapp.ui.login.LoginResponse
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
