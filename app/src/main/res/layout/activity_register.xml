@@ -42,10 +42,8 @@
             style="@style/style_EditText"
             android:layout_marginTop="20dp"
             android:hint="firstname"
-
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/username_icon"
-            android:text="First Name"
 
             />
 

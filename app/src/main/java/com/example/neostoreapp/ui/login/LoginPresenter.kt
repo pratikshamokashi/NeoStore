@@ -1,47 +1,55 @@
 package com.example.neostoreapp.ui.login
 
     import android.text.TextUtils
-    import com.example.neostoreapp.services.ApiClient
-    import retrofit2.Call
-    import retrofit2.Callback
-    import retrofit2.Response
+    import com.example.neostoreapp.net.APICallback
+    import com.example.neostoreapp.net.APIManager
 
-    class LoginPresenter(): LoginContract.Presenter {
+
+    class LoginPresenter(loginView: LoginContract.LoginView) : LoginContract.Presenter {
+        var mView: LoginContract.LoginView? = null
+
+        override fun loginValidation(email: String, password: String): Boolean {
+            when {
+                TextUtils.isEmpty(email) -> {
+
+                    //mView?.showEmailError()
+                    return false
+                }
+                TextUtils.isEmpty(password) -> {
+                    mView?.showPasswordError()
+                    return false
+                }
+                else -> return true
+            }
+        }
+
+
+        init {
+            this.mView = loginView
+        }
+
+        var isRooted: Boolean = true
         override fun start() {
-
+            if (isRooted) mView?.showError()
         }
 
         override fun stop() {
-
+            mView = null
         }
 
-        lateinit var mView: LoginContract.LoginView
-        constructor(loginView: LoginContract.LoginView) : this() {
-            this.mView=loginView
-        }
         override fun login(email: String, password: String) {
-            if(TextUtils.isEmpty(email) || TextUtils.isEmpty(password))
-            {
-                  mView.loginValidation()
-            }else {
-                val apiClient= ApiClient.instance.apiServices.login(email, password)
-                apiClient.enqueue(object : Callback<LoginResponse> {
-                    override fun onFailure(call: Call<LoginResponse>?, t: Throwable?) {
-                        mView.loginFailure()
-                    }
-                    override fun onResponse(call: Call<LoginResponse>?, response: Response<LoginResponse>?) {
-                        if(response != null)
-                        {
-                            val res =response.body()
-                            if (res != null) {
-                              //  mView.loginSucess()
-                                mView.loginSucess(res)
-                            } else {
-                                mView.loginFailure()
-                            }
-                        }
-                    }
+            if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
+                // mView?.loginValidation()
+            } else {
+                APIManager().login(email, password, object : APICallback<LoginResponse>() {
+                    override fun onResponse(code:Int?,response: LoginResponse?) {
 
+                        when(code){
+                            200 -> {}
+                            400 -> {}
+                        }
+
+                    }
                 })
             }
         }

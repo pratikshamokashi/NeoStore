@@ -13,7 +13,6 @@ class ApiClient {
         retrofit = retrofitInstance
     }
     companion object {
-        //private const val URL = "http://staging.php-dev.in:8844/trainingapp/api/"
         private var apiService : ApiClient? = null
 
         val instance : ApiClient

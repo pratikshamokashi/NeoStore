@@ -5,20 +5,47 @@ import com.example.neostoreapp.R
 import com.example.neostoreapp.ui.home.HomeActivity
 import com.example.neostoreapp.ui.base.BaseActivity
 import com.example.neostoreapp.ui.base.BasePresenter
+import com.example.neostoreapp.ui.login.LoginPresenter
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_register.*
 
-class RegisterActivity : BaseActivity() {
-    override var getPresenter: BasePresenter
-        get() = getPresenter
-        set(value) {}
-    override var layout = R.layout.activity_register
+class RegisterActivity : BaseActivity(),RegisterContract.RegisterView {
+    override var layout= R.layout.activity_register
     override fun init() {
         btn_register.setOnClickListener {
-            // getApiCall()
+            lateinit var registerpresenter: RegisterPresenter
+            val firstName =et_firstName.text.toString()
+            val lastName =et_lastName.text.toString()
+            val email = et_email.text.toString()
+            val password = et_password.text.toString()
+            val confirmPassword= et_confirm_password.text.toString()
+            val gender=rb_male.text.toString()
+            val phoneNumber=et_phn_no.text.toString()
+
+            registerpresenter = RegisterPresenter(this)
+            registerpresenter.register(firstName,lastName,email, password,confirmPassword,gender,phoneNumber)
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }
     }
+    override var getPresenter: BasePresenter
+        get() = presenter
+        set(value) {}
+    var presenter= RegisterPresenter(this)
+
+    override fun registerValidation() {
+
+    }
+
+    override fun registerFailure() {
+        showToast("Failed to register")
+    }
+
+    override fun registerSucess(res: RegisterResponse) {
+        showToast(res.message)
+
+    }
+
 }
 
 /*    fun getApiCall() {

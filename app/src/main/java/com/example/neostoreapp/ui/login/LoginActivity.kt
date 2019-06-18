@@ -1,9 +1,14 @@
 package com.example.neostoreapp.ui.login
 
+import android.content.Intent
 import com.example.neostoreapp.R.layout.activity_login
 import com.example.neostoreapp.ui.base.BasePresenter
+import com.example.neostoreapp.ui.forgotpassword.ForgotPasswordActivity
 import com.example.neostoreapp.ui.login.LoginContract.Presenter
+import com.example.neostoreapp.ui.registration.RegisterActivity
+import kotlinx.android.synthetic.main.activity_forgot_password.*
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_login.et_email
 import com.example.neostoreapp.ui.base.BaseActivity as BaseActivity
 
 class LoginActivity(): BaseActivity(), LoginContract.LoginView {
@@ -11,31 +16,48 @@ class LoginActivity(): BaseActivity(), LoginContract.LoginView {
     override var layout= activity_login
     override fun init() {
         btn_login.setOnClickListener() {
-            getApi()
+            lateinit var loginpresenter: LoginPresenter
+            val email = et_email.text.toString()
+            val password = et_password.text.toString()
+            loginpresenter = LoginPresenter(this)
+            loginpresenter.login(email, password)
         }
+        btn_plus.setOnClickListener()
+        {
+                val intent = Intent(this, RegisterActivity::class.java)
+                startActivity(intent)
+        }
+      /*  btn_resend.setOnClickListener()
+        {
+            val intent = Intent(this, ForgotPasswordActivity::class.java)
+            startActivity(intent)
+        }*/
     }
-    override var getPresenter: BasePresenter
-        get() = presenter
-        set(value) {}
+
     var presenter=LoginPresenter(this)
-   // lateinit var loginpresenter: LoginPresenter
-    fun getApi() {
-        lateinit var loginpresenter: LoginPresenter
 
-        val email = et_email.text.toString()
-        val password = et_password.text.toString()
-        loginpresenter = LoginPresenter(this)
-        loginpresenter.login(email, password)
-    }
+    override val getPresenter: BasePresenter
+        get() = presenter
 
-    override fun loginSucess(res: LoginResponse) {
+       override fun loginSucess(res: LoginResponse) {
         showToast(res.message)
+           val intent = Intent(this, RegisterActivity::class.java)
+           startActivity(intent)
     }
     override fun loginValidation() {
-        showToast("Enter email and Password")
+        showToast("Enter valid email and Password")
     }
-
     override fun loginFailure() {
         showToast("Login failed")
     }
+    override fun emailError() {
+        et_email.error="Email is required"
+        et_email.requestFocus()
+    }
+
+    override fun showPasswordError() {
+        et_password.error = "Password is required"
+        et_password.requestFocus()
+    }
+
 }

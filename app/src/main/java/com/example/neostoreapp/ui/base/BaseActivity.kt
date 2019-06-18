@@ -6,16 +6,12 @@ import android.widget.Toast
 
 abstract class BaseActivity : AppCompatActivity(),BaseView {
     abstract var layout:Int
-    abstract var getPresenter:BasePresenter
+    abstract val getPresenter:BasePresenter
     abstract fun init()
     override fun onCreate(savedInstanceState: Bundle?) {
        super.onCreate(savedInstanceState)
        setContentView(layout)
        init()
-    }
-
-    fun showToast(message:String){
-        Toast.makeText(applicationContext,message, Toast.LENGTH_SHORT).show()
     }
     override fun onStart() {
         super.onStart()
@@ -26,10 +22,12 @@ abstract class BaseActivity : AppCompatActivity(),BaseView {
         super.onStop()
         getPresenter.stop()
     }
-
-    override fun showError()
+    fun showToast(message:String){
+        Toast.makeText(applicationContext,message, Toast.LENGTH_SHORT).show()
+    }
+      override fun showError()
     {
-
+        Toast.makeText(this,"This is warning for user",Toast.LENGTH_SHORT).show()
     }
     override fun showLoading()
     {
@@ -43,6 +41,4 @@ abstract class BaseActivity : AppCompatActivity(),BaseView {
     {
 
     }
-
-
 }

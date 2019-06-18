@@ -14,8 +14,8 @@ class ForgotPasswordActivity : BaseActivity(){
     override var layout= R.layout.activity_forgot_password
     override  fun init()
     {
-       btn_resend.setOnClickListener {
+      /* btn_resend.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
-        }    }
+        } */   }
 }
