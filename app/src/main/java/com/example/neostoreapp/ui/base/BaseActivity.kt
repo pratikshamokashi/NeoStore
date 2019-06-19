@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 
 abstract class BaseActivity : AppCompatActivity(),BaseView {
-    abstract var layout:Int
+    abstract val layout:Int
     abstract val getPresenter:BasePresenter
     abstract fun init()
     override fun onCreate(savedInstanceState: Bundle?) {

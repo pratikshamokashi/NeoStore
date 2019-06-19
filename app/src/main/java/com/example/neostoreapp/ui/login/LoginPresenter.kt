@@ -12,7 +12,7 @@ package com.example.neostoreapp.ui.login
             when {
                 TextUtils.isEmpty(email) -> {
 
-                    //mView?.showEmailError()
+                    mView?.showemailError()
                     return false
                 }
                 TextUtils.isEmpty(password) -> {
@@ -22,8 +22,6 @@ package com.example.neostoreapp.ui.login
                 else -> return true
             }
         }
-
-
         init {
             this.mView = loginView
         }
@@ -38,19 +36,15 @@ package com.example.neostoreapp.ui.login
         }
 
         override fun login(email: String, password: String) {
-            if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
-                // mView?.loginValidation()
-            } else {
                 APIManager().login(email, password, object : APICallback<LoginResponse>() {
                     override fun onResponse(code:Int?,response: LoginResponse?) {
 
                         when(code){
-                            200 -> {}
-                            400 -> {}
+                            200 -> {mView?.loginSucess(response)}
+                            401 -> {mView?.loginFailure()}
                         }
 
                     }
                 })
             }
         }
-    }
