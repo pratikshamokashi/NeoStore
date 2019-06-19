@@ -14,13 +14,13 @@ interface ApiInterface {
               @Field("password")password:String): Call<LoginResponse>
     @FormUrlEncoded
     @POST("users/register")
-    fun register(@Field("firstName")firstName:String,
-                 @Field("lastName")lastName:String,
+    fun register(@Field("first_name")first_name:String,
+                 @Field("last_name")last_name:String,
                  @Field("email")email:String,
                  @Field("password")password:String,
-                 @Field("confirmPassword")confirmPassword:String,
+                 @Field("confirm_password")confirm_password:String,
                  @Field("gender")gender:String,
-                 @Field("phoneNumber")phoneNumber:String):Call<RegisterResponse>
+                 @Field("phone_no")phone_no:String):Call<RegisterResponse>
 
 }
 

@@ -59,6 +59,7 @@
                 style="@style/style_button"
                 android:background="@drawable/rounded_btn"
                 android:text="@string/login"
+                android:textAlignment="center"
                 android:textColor="@color/red"
                 android:layout_marginTop="38dp"
 

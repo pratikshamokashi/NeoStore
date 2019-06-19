@@ -7,7 +7,7 @@ data class LoginResponse(
     var user_msg:String="",
     var data: Data
 )
-class Data() {
+class Data{
     var id: Int = 0
     var role_id: Int = 0
     var first_name: String = ""

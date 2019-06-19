@@ -1,6 +1,7 @@
 package com.example.neostoreapp.ui.login
 
 import android.content.Intent
+import android.util.Log
 import com.example.neostoreapp.R.layout.activity_login
 import com.example.neostoreapp.ui.base.BasePresenter
 import com.example.neostoreapp.ui.registration.RegisterActivity
@@ -41,18 +42,21 @@ class LoginActivity: BaseActivity(), LoginContract.LoginView {
     }
 
     override fun loginSucess(res: LoginResponse?) {
+
            showToast(res?.message!!)
+
            val intent = Intent(this, RegisterActivity::class.java)
            startActivity(intent)
-    }
+            }
     override fun loginFailure() {
         showToast("User Login Unsucessfull..!")
     }
-    override fun showemailError() {
+
+    override fun showEmailError() {
         et_email.error="Email is required"
         et_email.requestFocus()
     }
-    override fun showPasswordError() {
+   override fun showPasswordError() {
         et_password.error = "Password is required"
         et_password.requestFocus()
     }

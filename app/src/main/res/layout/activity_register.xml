@@ -20,6 +20,7 @@
                 android:background="@color/red"
                 android:id="@+id/toolbar"
                app:title="@string/register"
+               android:textAlignment="center"
                app:titleTextColor="@color/white"
                app:titleMarginStart="150dp"
                app:titleMarginEnd="100dp"
@@ -28,10 +29,10 @@
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margin_medium"
+            android:layout_marginLeft="45dp"
             android:layout_marginRight="@dimen/margin_right_medium"
             android:layout_marginTop="18dp"
-            android:gravity="center"
+            android:textAlignment="center"
             android:text="@string/neostore"
             android:textColor="@color/white"
             android:textSize="45sp"
@@ -41,7 +42,7 @@
             android:id="@+id/et_firstName"
             style="@style/style_EditText"
             android:layout_marginTop="20dp"
-            android:hint="firstname"
+            android:hint="First Name"
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/username_icon"
 
@@ -53,7 +54,7 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/username_icon"
-            android:hint="lastname"
+            android:hint="Last Name"
             android:textAllCaps="false"
              />
 
@@ -63,7 +64,7 @@
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/email_icon"
             android:drawablePadding="20dp"
-            android:hint="email"
+            android:hint="Email"
             android:layout_marginTop="13dp"
 
          />
@@ -74,6 +75,7 @@
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/cpassword_icon"
             android:hint="Password"
+            android:password="true"
             android:layout_marginTop="13dp"
 
 
@@ -85,6 +87,7 @@
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/password_icon"
             android:hint="@string/confirm_password"
+            android:password="true"
             android:layout_marginTop="13dp"
 
 
@@ -102,8 +105,10 @@
                 android:layout_marginLeft="@dimen/margin_medium"
                 android:gravity="left"
                 android:hint="Gender"
+                android:textColorHint="@color/white"
                 android:textColor="@color/white"
-                android:textStyle="normal" />
+                android:textStyle="normal"
+            android:textSize="20dp"/>
 
             <RadioGroup
                 android:layout_width="wrap_content"
@@ -117,6 +122,7 @@
                     android:layout_marginLeft="35dp"
                     android:layout_marginRight="55dp"
                     android:hint="Male"
+                    android:textColorHint="@color/white"
                     android:textColor="@color/white"
                     android:textSize="15sp"
                     android:textStyle="normal" />
@@ -126,6 +132,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Female"
+                    android:textColorHint="@color/white"
                     android:textColor="@color/white"
                     android:textSize="15dp"
                     android:textStyle="normal" />

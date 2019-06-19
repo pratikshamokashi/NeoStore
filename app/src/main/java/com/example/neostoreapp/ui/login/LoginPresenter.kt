@@ -12,7 +12,7 @@ package com.example.neostoreapp.ui.login
             when {
                 TextUtils.isEmpty(email) -> {
 
-                    mView?.showemailError()
+                    mView?.showEmailError()
                     return false
                 }
                 TextUtils.isEmpty(password) -> {
@@ -36,11 +36,12 @@ package com.example.neostoreapp.ui.login
         }
 
         override fun login(email: String, password: String) {
+
                 APIManager().login(email, password, object : APICallback<LoginResponse>() {
                     override fun onResponse(code:Int?,response: LoginResponse?) {
 
                         when(code){
-                            200 -> {mView?.loginSucess(response)}
+                            200 -> {mView?.loginSucess(response)/*mView?.loginSucess(response)*/}
                             401 -> {mView?.loginFailure()}
                         }
 

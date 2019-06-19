@@ -1,55 +1,90 @@
 package com.example.neostoreapp.ui.registration
 
 import android.text.TextUtils
-import com.example.neostoreapp.services.ApiClient
-import retrofit2.Call
-import retrofit2.Response
+import android.util.Log
+import com.example.neostoreapp.net.APICallback
+import com.example.neostoreapp.net.APIManager
+import com.example.neostoreapp.ui.registration.RegisterContract.RegisterView as RegisterView1
 import com.example.neostoreapp.ui.registration.RegisterResponse as RegisterResponse
 
-class RegisterPresenter():RegisterContract.Presenter {
-    lateinit var mView: RegisterContract.RegisterView
-    constructor(registerView: RegisterContract.RegisterView): this() {
-        this.mView=registerView
-    }
-    override fun start() {
-    }
+ class RegisterPresenter(registerView: RegisterContract.RegisterView):RegisterContract.Presenter {
+        var mView:RegisterContract.RegisterView?=null
+       override fun registerValidation(
+           first_name: String, last_name: String, email: String,
+           password: String, confirm_password: String, gender: String,
+           phone_no: String
+     ): Boolean {
+           Log.d("Tag","validation method")
+         when {
+             TextUtils.isEmpty(first_name) -> {
+                mView?.showFirstNameError()
+                 return false
+             }
+             TextUtils.isEmpty(last_name) -> {
+                mView?.showLastNameEror()
+                 return false
+             }
+             TextUtils.isEmpty(email) -> {
+                mView?.showEmailError()
+                 return false
+             }
+             TextUtils.isEmpty(password) -> {
+                 mView?.showPasswordError()
+                 return false
 
-    override fun stop() {
+             }
+             TextUtils.isEmpty(confirm_password) -> {
+                 mView?.showConfirmPasswordError()
+                 return false
 
-    }
+             }
+             TextUtils.isEmpty(gender) -> {
+                 mView?.showGenderError()
+                 return false
 
-    override fun register(
-        firstName: String,
-        lastName: String,
-        email: String,
-        password: String,
-        confirmPassword: String,
-        gender: String,
-        phoneNumber: String
-    ) {
-            if(TextUtils.isEmpty(firstName)|| TextUtils.isEmpty(lastName)|| TextUtils.isEmpty(email)||TextUtils.isEmpty(password)
-                || TextUtils.isEmpty(confirmPassword)|| TextUtils.isEmpty(gender)|| TextUtils.isEmpty(phoneNumber))
-            {
-                mView.registerValidation()
-            }else
-            {
-                val apiClient = ApiClient.instance.apiServices.register(firstName,lastName,email,password,confirmPassword,gender,phoneNumber)
-                apiClient.enqueue(object:retrofit2.Callback<RegisterResponse> {
-                        override fun onFailure(call: Call<RegisterResponse>?, t: Throwable?) {
-                    mView.registerFailure()
-                }
-                        override fun onResponse(call: Call<RegisterResponse>?, response: Response<RegisterResponse>?) {
-                            if (response != null) {
-                                val result = response.body()
-                                if (result != null) {
-                                    mView.registerSucess(result)
-                                } else {
-                                    mView.registerFailure()
-                                }
-                            }
-                        }
-                })
-    }
+             }
+             TextUtils.isEmpty(phone_no) -> {
+                 mView?.showPhoneNumberError()
+                 return false
+             }
+             else -> return true
+         }
+     }
+     init {
+         this.mView= registerView
+     }
+     override fun start() {
+     }
 
-}
-}
+     override fun stop() {
+
+     }
+
+
+     override fun register(
+         first_name: String,
+         last_name: String,
+         email: String,
+         password: String,
+         confirm_password: String,
+         gender: String,
+         phone_no: String
+     ) {
+         APIManager().register(
+             first_name,
+             last_name,
+             email,
+             password,
+             confirm_password,
+             gender,
+             phone_no,
+             object : APICallback<RegisterResponse>() {
+                 override fun onResponse(code: Int?, response: RegisterResponse?) {
+                     Log.d("Tag","sucess2:"+response?.message)
+                     when (code) {
+                         200 -> {mView?.registerSucess(response)}
+                         400 -> {mView?.registerFailure()}                    }
+                 }
+             })
+     }
+ }

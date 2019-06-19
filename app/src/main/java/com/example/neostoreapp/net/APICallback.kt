@@ -16,12 +16,11 @@ open class APICallback<T>(): Callback<T> {
             onResponse(200,null)
         }
     }
-
     override fun onResponse(call: Call<T>?, response: Response<T>?) {
         onResponse(response?.code(),response?.body())
     }
 
-    open fun onResponse(statusCode:Int?,response: T?){
+    open fun onResponse(code:Int?,response: T?){
 
     }
 }
