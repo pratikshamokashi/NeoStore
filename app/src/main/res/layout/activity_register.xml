@@ -13,17 +13,18 @@
         android:background="@color/red"
         android:gravity="center_horizontal"
         android:orientation="vertical">
-
         <android.support.v7.widget.Toolbar
                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/red"
                 android:id="@+id/toolbar"
-               app:title="@string/register"
-               android:textAlignment="center"
-               app:titleTextColor="@color/white"
-               app:titleMarginStart="150dp"
-               app:titleMarginEnd="100dp"
+                app:title="@string/register"
+               android:layout_marginLeft="3dp"
+               android:layout_marginRight="10dp"
+                android:textAlignment="center"
+                app:titleTextColor="@color/white"
+                app:titleMarginStart="150dp"
+                app:titleMarginEnd="100dp"
         />
         <TextView
 
@@ -31,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="45dp"
             android:layout_marginRight="@dimen/margin_right_medium"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="15dp"
             android:textAlignment="center"
             android:text="@string/neostore"
             android:textColor="@color/white"
@@ -75,6 +76,7 @@
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/cpassword_icon"
             android:hint="Password"
+            android:inputType="textPassword"
             android:password="true"
             android:layout_marginTop="13dp"
 
@@ -87,6 +89,7 @@
             android:background="@drawable/shape"
             android:drawableLeft="@drawable/password_icon"
             android:hint="@string/confirm_password"
+            android:inputType="textPassword"
             android:password="true"
             android:layout_marginTop="13dp"
 
@@ -122,6 +125,7 @@
                     android:layout_marginLeft="35dp"
                     android:layout_marginRight="55dp"
                     android:hint="Male"
+                    android:buttonTint="@color/white"
                     android:textColorHint="@color/white"
                     android:textColor="@color/white"
                     android:textSize="15sp"
@@ -132,6 +136,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Female"
+                    android:buttonTint="@color/white"
                     android:textColorHint="@color/white"
                     android:textColor="@color/white"
                     android:textSize="15dp"
@@ -147,17 +152,20 @@
             android:drawableLeft="@drawable/cellphone"
             android:hint="Phone Number"
             android:layout_marginTop="10dp"
+
+            android:inputType="number"
            />
 
-        <TextView
+        <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="12dp"
             android:gravity="center"
-            android:drawableLeft="@drawable/checked_icon"
-            android:text="@string/underline_key"
+            android:buttonTint="@color/white"
+            android:textColorHint="@color/white"
+            android:text= "@string/underline_key"
             android:textColor="@color/white"
             android:textSize="15sp"
             android:textStyle="bold" />
@@ -168,7 +176,7 @@
             android:background="@drawable/rounded_btn"
             android:text="@string/register"
             android:textColor="@color/red"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             />
 
     </LinearLayout>

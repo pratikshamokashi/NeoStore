@@ -79,7 +79,7 @@ import com.example.neostoreapp.ui.registration.RegisterResponse as RegisterRespo
              gender,
              phone_no,
              object : APICallback<RegisterResponse>() {
-                 override fun onResponse(code: Int?, response: RegisterResponse?) {
+                 override fun onSucess(code: Int?, response: RegisterResponse?) {
                      Log.d("Tag","sucess2:"+response?.message)
                      when (code) {
                          200 -> {mView?.registerSucess(response)}

@@ -13,14 +13,14 @@ open class APICallback<T>(): Callback<T> {
 
         if(noInternet){
             //get data from cache or local db
-            onResponse(200,null)
+            onSucess(200,null)
         }
     }
     override fun onResponse(call: Call<T>?, response: Response<T>?) {
-        onResponse(response?.code(),response?.body())
+        onSucess(response?.code(),response?.body())
     }
 
-    open fun onResponse(code:Int?,response: T?){
+    open fun onSucess(code:Int?,response: T?){
 
     }
 }

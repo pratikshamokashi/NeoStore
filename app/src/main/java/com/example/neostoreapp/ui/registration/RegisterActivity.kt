@@ -17,6 +17,36 @@ class RegisterActivity : BaseActivity(),RegisterContract.RegisterView {
         set(value) {}
     var presenter= RegisterPresenter(this)
 
+
+    override fun init() {
+        btn_register.setOnClickListener {
+            lateinit var registerpresenter: RegisterPresenter
+            val first_name =et_firstName.text.toString()
+            val last_name =et_lastName.text.toString()
+            val email = et_registerEmail.text.toString()
+            val password = et_registerPassword.text.toString()
+            val confirm_password= et_confirm_password.text.toString()
+            var gender:String
+            if(rb_male.isChecked)
+            {
+                gender="M"
+            }else{
+                gender="F"
+            }
+            val phone_no=et_phn_no.text.toString()
+            val isValidate: Boolean = presenter.registerValidation(first_name,last_name,email,password,
+                                                                    confirm_password, gender, phone_no)
+
+            if(isValidate)
+            {
+               presenter.register(first_name,last_name, email, password, confirm_password, gender, phone_no)
+            }
+
+            registerpresenter = RegisterPresenter(this)
+            registerpresenter.register(first_name,last_name,email, password,confirm_password,gender,phone_no)
+
+        }
+    }
     override fun showFirstNameError() {
         et_firstName.error="First Name is required"
         et_firstName.requestFocus()        }
@@ -46,38 +76,14 @@ class RegisterActivity : BaseActivity(),RegisterContract.RegisterView {
         et_phn_no.requestFocus()        }
 
 
-    override fun init() {
-        btn_register.setOnClickListener {
-            lateinit var registerpresenter: RegisterPresenter
-            val first_name =et_firstName.text.toString()
-            val last_name =et_lastName.text.toString()
-            val email = et_registerEmail.text.toString()
-            val password = et_registerPassword.text.toString()
-            val confirm_password= et_confirm_password.text.toString()
-            var gender:String
-            if(rb_male.isChecked)
-            {
-                gender="M"
-            }else{
-                gender="F"
-            }
-            val phone_no=et_phn_no.text.toString()
-            val isValidate: Boolean = presenter.registerValidation(first_name,last_name,email,password, confirm_password, gender, phone_no)
-
-            if(isValidate)
-            {
-                Log.d("Tag","isvalidate")
-                presenter.register(first_name,last_name, email, password, confirm_password, gender, phone_no)
-            }
-
-            registerpresenter = RegisterPresenter(this)
-            registerpresenter.register(first_name,last_name,email, password,confirm_password,gender,phone_no)
-
-        }
-    }
     override fun registerSucess(res: RegisterResponse?) {
-        Log.d("Tag","sucess1")
         showToast(res?.message!!)
+        et_firstName.setText("")
+        et_lastName.setText("")
+        et_registerEmail.setText("")
+        et_registerPassword.setText("")
+        et_confirm_password.setText("")
+        et_phn_no.setText("")
         val intent = Intent(this, HomeActivity::class.java)
         startActivity(intent)
     }

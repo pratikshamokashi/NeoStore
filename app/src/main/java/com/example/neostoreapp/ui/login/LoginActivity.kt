@@ -18,7 +18,6 @@ class LoginActivity: BaseActivity(), LoginContract.LoginView {
 
     override fun init() {
         btn_login.setOnClickListener() {
-            lateinit var loginpresenter: LoginPresenter
             val email = et_email.text.toString()
             val password = et_password.text.toString()
 
@@ -44,8 +43,9 @@ class LoginActivity: BaseActivity(), LoginContract.LoginView {
     override fun loginSucess(res: LoginResponse?) {
 
            showToast(res?.message!!)
-
-           val intent = Intent(this, RegisterActivity::class.java)
+            et_email.setText("")
+            et_password.setText("")
+        val intent = Intent(this, RegisterActivity::class.java)
            startActivity(intent)
             }
     override fun loginFailure() {
