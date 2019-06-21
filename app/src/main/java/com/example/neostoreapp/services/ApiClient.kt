@@ -8,13 +8,13 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 class ApiClient {
-    private var retrofit: Retrofit? = null
+
     init {
         retrofit = retrofitInstance
     }
     companion object {
         private var apiService : ApiClient? = null
-
+         var retrofit: Retrofit? = null
         val instance : ApiClient
             get(){
                 if(apiService == null){
@@ -23,7 +23,6 @@ class ApiClient {
                 return apiService as ApiClient
             }
     }
-
     private val retrofitInstance : Retrofit
         get() {
             retrofit = Retrofit.Builder()
@@ -49,6 +48,8 @@ class ApiClient {
 
     internal val apiServices: ApiInterface
         get() = retrofit!!.create(ApiInterface::class.java)
+
+
 }
 //    fun getApi(): Retrofit {
 //        val builder = Retrofit.Builder().baseUrl(URL)

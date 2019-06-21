@@ -19,6 +19,5 @@ class Data{
     var phone_no: String = ""
     var dob: String = ""
     var is_active: Boolean = true
-
 }
 

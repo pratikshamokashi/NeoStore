@@ -48,13 +48,10 @@ class LoginActivity: BaseActivity(), LoginContract.LoginView {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
             }
-   /* override fun loginFailure(res: LoginResponse?) {
-        showToast(res?.user_msg!!)
 
-    }*/
-   override fun loginFailure() {
+   override fun loginFailure(errorMsg: String) {
        Log.d("Tag","fail")
-        showToast("user login Unsucessful")
+        showToast(errorMsg)
    }
     override fun showEmailError() {
         et_email.error="Email is required"

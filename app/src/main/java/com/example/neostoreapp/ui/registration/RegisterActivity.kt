@@ -95,8 +95,8 @@ class RegisterActivity : BaseActivity(),RegisterContract.RegisterView {
         startActivity(intent)
     }
 
-    override fun registerFailure() {
-        showToast(" Registration Unsucessfull..!")
+    override fun registerFailure(errorMsg: String) {
+        showToast(errorMsg)
     }
 }
 

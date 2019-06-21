@@ -4,9 +4,13 @@ package com.example.neostoreapp.ui.login
     import android.util.Log
     import com.example.neostoreapp.net.APICallback
     import com.example.neostoreapp.net.APIManager
+    import okhttp3.ResponseBody
+    import org.json.JSONObject
+    import retrofit2.Response
+    import retrofit2.Retrofit
 
 
-    class LoginPresenter(loginView: LoginContract.LoginView) : LoginContract.Presenter {
+class LoginPresenter(loginView: LoginContract.LoginView) : LoginContract.Presenter {
         var mView: LoginContract.LoginView? = null
 
         override fun loginValidation(email: String, password: String): Boolean {
@@ -41,18 +45,23 @@ package com.example.neostoreapp.ui.login
 
             APIManager().login(email, password, object : APICallback<LoginResponse>() {
                 override fun onSucess(code: Int?, response: LoginResponse?) {
-
-                    when (code) {
-
+                    mView?.loginSucess(response)
+                   /* when (code) {
                         200 -> {
-                            mView?.loginSucess(response)
-                        }
-                        401 -> {
-                              mView?.loginFailure()
-                            Log.d("Tag","401msg")
-                        }
-                    }
 
+                        }
+
+                    }*/
+
+                }
+
+                override fun onFail(code: Int?, response: Response<LoginResponse>?, errorBody: ResponseBody?,
+                                    retrofit: Retrofit?) {
+
+                    val jObjError = JSONObject(errorBody?.string())
+                    mView?.loginFailure("${jObjError.get("message")}")
+
+                Log.d("TAG","data failed:"+"${jObjError.get("message")}")
                 }
             })
         }

@@ -4,6 +4,10 @@ import android.text.TextUtils
 import android.util.Log
 import com.example.neostoreapp.net.APICallback
 import com.example.neostoreapp.net.APIManager
+import okhttp3.ResponseBody
+import org.json.JSONObject
+import retrofit2.Response
+import retrofit2.Retrofit
 import com.example.neostoreapp.ui.registration.RegisterContract.RegisterView as RegisterView1
 import com.example.neostoreapp.ui.registration.RegisterResponse as RegisterResponse
 
@@ -80,11 +84,23 @@ import com.example.neostoreapp.ui.registration.RegisterResponse as RegisterRespo
              phone_no,
              object : APICallback<RegisterResponse>() {
                  override fun onSucess(code: Int?, response: RegisterResponse?) {
-                     Log.d("Tag","sucess2:"+response?.message)
-                     when (code) {
-                         200 -> {mView?.registerSucess(response)}
-                         400 -> {mView?.registerFailure()}                    }
+                     Log.d("Tag", "sucess2:" + response?.message)
+                             mView?.registerSucess(response)
+                      //400 -> {mView?.registerFailure(errormsg)}                    }
+
                  }
+                 override fun onFail(
+                     code: Int?,
+                     response: Response<RegisterResponse>?,
+                     errorBody: ResponseBody?,
+                     retrofit: Retrofit?
+                 ) {
+
+                     val jObjError = JSONObject(errorBody?.string())
+                     mView?.registerFailure("${jObjError.get("message")}")
+                     //super.onFail(code, response, errorBody, retrofit)
+                 }
+
              })
      }
  }

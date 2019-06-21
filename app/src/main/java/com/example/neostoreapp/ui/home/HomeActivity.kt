@@ -8,7 +8,7 @@ import com.example.neostoreapp.ui.login.LoginPresenter
 import com.example.neostoreapp.ui.login.LoginResponse
 
 class HomeActivity: BaseActivity(), LoginContract.LoginView  {
-    override fun loginFailure() {
+    override fun loginFailure(s: String) {
 
     }
 

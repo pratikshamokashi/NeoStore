@@ -5,7 +5,7 @@ import com.example.neostoreapp.ui.base.BaseView
 
 interface RegisterContract {
     interface RegisterView:BaseView{
-        fun registerFailure()
+        fun registerFailure(errorMsg: String)
         fun registerSucess(res: RegisterResponse?)
 
         fun showEmailError()

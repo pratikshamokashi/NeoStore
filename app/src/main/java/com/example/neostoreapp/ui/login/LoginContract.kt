@@ -7,7 +7,7 @@ interface LoginContract {
     interface LoginView:BaseView{
         fun showEmailError()
         fun showPasswordError()
-        fun loginFailure()
+        fun loginFailure(errorMsg: String)
         fun loginSucess(res: LoginResponse?)
     }
     interface Presenter:BasePresenter {
