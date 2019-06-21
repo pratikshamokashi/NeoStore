@@ -1,13 +1,11 @@
 package com.example.neostoreapp.ui.registration
 
 import android.content.Intent
-import android.util.Log
+import android.support.v7.widget.Toolbar
 import com.example.neostoreapp.R
 import com.example.neostoreapp.ui.home.HomeActivity
 import com.example.neostoreapp.ui.base.BaseActivity
 import com.example.neostoreapp.ui.base.BasePresenter
-import com.example.neostoreapp.ui.login.LoginPresenter
-import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : BaseActivity(),RegisterContract.RegisterView {
@@ -16,9 +14,14 @@ class RegisterActivity : BaseActivity(),RegisterContract.RegisterView {
         get() = presenter
         set(value) {}
     var presenter= RegisterPresenter(this)
-
-
+    lateinit var toolbar_register: Toolbar
     override fun init() {
+        toolbar_register=toolbar
+        setSupportActionBar(toolbar_register)
+        val action_bar=supportActionBar
+        action_bar?.setDisplayHomeAsUpEnabled(true)
+        action_bar?.setDisplayShowHomeEnabled(true)
+        action_bar?.setDisplayShowTitleEnabled(true)
         btn_register.setOnClickListener {
             lateinit var registerpresenter: RegisterPresenter
             val first_name =et_firstName.text.toString()
@@ -46,6 +49,10 @@ class RegisterActivity : BaseActivity(),RegisterContract.RegisterView {
             registerpresenter.register(first_name,last_name,email, password,confirm_password,gender,phone_no)
 
         }
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
     override fun showFirstNameError() {
         et_firstName.error="First Name is required"

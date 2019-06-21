@@ -14,17 +14,17 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
         <android.support.v7.widget.Toolbar
-               android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="?attr/actionBarSize"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                android:elevation="4dp"
+                android:layout_width="match_parent"
                 android:background="@color/red"
                 android:id="@+id/toolbar"
                 app:title="@string/register"
-               android:layout_marginLeft="3dp"
-               android:layout_marginRight="10dp"
                 android:textAlignment="center"
                 app:titleTextColor="@color/white"
-                app:titleMarginStart="150dp"
-                app:titleMarginEnd="100dp"
+                app:titleMarginStart="120dp"
+
         />
         <TextView
 
@@ -152,7 +152,6 @@
             android:drawableLeft="@drawable/cellphone"
             android:hint="Phone Number"
             android:layout_marginTop="10dp"
-
             android:inputType="number"
            />
 

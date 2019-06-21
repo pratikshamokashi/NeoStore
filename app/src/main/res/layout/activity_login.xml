@@ -95,18 +95,20 @@
                 android:layout_marginBottom="@dimen/margin_bottom_small"
                 android:gravity="left"
                 android:padding="5dp"
+                android:textSize="20dp"
                 android:text="@string/dont_have_an_account"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
-            <ImageView
-                android:id="@+id/btn_plus"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/plus"
-                android:layout_marginLeft="@dimen/margin_large"
-                android:layout_marginBottom="@dimen/margin_bottom_medium"
-                />
+            <ImageButton
+                         android:id="@+id/btn_plus"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:src="@drawable/ic_add"
+                         android:backgroundTint="@color/red"
+                         android:layout_marginLeft="70dp"
+                         android:layout_marginBottom="20dp"
+            />
 
         </LinearLayout>
     </LinearLayout>

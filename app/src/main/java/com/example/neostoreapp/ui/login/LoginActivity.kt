@@ -41,17 +41,21 @@ class LoginActivity: BaseActivity(), LoginContract.LoginView {
     }
 
     override fun loginSucess(res: LoginResponse?) {
-
-           showToast(res?.message!!)
+        Log.d("Tag","fa1il")
+           showToast(res?.message)
             et_email.setText("")
             et_password.setText("")
-        val intent = Intent(this, RegisterActivity::class.java)
-           startActivity(intent)
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
             }
-    override fun loginFailure() {
-        showToast("User Login Unsucessfull..!")
-    }
+   /* override fun loginFailure(res: LoginResponse?) {
+        showToast(res?.user_msg!!)
 
+    }*/
+   override fun loginFailure() {
+       Log.d("Tag","fail")
+        showToast("user login Unsucessful")
+   }
     override fun showEmailError() {
         et_email.error="Email is required"
         et_email.requestFocus()

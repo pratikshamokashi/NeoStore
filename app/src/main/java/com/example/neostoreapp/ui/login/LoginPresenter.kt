@@ -1,6 +1,7 @@
 package com.example.neostoreapp.ui.login
 
     import android.text.TextUtils
+    import android.util.Log
     import com.example.neostoreapp.net.APICallback
     import com.example.neostoreapp.net.APIManager
 
@@ -15,13 +16,14 @@ package com.example.neostoreapp.ui.login
                     mView?.showEmailError()
                     return false
                 }
-                TextUtils.isEmpty(password)  -> {
+                TextUtils.isEmpty(password) -> {
                     mView?.showPasswordError()
                     return false
                 }
                 else -> return true
             }
         }
+
         init {
             this.mView = loginView
         }
@@ -37,15 +39,22 @@ package com.example.neostoreapp.ui.login
 
         override fun login(email: String, password: String) {
 
-                APIManager().login(email, password, object : APICallback<LoginResponse>() {
-                    override fun onSucess(code:Int?,response: LoginResponse?) {
+            APIManager().login(email, password, object : APICallback<LoginResponse>() {
+                override fun onSucess(code: Int?, response: LoginResponse?) {
 
-                        when(code){
-                            200 -> {mView?.loginSucess(response)/*mView?.loginSucess(response)*/}
-                            401 -> {mView?.loginFailure()}
+                    when (code) {
+
+                        200 -> {
+                            mView?.loginSucess(response)
                         }
-
+                        401 -> {
+                              mView?.loginFailure()
+                            Log.d("Tag","401msg")
+                        }
                     }
-                })
-            }
+
+                }
+            })
         }
+    }
+

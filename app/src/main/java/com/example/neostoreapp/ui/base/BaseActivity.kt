@@ -22,7 +22,7 @@ abstract class BaseActivity : AppCompatActivity(),BaseView {
         super.onStop()
         getPresenter.stop()
     }
-    fun showToast(message:String){
+    fun showToast(message: String?){
         Toast.makeText(applicationContext,message, Toast.LENGTH_SHORT).show()
     }
       override fun showError()
