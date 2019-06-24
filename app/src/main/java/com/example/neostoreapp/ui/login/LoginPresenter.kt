@@ -1,13 +1,21 @@
 package com.example.neostoreapp.ui.login
 
+
     import android.text.TextUtils
     import android.util.Log
+    import android.widget.Toast
     import com.example.neostoreapp.net.APICallback
     import com.example.neostoreapp.net.APIManager
+    import com.example.neostoreapp.services.ApiClient
+    import io.reactivex.Scheduler
+    import io.reactivex.android.schedulers.AndroidSchedulers
+    import io.reactivex.rxkotlin.subscribeBy
+    import io.reactivex.schedulers.Schedulers
     import okhttp3.ResponseBody
     import org.json.JSONObject
     import retrofit2.Response
     import retrofit2.Retrofit
+    import android.widget.Toast.makeText as makeText1
 
 
 class LoginPresenter(loginView: LoginContract.LoginView) : LoginContract.Presenter {
@@ -42,10 +50,36 @@ class LoginPresenter(loginView: LoginContract.LoginView) : LoginContract.Present
         }
 
         override fun login(email: String, password: String) {
+            //ApiClient.instance.apiServices.login(email, password)
 
-            APIManager().login(email, password, object : APICallback<LoginResponse>() {
-                override fun onSucess(code: Int?, response: LoginResponse?) {
-                    mView?.loginSucess(response)
+
+            ApiClient().apiServices.login(email, password).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeBy(
+                    onNext = {
+                        if (it != null) {
+
+                            mView?.loginSucess(it)
+                        }
+                    },
+                    onError = {
+                        mView?.loginFailure(it.localizedMessage)
+                    }
+                    , onComplete = {
+                        //Toast.makeText(this,"sucessfully",Toast.LENGTH_SHORT).show()
+                    }
+                )
+
+        }
+
+
+
+}
+
+
+    //   ApiClient().retrofitInstance.login(email, password, object : APICallback<LoginResponse>() {
+               // override fun onSucess(code: Int?, response: LoginResponse?) {
+                 //   mView?.loginSucess(response)
                    /* when (code) {
                         200 -> {
 
@@ -53,9 +87,9 @@ class LoginPresenter(loginView: LoginContract.LoginView) : LoginContract.Present
 
                     }*/
 
-                }
+               // }
 
-                override fun onFail(code: Int?, response: Response<LoginResponse>?, errorBody: ResponseBody?,
+           /*     override fun onFail(code: Int?, response: Response<LoginResponse>?, errorBody: ResponseBody?,
                                     retrofit: Retrofit?) {
 
                     val jObjError = JSONObject(errorBody?.string())
@@ -64,6 +98,16 @@ class LoginPresenter(loginView: LoginContract.LoginView) : LoginContract.Present
                 Log.d("TAG","data failed:"+"${jObjError.get("message")}")
                 }
             })
-        }
-    }
+        }*/
+
+
+/*
+private fun Unit.observeOn(mainThread: Scheduler?): Any {
+
+}
+
+private fun <T> Observable<T>.subscribeOn(io: Scheduler) {
+
+}
+*/
 

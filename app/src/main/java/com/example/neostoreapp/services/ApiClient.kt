@@ -4,6 +4,7 @@ import com.example.neostoreapp.utilities.Utils.Companion.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
@@ -23,12 +24,13 @@ class ApiClient {
                 return apiService as ApiClient
             }
     }
-    private val retrofitInstance : Retrofit
+     val retrofitInstance : Retrofit
         get() {
             retrofit = Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .client(clientInstance)
                 .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build()
 
             return retrofit as Retrofit

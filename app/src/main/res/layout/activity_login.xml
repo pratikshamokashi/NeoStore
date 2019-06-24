@@ -30,7 +30,6 @@
             android:textSize="45sp"
             android:textStyle="bold" />
 
-
         <EditText
             android:id="@+id/et_email"
             style="@style/style_EditText"

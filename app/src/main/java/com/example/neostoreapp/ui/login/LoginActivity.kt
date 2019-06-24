@@ -6,7 +6,6 @@ import com.example.neostoreapp.R.layout.activity_login
 import com.example.neostoreapp.ui.base.BasePresenter
 import com.example.neostoreapp.ui.registration.RegisterActivity
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.activity_login.et_email
 import com.example.neostoreapp.ui.base.BaseActivity as BaseActivity
 
 class LoginActivity: BaseActivity(), LoginContract.LoginView {

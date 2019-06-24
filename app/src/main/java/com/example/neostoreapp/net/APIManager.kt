@@ -7,10 +7,11 @@ import retrofit2.Callback
 
 class APIManager {
 
-    fun login(email:String,password:String,callback: Callback<LoginResponse>){
+   /* fun login(email:String,password:String,callback: Callback<LoginResponse>){
         val apiClient= ApiClient.instance.apiServices.login(email, password)
-        apiClient.enqueue(callback)
-    }
+        //apiClient.registerObserver(LoginResponse)
+          apiClient.enqueue(callback)
+    }*/
     fun register(firstName:String,lastName:String,email:String,
                  password:String,confirmPassword:String,gender:String,
                  phoneNumber:String,callback:Callback<RegisterResponse>) {
@@ -23,7 +24,7 @@ class APIManager {
             gender,
             phoneNumber
         )
-        apiClient.enqueue(callback)
+       apiClient.enqueue(callback)
 
     }
 }
