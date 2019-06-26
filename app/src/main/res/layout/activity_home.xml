@@ -7,29 +7,119 @@
         android:layout_height="match_parent"
         tools:context=".ui.home.HomeActivity">
 
-    <android.support.v7.widget.Toolbar
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="?android:attr/actionBarSize"
+                  android:orientation="horizontal"
+                  android:layout_alignParentTop="true"
+                  android:background="@color/red"
+                  android:gravity="center_horizontal"
 
-            xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+        <TextView
+                android:id="@+id/txt_neostore1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:background="@color/red"
+                android:layout_marginTop="5dp"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:text="NeoSTORE"
+
+        />
+
+    </LinearLayout>
+    <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/red"
-            android:id="@+id/id_toolbar"
-            app:title="NeoSTORE"
-            app:titleMarginStart="@dimen/margin_large"
-            app:titleMarginEnd="50dp"
-            app:titleTextColor="@color/white"
-            android:textAlignment="gravity"
-            app:navigationIcon="@drawable/menu_icon">
+            android:layout_marginTop="56dp"
+    />
+    <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="325dp">
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:orientation="vertical">
 
-    </android.support.v7.widget.Toolbar>
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center">
 
-            <ImageView
-        android:id="@+id/img_account"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/search_icon"
-        android:layout_marginLeft="@dimen/margin_extra_large"
-        android:layout_marginRight="@dimen/margin_small"
-        android:layout_marginTop="@dimen/margin_small"/>
+                <ImageView
+                        android:layout_width="180dp"
+                        android:layout_height="150dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/tableicon"
+                        android:layout_marginRight="7dp"
+                />
+
+                <ImageView
+                        android:layout_width="180dp"
+                        android:layout_height="150dp"
+                        android:src="@drawable/sofaicon"
+                        android:scaleType="fitXY"
+                        android:layout_marginLeft="7dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="12dp">
+
+                <ImageView
+                        android:layout_width="180dp"
+                        android:layout_height="150dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/chairsicon"
+                        android:layout_marginRight="7dp"
+                />
+
+                <ImageView
+                        android:layout_width="180dp"
+                        android:layout_height="150dp"
+                        android:src="@drawable/cupboardicon"
+                        android:scaleType="fitXY"
+                        android:layout_marginLeft="7dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <!--  <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal"
+              android:layout_marginLeft="25dp"
+              android:layout_marginRight="25dp">
+
+          <ImageView
+                  android:id="@+id/img_table"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="350dp"
+
+                  android:src="@drawable/tableicon"
+                  android:scaleX="3"
+                  android:scaleY="3"
+          />
+          <ImageView
+                  android:id="@+id/img_sofas"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="350dp"
+                  android:layout_marginStart="150dp"
+                  android:src="@drawable/sofaicon"
+                  android:scaleX="3"
+                  android:scaleY="3"
+          />
+      </LinearLayout>-->
+
 
 </RelativeLayout>
