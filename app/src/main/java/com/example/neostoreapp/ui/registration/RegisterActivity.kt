@@ -2,11 +2,13 @@ package com.example.neostoreapp.ui.registration
 
 import android.content.Intent
 import android.support.v7.widget.Toolbar
+import android.view.View
 import com.example.neostoreapp.R
 import com.example.neostoreapp.ui.home.HomeActivity
 import com.example.neostoreapp.ui.base.BaseActivity
 import com.example.neostoreapp.ui.base.BasePresenter
 import kotlinx.android.synthetic.main.activity_register.*
+import kotlinx.android.synthetic.main.toolbar.*
 
 class RegisterActivity : BaseActivity(),RegisterContract.RegisterView {
     override var layout= R.layout.activity_register
@@ -14,14 +16,22 @@ class RegisterActivity : BaseActivity(),RegisterContract.RegisterView {
         get() = presenter
         set(value) {}
     var presenter= RegisterPresenter(this)
-    lateinit var toolbar_register: Toolbar
+   // lateinit var toolbar_register: Toolbar
     override fun init() {
-        toolbar_register=toolbar
+        txt_neostore1.setText("Register")
+        menu_img.visibility=View.GONE
+
+
+       ab_back_white.setOnClickListener{
+           val intent = Intent(this, HomeActivity::class.java)
+           startActivity(intent)
+       }
+        /*  toolbar_register=toolbar
         setSupportActionBar(toolbar_register)
         val action_bar=supportActionBar
         action_bar?.setDisplayHomeAsUpEnabled(true)
         action_bar?.setDisplayShowHomeEnabled(true)
-        action_bar?.setDisplayShowTitleEnabled(true)
+        action_bar?.setDisplayShowTitleEnabled(true)*/
         btn_register.setOnClickListener {
             lateinit var registerpresenter: RegisterPresenter
             val first_name =et_firstName.text.toString()

@@ -1,22 +1,37 @@
 package com.example.neostoreapp.ui.login
 
+import android.app.Application
 import android.content.Intent
 import android.util.Log
+import android.view.View
 import com.example.neostoreapp.R.layout.activity_login
+import com.example.neostoreapp.dagger.AppModule
+import com.example.neostoreapp.dagger.DaggerAppComponent
 import com.example.neostoreapp.ui.base.BasePresenter
 import com.example.neostoreapp.ui.home.HomeActivity
 import com.example.neostoreapp.ui.registration.RegisterActivity
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.toolbar.*
+import javax.inject.Inject
 import com.example.neostoreapp.ui.base.BaseActivity as BaseActivity
 
 class LoginActivity: BaseActivity(), LoginContract.LoginView {
 
     override var layout= activity_login
-    var  presnter = LoginPresenter(this)
+   var  presnter = LoginPresenter(this)
     override val getPresenter: BasePresenter
         get() = presnter
 
+
     override fun init() {
+
+       /* var appComponent=
+            DaggerAppComponent.builder().appModule(AppModule(app = Application()))*/
+
+        /* private fun initDagger(app: WikiApplication): AppComponent =
+             DaggerAppComponent.builder().appModule(AppModule(app)).build()*/
+       // (application as WikiApplication).wikiComponent.inject(LoginActivity())
+        linear_layout.visibility= View.GONE
         btn_login.setOnClickListener() {
             val email = et_email.text.toString()
             val password = et_password.text.toString()

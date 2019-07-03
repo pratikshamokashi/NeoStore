@@ -8,21 +8,21 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/white</item>
     </style>
-        <style name="style_EditText">
-            <item name="android:layout_width">match_parent</item>
-            <item name="android:layout_height">wrap_content</item>
-            <item name="android:layout_marginLeft">34dp</item>
-            <item name="android:layout_marginRight">34dp</item>
-            <item name="android:textAllCaps">false</item>
-            <item name="android:textColor">#FFFFFF</item>
-            <item name="android:drawablePadding">20dp</item>
-            <item name="android:paddingLeft">10dp</item>
-            <item name="android:paddingTop">10dp</item>
-            <item name="android:paddingBottom">10dp</item>
-            <item name="android:textStyle">normal</item>
-            <item name="android:textSize">20sp</item>
-            <item name="android:textColorHint">#FFFFFF</item>
-        </style>
+    <style name="style_EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">34dp</item>
+        <item name="android:layout_marginRight">34dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:drawablePadding">20dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColorHint">#FFFFFF</item>
+    </style>
 
     <style name="style_button">
         <item name="android:layout_width">match_parent</item>
@@ -36,11 +36,19 @@
         <item name="android:textStyle">normal</item>
         <item name="android:textAllCaps">true</item>
     </style>
+<style name="style_itemtext">
+    <item name="android:textSize">20sp</item>
 
+</style>
     <style name="DrawerIcon" parent="Widget.AppCompat.DrawerArrowToggle">
-
         <item name="color">#FFFFFF</item>
     </style>
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
 
 </resources>

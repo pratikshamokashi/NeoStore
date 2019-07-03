@@ -6,6 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".ui.login.LoginActivity">
 
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
 
     <LinearLayout
         android:id="@+id/main_Layout"
@@ -33,7 +37,7 @@
         <EditText
             android:id="@+id/et_email"
             style="@style/style_EditText"
-            android:background="@drawable/shape"
+            android:background="@drawable/shape_rectangle"
             android:drawableLeft="@drawable/username_icon"
             android:hint="@string/email"
             android:textSize="30sp"
@@ -43,7 +47,7 @@
               <EditText
             android:id="@+id/et_password"
             style="@style/style_EditText"
-            android:background="@drawable/shape"
+            android:background="@drawable/shape_rectangle"
             android:drawableLeft="@drawable/password_icon"
             android:hint="@string/password"
             android:inputType="textPassword"
@@ -112,4 +116,5 @@
         </LinearLayout>
     </LinearLayout>
 
+    </ScrollView>
 </RelativeLayout>
