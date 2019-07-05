@@ -1,18 +1,17 @@
 package com.example.neostoreapp.ui.home
 
 import android.content.Intent
+import android.os.Bundle
 import android.support.v4.view.ViewPager
-import android.view.Menu
 import android.view.View
-import android.widget.ImageView
-import android.widget.Toast
 import com.example.neostoreapp.R
 import com.example.neostoreapp.ui.base.BaseActivity
 import com.example.neostoreapp.ui.base.BasePresenter
+import com.example.neostoreapp.ui.forgotpassword.ForgotPasswordActivity
 import com.example.neostoreapp.ui.login.LoginContract
 import com.example.neostoreapp.ui.login.LoginPresenter
 import com.example.neostoreapp.ui.login.LoginResponse
-import com.example.neostoreapp.ui.registration.RegisterActivity
+import com.example.neostoreapp.ui.productlisting.ProductActivity
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.toolbar.*
 
@@ -29,6 +28,15 @@ class HomeActivity: BaseActivity(), LoginContract.LoginView  {
         viewPager=findViewById<View>(R.id.viewPager) as ViewPager
         val adapter =ViewPageAdapter(this)
         viewPager.adapter=adapter
+
+          tableicn.setOnClickListener {
+              var bundle=Bundle()
+              bundle.putString("product_id","1")
+              val intent = Intent(this, ProductActivity::class.java)
+              intent.putExtras(bundle)
+              startActivity(intent)
+          }
+
 /*
     menu_img.setOnClickListener(){
           Toast.makeText(this,"menu clicked",Toast.LENGTH_SHORT).show()
@@ -38,6 +46,8 @@ class HomeActivity: BaseActivity(), LoginContract.LoginView  {
           Toast.makeText(this,"search clicked",Toast.LENGTH_SHORT).show()
 
       })*/
+
+
     }
 
 

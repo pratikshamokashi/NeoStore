@@ -32,7 +32,7 @@
             app:menu="@menu/drawer_menu"
             android:theme="@style/style_itemtext"
             app:headerLayout="@layout/header_layout"
-            android:background="#000000"
+            android:background="#282828"
             app:itemTextColor="@color/white"
             app:itemIconTint="@color/white"
 

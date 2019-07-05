@@ -2,6 +2,7 @@ package com.example.neostoreapp.net
 
 import com.example.neostoreapp.services.ApiClient
 import com.example.neostoreapp.ui.login.LoginResponse
+import com.example.neostoreapp.ui.productlisting.ProductResponse
 import com.example.neostoreapp.ui.registration.RegisterResponse
 import retrofit2.Callback
 
@@ -26,5 +27,9 @@ class APIManager {
         )
        apiClient.enqueue(callback)
 
+    }
+    fun productlist(product_category_id:String,limit:String,page:String,callback: Callback<ProductResponse>){
+        val apiClient=ApiClient.instance.apiServices.productlist(product_category_id,limit,page)
+        apiClient.enqueue(callback)
     }
 }

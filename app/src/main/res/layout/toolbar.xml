@@ -36,7 +36,7 @@
             android:background="@color/red"
             android:layout_marginTop="5dp"
             android:textSize="30dp"
-            android:textStyle="bold"
+            android:textStyle="normal"
             android:text="NeoSTORE"
             android:gravity="center"></TextView>
 

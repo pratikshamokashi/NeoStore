@@ -23,8 +23,7 @@ class RegisterActivity : BaseActivity(),RegisterContract.RegisterView {
 
 
        ab_back_white.setOnClickListener{
-           val intent = Intent(this, HomeActivity::class.java)
-           startActivity(intent)
+           finish()
        }
         /*  toolbar_register=toolbar
         setSupportActionBar(toolbar_register)
