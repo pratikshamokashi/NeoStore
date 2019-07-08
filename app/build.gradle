@@ -56,6 +56,11 @@ dependencies {
 
     implementation 'de.hdodenhof:circleimageview:2.0.0'
     implementation'com.squareup.picasso:picasso:2.5.2'
+    implementation ('com.github.JakeWharton:ViewPagerIndicator:2.4.1')  {
+        exclude group: 'com.android.support'
+        exclude module: 'appcompat-v7'
+        exclude module: 'support-v4'
+    }
 
 
 }

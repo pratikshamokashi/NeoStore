@@ -1,81 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        xmlns:android="http://schemas.android.com/apk/res/android">
-<RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.home.HomeActivity">
-
-
-    <android.support.v4.view.ViewPager
-            android:id="@+id/viewPager"
+        android:layout_height="match_parent">
+    <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="match_parent"
+            tools:context=".ui.home.HomeActivity">
 
-    />
-    <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:layout_below="@+id/viewPager">
-        <LinearLayout android:layout_width="match_parent"
-                      android:layout_height="match_parent"
-                      android:orientation="vertical">
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+        >
 
-            <LinearLayout
+            <android.support.v4.view.ViewPager
+                    android:id="@+id/viewPager"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:gravity="center">
+                    android:layout_height="match_parent">
+            </android.support.v4.view.ViewPager>
+            <com.viewpagerindicator.CirclePageIndicator
+                    android:id="@+id/indicator"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    app:centered="true"
+                    app:fillColor="#22211D"
+                    app:pageColor="#E91C1A"
+                    app:snap="false"
+                    android:layout_gravity="bottom"
+                    android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true">
+            </com.viewpagerindicator.CirclePageIndicator>
+        </RelativeLayout>
+        <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="270dp"
+        >
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="match_parent"
+                          android:orientation="vertical">
 
-                <ImageView
-                        android:id="@+id/tableicn"
-                        android:layout_width="180dp"
-                        android:layout_height="150dp"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/tableicon"
-                        android:layout_marginRight="7dp"
-                />
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="center">
 
-                <ImageView
-                        android:layout_width="180dp"
-                        android:layout_height="150dp"
-                        android:src="@drawable/sofaicon"
-                        android:scaleType="fitXY"
-                        android:layout_marginLeft="7dp"/>
+                    <ImageView
+                            android:id="@+id/tableicn"
+                            android:layout_width="180dp"
+                            android:layout_height="150dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/tableicon"
+                            android:layout_marginRight="7dp"
+                    />
+
+                    <ImageView
+                            android:layout_width="180dp"
+                            android:layout_height="150dp"
+                            android:src="@drawable/sofaicon"
+                            android:scaleType="fitXY"
+                            android:layout_marginLeft="7dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:layout_marginTop="12dp">
+
+                    <ImageView
+                            android:layout_width="180dp"
+                            android:layout_height="150dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/chairsicon"
+                            android:layout_marginRight="7dp"
+                    />
+
+                    <ImageView
+                            android:layout_width="180dp"
+                            android:layout_height="150dp"
+                            android:src="@drawable/cupboardicon"
+                            android:scaleType="fitXY"
+                            android:layout_marginLeft="7dp"/>
+                </LinearLayout>
+
             </LinearLayout>
 
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginTop="12dp">
+        </android.support.v7.widget.CardView>
 
-                <ImageView
-                        android:layout_width="180dp"
-                        android:layout_height="150dp"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/chairsicon"
-                        android:layout_marginRight="7dp"
-                />
-
-                <ImageView
-                        android:layout_width="180dp"
-                        android:layout_height="150dp"
-                        android:src="@drawable/cupboardicon"
-                        android:scaleType="fitXY"
-                        android:layout_marginLeft="7dp"/>
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </android.support.v7.widget.CardView>
-
-</RelativeLayout>
+    </RelativeLayout>
 </ScrollView>
