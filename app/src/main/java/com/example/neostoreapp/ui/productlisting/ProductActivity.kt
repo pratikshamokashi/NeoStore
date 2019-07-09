@@ -17,11 +17,6 @@ class ProductActivity : BaseActivity(),ProductContract.ProductView{
 
         presenter.passDataToAdapter(res?.data)
     }
-    override fun showEmailError() {
-    }
-
-    override fun showPasswordError() {
-    }
 
     override val layout= R.layout.activity_product
 
@@ -39,6 +34,11 @@ class ProductActivity : BaseActivity(),ProductContract.ProductView{
         presenter.setAdapter(my_recycler_view)
 
 
+    }
+    override fun showEmailError() {
+    }
+
+    override fun showPasswordError() {
     }
 
     fun setData(){}

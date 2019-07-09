@@ -16,9 +16,10 @@ class ProductPresenter(productview: ProductContract.ProductView,context: Context
     var mView: ProductView? = null
     private var context: Context
 
+
     init {
         this.mView = productview
-        this.context=context;
+        this.context=context
     }
 
     override fun productlisting(product_category_id: String, limit: String, page: String) {
