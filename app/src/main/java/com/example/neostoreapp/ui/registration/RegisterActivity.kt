@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.toolbar.*
 
 class RegisterActivity : BaseActivity(),RegisterContract.RegisterView {
-    override var layout= R.layout.activity_register
+    override val layout= R.layout.activity_register
     override var getPresenter: BasePresenter
         get() = presenter
         set(value) {}
@@ -32,7 +32,7 @@ class RegisterActivity : BaseActivity(),RegisterContract.RegisterView {
         action_bar?.setDisplayShowHomeEnabled(true)
         action_bar?.setDisplayShowTitleEnabled(true)*/
         btn_register.setOnClickListener {
-            lateinit var registerpresenter: RegisterPresenter
+            //lateinit var registerpresenter: RegisterPresenter
             val first_name =et_firstName.text.toString()
             val last_name =et_lastName.text.toString()
             val email = et_registerEmail.text.toString()
@@ -54,8 +54,8 @@ class RegisterActivity : BaseActivity(),RegisterContract.RegisterView {
                presenter.register(first_name,last_name, email, password, confirm_password, gender, phone_no)
             }
 
-            registerpresenter = RegisterPresenter(this)
-            registerpresenter.register(first_name,last_name,email, password,confirm_password,gender,phone_no)
+            presenter = RegisterPresenter(this)
+            presenter.register(first_name,last_name,email, password,confirm_password,gender,phone_no)
 
         }
     }

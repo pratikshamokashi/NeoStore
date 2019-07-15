@@ -11,15 +11,9 @@ import android.widget.TextView
 import com.example.neostoreapp.R
 import com.squareup.picasso.Picasso
 
-class MyAdapter : RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+class MyAdapter(private var data1: List<Data1>?, context: Context) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
-    private var data1: List<Data1>? = null;
-    private var context: Context? = null
-
-    constructor(data1: List<Data1>?, context: Context)  {
-        this.data1 = data1
-        this.context = context
-    }
+    private var context: Context? = context
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): MyViewHolder {
         val view = LayoutInflater.from(p0.context).inflate(R.layout.row_layout, p0, false)
@@ -34,7 +28,7 @@ class MyAdapter : RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         }
     }
 
-    override fun onBindViewHolder(p0: MyAdapter.MyViewHolder, p1: Int) {
+    override fun onBindViewHolder(p0: MyViewHolder, p1: Int) {
         p0.tv_table1.text = data1!!.get(p1).name
         p0.ratingbar.rating = data1!!.get(p1).rating!!.toFloat()
         p0.tv_table2.text = data1!!.get(p1).producer

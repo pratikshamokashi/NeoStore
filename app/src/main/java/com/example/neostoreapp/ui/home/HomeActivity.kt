@@ -5,11 +5,11 @@ import android.os.Bundle
 import android.os.Handler
 import android.support.v4.view.ViewPager
 import android.util.Log
+import android.view.Menu
 import android.view.View
 import com.example.neostoreapp.R
 import com.example.neostoreapp.ui.base.BaseActivity
 import com.example.neostoreapp.ui.base.BasePresenter
-import com.example.neostoreapp.ui.forgotpassword.ForgotPasswordActivity
 import com.example.neostoreapp.ui.login.LoginContract
 import com.example.neostoreapp.ui.login.LoginPresenter
 import com.example.neostoreapp.ui.login.LoginResponse
@@ -21,6 +21,8 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class HomeActivity: BaseActivity(), LoginContract.LoginView  {
+
+
     override var layout= R.layout.activity_home
     var  presnter = LoginPresenter(this)
     override val getPresenter: BasePresenter
@@ -38,13 +40,37 @@ class HomeActivity: BaseActivity(), LoginContract.LoginView  {
           showPager()
 
           tableicn.setOnClickListener {
-              var bundle=Bundle()
+              val bundle=Bundle()
               bundle.putString("product_id","1")
               val intent = Intent(this, ProductActivity::class.java)
               intent.putExtras(bundle)
               startActivity(intent)
+             // txt_neostore1.setText("Table")
           }
-
+          sofaicn.setOnClickListener {
+              val bundle=Bundle()
+              bundle.putString("product_id","3")
+              val intent = Intent(this, ProductActivity::class.java)
+              intent.putExtras(bundle)
+              startActivity(intent)
+             // txt_neostore1.setText("Sofas")
+          }
+          chairicn.setOnClickListener {
+              val bundle=Bundle()
+              bundle.putString("product_id","2")
+              val intent = Intent(this, ProductActivity::class.java)
+              intent.putExtras(bundle)
+              startActivity(intent)
+            //  txt_neostore1.setText("Chairs")
+          }
+          cupboardicn.setOnClickListener {
+              val bundle=Bundle()
+              bundle.putString("product_id","4")
+              val intent = Intent(this, ProductActivity::class.java)
+              intent.putExtras(bundle)
+              startActivity(intent)
+              //txt_neostore1.setText("Cupboard")
+          }
 
 /*
     menu_img.setOnClickListener(){
@@ -114,12 +140,6 @@ class HomeActivity: BaseActivity(), LoginContract.LoginView  {
         private var currentPage = 0
         private var NUM_PAGES = 0
     }
-
-
-
-
-
-
     override fun loginFailure(errorMsg: String) {
 
     }

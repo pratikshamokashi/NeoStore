@@ -1,17 +1,30 @@
 package com.example.neostoreapp.ui.base
 
+import android.content.Intent
 import android.os.Bundle
+import android.support.design.widget.NavigationView
 import android.support.v7.app.AppCompatActivity
-import android.view.LayoutInflater
-import android.view.View
+import android.support.v7.widget.SearchView
+import android.util.Log
+import android.view.*
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.toolbar.*
-import android.view.Gravity
 import com.example.neostoreapp.R
+import com.example.neostoreapp.ui.resetpassword.ResetPasswordActivity
 
 
-abstract class BaseActivity : AppCompatActivity(),BaseView {
+abstract class BaseActivity : AppCompatActivity(),BaseView, NavigationView.OnNavigationItemSelectedListener {
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        var id=item.itemId
+        when(id){
+            R.id.changePassword-> {
+                val intent=Intent(this,ResetPasswordActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        return true
+    }
 
     abstract val layout:Int
     abstract val getPresenter:BasePresenter
@@ -25,10 +38,16 @@ abstract class BaseActivity : AppCompatActivity(),BaseView {
         var view = inflater.inflate(layout, null);
         container.addView(view)
 
+        if(navigationView!=null){
+            navigationView.setNavigationItemSelectedListener(this)
+        }
+
        init()
 
         menu_img.setOnClickListener(View.OnClickListener {
             drawer_layout.openDrawer(Gravity.LEFT)
+
+
         })
     }
     override fun onStart() {

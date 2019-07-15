@@ -19,5 +19,6 @@ class Data1{
     var gender: String = ""
     var phone_no: String = ""
     var dob: String = ""
+    var access_token=""
     var is_active: Boolean = true
 }

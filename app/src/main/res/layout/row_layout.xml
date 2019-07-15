@@ -2,7 +2,7 @@
 
 <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="100dp"
         android:orientation="vertical"
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_marginBottom="1dp">
@@ -19,40 +19,62 @@
             android:layout_marginLeft="25dp"
 
     />
+
     <TextView
             android:id="@+id/tv_tbl1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="150dp"
+            android:layout_toRightOf="@id/tbl1_img"
             android:textSize="20dp"
             android:textStyle="bold"
             android:textAlignment="center"
             android:textColor="#4F4F4F"
+            android:layout_marginLeft="10dp"
+
     />
     <TextView
             android:id="@+id/tv_tbl2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_tbl1"
-            android:layout_marginLeft="150dp"
+            android:layout_toRightOf="@id/tbl1_img"
+            android:layout_marginLeft="10dp"
+
     />
+      <!--  <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal"
+                      android:layout_below="@id/tv_tbl2"
+                      android:layout_toRightOf="@id/tbl1_img">-->
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_cost"
                 android:layout_below="@id/tv_tbl2"
-                android:layout_marginLeft="150dp"
+                android:layout_toRightOf="@id/tbl1_img"
                 android:textSize="20dp"
                 android:textColor="@color/red"
+                android:layout_marginLeft="10dp"
+
         />
+        <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
+
+        </RelativeLayout>
     <RatingBar
             android:id="@+id/rating_bar"
-            android:layout_width="200dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:stepSize="1"
-            android:theme="@style/Widget.AppCompat.RatingBar"
-            android:layout_below="@id/tv_cost"
-            android:layout_marginLeft="150dp"/>
+            android:stepSize="0.5"
+
+            style="?android:attr/ratingBarStyleSmall"
+            android:theme="@style/RatingBar"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/tv_cost"
+            android:layout_toEndOf="@id/tv_cost"
+            android:layout_below="@id/tv_tbl2"
+            />
+    <!--  </LinearLayout>-->
     </RelativeLayout>
 
 </android.support.v7.widget.CardView>

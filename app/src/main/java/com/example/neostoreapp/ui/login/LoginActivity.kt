@@ -3,13 +3,17 @@ package com.example.neostoreapp.ui.login
 import android.app.Application
 import android.content.Intent
 import android.util.Log
+import android.view.Menu
 import android.view.View
 import com.example.neostoreapp.R.layout.activity_login
 import com.example.neostoreapp.dagger.AppModule
 import com.example.neostoreapp.dagger.DaggerAppComponent
 import com.example.neostoreapp.ui.base.BasePresenter
+import com.example.neostoreapp.ui.base.MyApp
 import com.example.neostoreapp.ui.home.HomeActivity
+import com.example.neostoreapp.ui.product.ProductActivity
 import com.example.neostoreapp.ui.registration.RegisterActivity
+import com.example.neostoreapp.ui.resetpassword.ResetPasswordActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.toolbar.*
 import javax.inject.Inject
@@ -48,16 +52,18 @@ class LoginActivity: BaseActivity(), LoginContract.LoginView {
                 val intent = Intent(this, RegisterActivity::class.java)
                 startActivity(intent)
         }
-      /*  btn_resend.setOnClickListener()
-        {
-            val intent = Intent(this, ForgotPasswordActivity::class.java)
+        txt_forgot_password.setOnClickListener {
+            val intent=Intent(this,ResetPasswordActivity::class.java)
             startActivity(intent)
-        }*/
+        }
     }
 
     override fun loginSucess(res: LoginResponse?) {
         Log.d("Tag","fa1il")
            showToast(res?.message)
+        MyApp.instance?.acess_token= res?.data?.access_token.toString()
+     //   val acesstoken=res?.data?.access_token
+        //Log.d("tag","Token: "+res?.data?.access_token)
             et_email.setText("")
             et_password.setText("")
             val intent = Intent(this, HomeActivity::class.java)

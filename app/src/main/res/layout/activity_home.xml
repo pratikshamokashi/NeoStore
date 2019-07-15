@@ -60,6 +60,7 @@
                     />
 
                     <ImageView
+                            android:id="@+id/sofaicn"
                             android:layout_width="180dp"
                             android:layout_height="150dp"
                             android:src="@drawable/sofaicon"
@@ -75,6 +76,7 @@
                         android:layout_marginTop="12dp">
 
                     <ImageView
+                            android:id="@+id/chairicn"
                             android:layout_width="180dp"
                             android:layout_height="150dp"
                             android:scaleType="fitXY"
@@ -83,6 +85,7 @@
                     />
 
                     <ImageView
+                            android:id="@+id/cupboardicn"
                             android:layout_width="180dp"
                             android:layout_height="150dp"
                             android:src="@drawable/cupboardicon"

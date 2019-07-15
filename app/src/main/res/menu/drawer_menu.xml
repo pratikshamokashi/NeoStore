@@ -42,6 +42,12 @@
             android:icon="@drawable/myorders_icon">
     </item>
     <item
+            android:id="@+id/changePassword"
+            android:title="Change Password"
+            android:icon="@drawable/logout_icon">
+    </item>
+
+    <item
             android:id="@+id/logout"
             android:title="Logout"
             android:icon="@drawable/logout_icon">
