@@ -1,5 +1,6 @@
 package com.example.neostoreapp.ui.productlisting
 
+import android.arch.lifecycle.ViewModel
 import android.util.Log
 import android.view.View
 import com.example.neostoreapp.R
@@ -9,8 +10,10 @@ import kotlinx.android.synthetic.main.activity_product.*
 import kotlinx.android.synthetic.main.toolbar.*
 import java.lang.Integer.parseInt
 
-@Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class ProductActivity : BaseActivity(),ProductContract.ProductView{
+    override fun showError() {
+    }
+
     override fun failureProduct(errorMsg: String) {
         showToast(errorMsg)
     }
@@ -32,9 +35,6 @@ class ProductActivity : BaseActivity(),ProductContract.ProductView{
         ab_back_white.setOnClickListener {
             finish()
         }
-
-
-        //Log.d("TAG","Init method:"+)
         presenter.productlisting(intent.extras.get("product_id").toString(),"10","1")
         presenter.setAdapter(my_recycler_view)
         when(parseInt(intent.extras.get("product_id").toString())){

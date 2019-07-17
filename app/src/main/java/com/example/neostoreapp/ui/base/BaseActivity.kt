@@ -1,5 +1,6 @@
 package com.example.neostoreapp.ui.base
 
+import android.arch.lifecycle.ViewModel
 import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.NavigationView
@@ -11,20 +12,11 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.toolbar.*
 import com.example.neostoreapp.R
+import com.example.neostoreapp.ui.accountdetails.MyAccountActivity
 import com.example.neostoreapp.ui.resetpassword.ResetPasswordActivity
 
 
 abstract class BaseActivity : AppCompatActivity(),BaseView, NavigationView.OnNavigationItemSelectedListener {
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        var id=item.itemId
-        when(id){
-            R.id.changePassword-> {
-                val intent=Intent(this,ResetPasswordActivity::class.java)
-                startActivity(intent)
-            }
-        }
-        return true
-    }
 
     abstract val layout:Int
     abstract val getPresenter:BasePresenter
@@ -34,8 +26,8 @@ abstract class BaseActivity : AppCompatActivity(),BaseView, NavigationView.OnNav
        setContentView(R.layout.activity_base)
 
         //inflated view pass from child activity
-        var inflater = LayoutInflater.from(this)
-        var view = inflater.inflate(layout, null);
+        val inflater = LayoutInflater.from(this)
+        val view = inflater.inflate(layout, null);
         container.addView(view)
 
         if(navigationView!=null){
@@ -50,6 +42,17 @@ abstract class BaseActivity : AppCompatActivity(),BaseView, NavigationView.OnNav
 
         })
     }
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        val id=item.itemId
+        when(id){
+            R.id.myaccount->{
+                val intent=Intent(this,MyAccountActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        return true
+    }
+
     override fun onStart() {
         super.onStart()
         getPresenter.start()

@@ -56,8 +56,6 @@ class MyAdapter(private var data1: List<Data1>?, context: Context) : RecyclerVie
             tv_table2 = itemView.findViewById<View>(R.id.tv_tbl2) as TextView
             tv_cost = itemView.findViewById<View>(R.id.tv_cost) as TextView
             table_img = itemView.findViewById<View>(R.id.tbl1_img) as ImageView
-
-
         }
     }
 

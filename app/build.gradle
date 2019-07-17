@@ -61,6 +61,7 @@ dependencies {
         exclude module: 'appcompat-v7'
         exclude module: 'support-v4'
     }
+    implementation 'android.arch.lifecycle:extensions:1.1.1'
 
 
 }

@@ -89,7 +89,7 @@ class LoginPresenter(loginView: LoginContract.LoginView) : LoginContract.Present
 
                // }
 
-           /*     override fun onFail(code: Int?, response: Response<LoginResponse>?, errorBody: ResponseBody?,
+           /*     override fun onFail(code: Int?, response: EditProfileResponse<LoginResponse>?, errorBody: ResponseBody?,
                                     retrofit: Retrofit?) {
 
                     val jObjError = JSONObject(errorBody?.string())

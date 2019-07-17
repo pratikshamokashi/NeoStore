@@ -61,8 +61,7 @@ class LoginActivity: BaseActivity(), LoginContract.LoginView {
     override fun loginSucess(res: LoginResponse?) {
         Log.d("Tag","fa1il")
            showToast(res?.message)
-        MyApp.instance?.acess_token= res?.data?.access_token.toString()
-     //   val acesstoken=res?.data?.access_token
+        MyApp.instance.acess_token= res?.data?.access_token.toString()
         //Log.d("tag","Token: "+res?.data?.access_token)
             et_email.setText("")
             et_password.setText("")
