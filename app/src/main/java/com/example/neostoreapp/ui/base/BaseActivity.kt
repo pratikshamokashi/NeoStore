@@ -32,7 +32,6 @@ abstract class BaseActivity : AppCompatActivity(),BaseView, NavigationView.OnNav
        super.onCreate(savedInstanceState)
        setContentView(R.layout.activity_base)
 
-
         //inflated view pass from child activity
         val inflater = LayoutInflater.from(this)
         val view = inflater.inflate(layout, null);

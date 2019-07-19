@@ -36,16 +36,16 @@ class APIManager {
 
         apiClient.enqueue(callback)
     }
-    fun changePassword(old_password:String,password: String,confirm_password: String,callback: Callback<ResetResponse>) {
-        val apiClient=ApiClient.instance.apiServices.changePassword(MyApp.instance.acess_token,old_password,password,confirm_password)
+    fun changePassword(accessToken: String?, old_password:String, password: String, confirm_password:String, callback: Callback<ResetResponse>) {
+        val apiClient=ApiClient.instance.apiServices.changePassword(accessToken!!,old_password,password,confirm_password)
         apiClient.enqueue(callback)
     }
     fun getAccountDetails(callback: Callback<Response>, accessToken: String?) {
         val apiClient=ApiClient.instance.apiServices.getAccountDetails(accessToken!!)
         apiClient.enqueue(callback)
     }
-    fun editProfile(firstName:String,lastName:String,email:String,dob:String,phoneNumber:String,profile_pic:String,callback: Callback<EditProfileResponse>){
-        val apiClient=ApiClient.instance.apiServices.editProfile(MyApp.instance.acess_token,firstName,lastName,email,dob,phoneNumber,profile_pic)
+    fun editProfile(accessToken: String?,firstName:String,lastName:String,email:String,dob:String,phoneNumber:String,profile_pic:String,callback: Callback<EditProfileResponse>){
+        val apiClient=ApiClient.instance.apiServices.editProfile(accessToken!!,firstName,lastName,email,dob,phoneNumber,profile_pic)
         apiClient.enqueue(callback)
 
     }

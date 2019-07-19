@@ -1,5 +1,6 @@
 package com.example.neostoreapp.ui.editprofile
 
+import android.content.SharedPreferences
 import android.os.Build
 import android.support.annotation.RequiresApi
 import android.util.Log
@@ -22,11 +23,16 @@ class EditProfileActivity: BaseActivity(),EditProfileContract.EditProfileView {
     get() = presenter
     val image="https://www.gstatic.com/webp/gallery3/1.png"
     val data = image.toByteArray(charset("UTF-8"))
-    @RequiresApi(Build.VERSION_CODES.O)
-    var base64 = Base64.getEncoder().encode(data).toString()
-
+    lateinit var base64:String
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun init() {
+        val data = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            Base64.getDecoder().decode(base64)
+        } else {
+            android.util.Base64.decode(data,android.util.Base64.DEFAULT)
+        }
+       // base64=Base64.getEncoder().encode(data).toString()
         Picasso.with(this).load(image).into(img_profilepic)
         Log.d("tag","editCheck1")
        //Picasso.with(this).load("https://www.gstatic.com/webp/gallery3/1.png").into(img_profilepic)
@@ -45,7 +51,7 @@ class EditProfileActivity: BaseActivity(),EditProfileContract.EditProfileView {
 
             var url:URL= URL("https://www.gstatic.com/webp/gallery3/1.png")
             var bufferedInputStream:BufferedInputStream=BufferedInputStream(url.openConnection().getInputStream())
-            presenter.editProfile(firstName,lastName,email,dob,phone_no,bufferedInputStream.toString())
+            presenter.editProfile(sharedPreferences.getString("access_token",null),firstName,lastName,email,dob,phone_no,bufferedInputStream.toString())
         }
     }
     override fun editprofileSuccess(res: EditProfileResponse?) {

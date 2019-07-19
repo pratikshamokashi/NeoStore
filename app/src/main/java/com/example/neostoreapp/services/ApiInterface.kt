@@ -41,10 +41,11 @@ interface ApiInterface {
     @FormUrlEncoded
     @POST("users/change")
     fun changePassword(
-        @Header("access_token") token:String,
-        @Field("old_password") old_password: String,
-        @Field("password") password: String,
-        @Field("confirm_password") confirm_password: String
+            @Header("access_token") token: String,
+            @Field("old_password") old_password: String,
+            @Field("password") password: String,
+            @Field("confirm_password") confirm_password: String
+           // accessToken: String
     ): Call<ResetResponse>
 
     @GET("users/getUserData")

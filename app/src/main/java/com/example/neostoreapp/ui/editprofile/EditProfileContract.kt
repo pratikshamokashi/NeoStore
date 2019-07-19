@@ -9,6 +9,6 @@ interface EditProfileContract {
         fun editprofileFailure(errorMsg: String)
     }
     interface Presenter:BasePresenter{
-        fun editProfile(firstName:String,lastName:String,email:String, dob:String, phone_no:String, base64: String)
+        fun editProfile(accessToken: String?,firstName:String,lastName:String,email:String, dob:String, phone_no:String, base64: String)
     }
 }

@@ -20,9 +20,9 @@ class EditProfilePresenter(editProfileView: EditProfileContract.EditProfileView)
         this.mView = editProfileView
     }
 
-    override fun editProfile(firstName: String, lastName: String, email: String, dob: String, phone_no: String, base64: String) {
+    override fun editProfile(accessToken: String?,firstName: String, lastName: String, email: String, dob: String, phone_no: String, base64: String) {
         Log.d(TAG, "check by ak success 1")
-        APIManager().editProfile(firstName, lastName, email, dob, phone_no, base64, object : APICallback<EditProfileResponse>() {
+        APIManager().editProfile(accessToken,firstName, lastName, email, dob, phone_no, base64, object : APICallback<EditProfileResponse>() {
             override fun onSucess(code: Int?, response: EditProfileResponse?) {
                 Log.d(TAG, "check by ak success 2")
                 mView?.editprofileSuccess(response)

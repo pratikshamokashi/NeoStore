@@ -13,7 +13,7 @@ interface ResetPasswordContract {
         fun showPassword()
     }
     interface Presenter:BasePresenter{
-        fun changepassword(old_password:String,
+        fun changepassword(accessToken: String?,old_password:String,
                            password: String,
                            confirm_password: String)
     }

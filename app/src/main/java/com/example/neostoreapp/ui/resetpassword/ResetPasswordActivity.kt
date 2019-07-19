@@ -1,5 +1,6 @@
 package com.example.neostoreapp.ui.resetpassword
 
+import android.content.SharedPreferences
 import android.view.View
 import com.example.neostoreapp.R
 import com.example.neostoreapp.ui.base.BaseActivity
@@ -13,6 +14,7 @@ class ResetPasswordActivity : BaseActivity(),ResetPasswordContract.Resetpassword
         get() = presenter
         set(value) {}
     var presenter=ResetPasswordPresenter(this)
+    private lateinit var sharedPreferences: SharedPreferences
 
 
     override fun init() {
@@ -23,8 +25,8 @@ class ResetPasswordActivity : BaseActivity(),ResetPasswordContract.Resetpassword
             val oldPassword=et_current_password.text.toString()
             val password=et_new_password.text.toString()
             val newPassword=et_new_password.text.toString()
-
-            presenter.changepassword(oldPassword,password,newPassword)
+            sharedPreferences = getSharedPreferences("myPref", 0)
+            presenter.changepassword(sharedPreferences.getString("access_token",null),oldPassword,password,newPassword)
         }
         ab_back_white.setOnClickListener {
             finish()

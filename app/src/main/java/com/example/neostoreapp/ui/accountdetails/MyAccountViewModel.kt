@@ -17,8 +17,7 @@ class MyAccountViewModel(myAccountView: MyAccountContract.MyAccountView):MyAccou
 
 
     override fun getAccountDetails(accessToken: String?) {
-        APIManager().getAccountDetails(object :
-            APICallback<com.example.neostoreapp.ui.accountdetails.Response>()
+        APIManager().getAccountDetails(object :APICallback<com.example.neostoreapp.ui.accountdetails.Response>()
         {
             override fun onSucess(code: Int?, response: com.example.neostoreapp.ui.accountdetails.Response?) {
                 Log.d("tag","token check:"+mView)
