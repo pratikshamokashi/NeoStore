@@ -1,6 +1,7 @@
 package com.example.neostoreapp.ui.home
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
 import android.support.v4.content.ContextCompat.startActivity
@@ -22,7 +23,6 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class HomeActivity: BaseActivity(), LoginContract.LoginView  {
-
 
     override var layout= R.layout.activity_home
     var  presnter = LoginPresenter(this)

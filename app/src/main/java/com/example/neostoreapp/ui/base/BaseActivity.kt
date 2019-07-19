@@ -2,6 +2,7 @@ package com.example.neostoreapp.ui.base
 
 import android.arch.lifecycle.ViewModel
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v7.app.AppCompatActivity
@@ -13,6 +14,7 @@ import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.toolbar.*
 import com.example.neostoreapp.R
 import com.example.neostoreapp.ui.accountdetails.MyAccountActivity
+import com.example.neostoreapp.ui.login.LoginActivity
 import com.example.neostoreapp.ui.resetpassword.ResetPasswordActivity
 
 
@@ -21,9 +23,15 @@ abstract class BaseActivity : AppCompatActivity(),BaseView, NavigationView.OnNav
     abstract val layout:Int
     abstract val getPresenter:BasePresenter
     abstract fun init()
+
+    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var editor: SharedPreferences.Editor
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
        super.onCreate(savedInstanceState)
        setContentView(R.layout.activity_base)
+
 
         //inflated view pass from child activity
         val inflater = LayoutInflater.from(this)
@@ -36,11 +44,11 @@ abstract class BaseActivity : AppCompatActivity(),BaseView, NavigationView.OnNav
 
        init()
 
-        menu_img.setOnClickListener(View.OnClickListener {
+        menu_img.setOnClickListener{
             drawer_layout.openDrawer(Gravity.LEFT)
 
+        }
 
-        })
     }
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         val id=item.itemId
@@ -48,6 +56,16 @@ abstract class BaseActivity : AppCompatActivity(),BaseView, NavigationView.OnNav
             R.id.myaccount->{
                 val intent=Intent(this,MyAccountActivity::class.java)
                 startActivity(intent)
+            }
+            R.id.logout->{
+                sharedPreferences = getSharedPreferences("myPref", 0)
+                editor= sharedPreferences.edit()
+                editor.clear()
+                editor.apply()
+                editor.putBoolean("isLogin",false)
+                val intent=Intent(this,LoginActivity::class.java)
+                startActivity(intent)
+                finish()
             }
         }
         return true

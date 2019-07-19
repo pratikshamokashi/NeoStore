@@ -40,12 +40,12 @@ class APIManager {
         val apiClient=ApiClient.instance.apiServices.changePassword(MyApp.instance.acess_token,old_password,password,confirm_password)
         apiClient.enqueue(callback)
     }
-    fun getAccountDetails(callback: Callback<Response>) {
-        val apiClient=ApiClient.instance.apiServices.getAccountDetails(MyApp.instance.acess_token)
+    fun getAccountDetails(callback: Callback<Response>, accessToken: String?) {
+        val apiClient=ApiClient.instance.apiServices.getAccountDetails(accessToken!!)
         apiClient.enqueue(callback)
     }
-    fun editProfile(email: String,dob:String,phoneNumber: String,profile_pic:String,callback: Callback<EditProfileResponse>){
-        val apiClient=ApiClient.instance.apiServices.editProfile(MyApp.instance.acess_token,email,dob,phoneNumber,profile_pic)
+    fun editProfile(firstName:String,lastName:String,email:String,dob:String,phoneNumber:String,profile_pic:String,callback: Callback<EditProfileResponse>){
+        val apiClient=ApiClient.instance.apiServices.editProfile(MyApp.instance.acess_token,firstName,lastName,email,dob,phoneNumber,profile_pic)
         apiClient.enqueue(callback)
 
     }

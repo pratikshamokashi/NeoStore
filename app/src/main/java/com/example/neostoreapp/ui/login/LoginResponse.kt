@@ -1,5 +1,7 @@
 package com.example.neostoreapp.ui.login
 
+import com.example.neostoreapp.ui.editprofile.Data
+
 data class LoginResponse(
 
     var status:Int=0,

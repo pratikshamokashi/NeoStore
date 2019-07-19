@@ -55,12 +55,14 @@ interface ApiInterface {
     @FormUrlEncoded
     @POST("users/update")
     fun editProfile(
-        @Header("access_token") token: String,
-        @Field("email")email: String,
-    @Field("dob")dob:String,
-    @Field("phone_no")phone_no: String,
-    @Field("profile_pic")profile_pic:String
-    ):Call<EditProfileResponse>
+            @Header("access_token") token: String,
+            @Field("first_name") first_name: String,
+            @Field("last_name") last_name: String,
+            @Field("email") email: String,
+            @Field("dob") dob: String,
+            @Field("phone_no") phone_no: String,
+            @Field("profile_pic") profile_pic: String
+    ): Call<EditProfileResponse>
 
 }
 

@@ -15,7 +15,8 @@ class MyAccountViewModel(myAccountView: MyAccountContract.MyAccountView):MyAccou
         this.mView = myAccountView
     }
 
-    override fun getAccountDetails() {
+
+    override fun getAccountDetails(accessToken: String?) {
         APIManager().getAccountDetails(object :
             APICallback<com.example.neostoreapp.ui.accountdetails.Response>()
         {
@@ -33,7 +34,7 @@ class MyAccountViewModel(myAccountView: MyAccountContract.MyAccountView):MyAccou
                 val jObjError = JSONObject(errorBody?.string())
                mView?.myaccountFailure("${jObjError.get("message")}")
             }
-        })
+        },accessToken)
 
             }
 

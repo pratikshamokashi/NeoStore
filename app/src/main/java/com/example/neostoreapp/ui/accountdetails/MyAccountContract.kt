@@ -9,6 +9,6 @@ interface MyAccountContract {
         fun myaccountSucess(res: Data?)
     }
     interface Presenter:BasePresenter{
-        fun getAccountDetails()
+        fun getAccountDetails(string: String?)
     }
 }

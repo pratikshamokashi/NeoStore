@@ -1,7 +1,5 @@
 package com.example.neostoreapp.ui.registration
 
-import com.example.neostoreapp.ui.login.Data
-
 data class RegisterResponse(
     var status:Int=0,
     var message:String="",

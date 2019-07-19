@@ -1,6 +1,7 @@
 package com.example.neostoreapp.ui.accountdetails
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.util.Log
 import android.view.View
 import com.example.neostoreapp.R.layout.activity_my_account
@@ -17,10 +18,14 @@ class MyAccountActivity:BaseActivity(),MyAccountContract.MyAccountView{
     val presenter = MyAccountViewModel(this)
     override val getPresenter: BasePresenter
         get() = presenter
+    lateinit var sharedPreferences:SharedPreferences
+    lateinit var editor: SharedPreferences.Editor
+
     override fun init() {
         menu_img.visibility=View.GONE
         txt_neostore1.setText("My Account")
-         presenter.getAccountDetails()
+        sharedPreferences = getSharedPreferences("myPref", 0)
+         presenter.getAccountDetails(sharedPreferences.getString("access_token",null))
 
         ab_back_white.setOnClickListener {
             finish()
