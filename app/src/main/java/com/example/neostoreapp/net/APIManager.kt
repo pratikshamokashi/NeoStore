@@ -2,8 +2,8 @@ package com.example.neostoreapp.net
 
 import com.example.neostoreapp.services.ApiClient
 import com.example.neostoreapp.ui.accountdetails.Response
-import com.example.neostoreapp.ui.base.MyApp
 import com.example.neostoreapp.ui.editprofile.EditProfileResponse
+import com.example.neostoreapp.ui.productdetails.ProductDetailsResponse
 import com.example.neostoreapp.ui.productlisting.ProductResponse
 import com.example.neostoreapp.ui.registration.RegisterResponse
 import com.example.neostoreapp.ui.resetpassword.ResetResponse
@@ -47,7 +47,10 @@ class APIManager {
     fun editProfile(accessToken: String?,firstName:String,lastName:String,email:String,dob:String,phoneNumber:String,profile_pic:String,callback: Callback<EditProfileResponse>){
         val apiClient=ApiClient.instance.apiServices.editProfile(accessToken!!,firstName,lastName,email,dob,phoneNumber,profile_pic)
         apiClient.enqueue(callback)
-
+    }
+    fun productDetails(product_id:String,callback:Callback<ProductDetailsResponse>)    {
+        val apiClient=ApiClient.instance.apiServices.productDetails(product_id)
+        apiClient.enqueue(callback)
     }
 }
 

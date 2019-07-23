@@ -1,7 +1,6 @@
 package com.example.neostoreapp.ui.registration
 
 import android.content.Intent
-import android.support.v7.widget.Toolbar
 import android.view.View
 import com.example.neostoreapp.R
 import com.example.neostoreapp.ui.home.HomeActivity

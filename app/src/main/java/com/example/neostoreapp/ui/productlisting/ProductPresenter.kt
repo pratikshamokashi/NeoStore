@@ -12,7 +12,7 @@ import retrofit2.Retrofit
 
 class ProductPresenter(productview: ProductContract.ProductView,context: Context) : ProductContract.Presenter {
     lateinit var myAdapter: MyAdapter
-    private var data:List<Data1>? = null;
+    private var data:List<Data1>? = null
     var mView: ProductView? = null
     private var context: Context
 

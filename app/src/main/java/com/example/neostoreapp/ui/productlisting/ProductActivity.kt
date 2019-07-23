@@ -1,12 +1,12 @@
 package com.example.neostoreapp.ui.productlisting
 
-import android.arch.lifecycle.ViewModel
-import android.util.Log
+import android.content.Intent
 import android.view.View
 import com.example.neostoreapp.R
 import com.example.neostoreapp.ui.base.BaseActivity
 import com.example.neostoreapp.ui.base.BasePresenter
 import kotlinx.android.synthetic.main.activity_product.*
+import kotlinx.android.synthetic.main.row_layout.*
 import kotlinx.android.synthetic.main.toolbar.*
 import java.lang.Integer.parseInt
 

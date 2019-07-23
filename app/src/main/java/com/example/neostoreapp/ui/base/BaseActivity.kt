@@ -1,13 +1,10 @@
 package com.example.neostoreapp.ui.base
 
-import android.arch.lifecycle.ViewModel
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.SearchView
-import android.util.Log
 import android.view.*
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_base.*
@@ -15,7 +12,7 @@ import kotlinx.android.synthetic.main.toolbar.*
 import com.example.neostoreapp.R
 import com.example.neostoreapp.ui.accountdetails.MyAccountActivity
 import com.example.neostoreapp.ui.login.LoginActivity
-import com.example.neostoreapp.ui.resetpassword.ResetPasswordActivity
+import com.example.neostoreapp.ui.productdetails.ProductDetailActivity
 
 
 abstract class BaseActivity : AppCompatActivity(),BaseView, NavigationView.OnNavigationItemSelectedListener {
@@ -52,6 +49,10 @@ abstract class BaseActivity : AppCompatActivity(),BaseView, NavigationView.OnNav
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         val id=item.itemId
         when(id){
+           /* R.id.table->{
+                val intent=Intent(this, ProductDetailActivity::class.java)
+                startActivity(intent)
+            }*/
             R.id.myaccount->{
                 val intent=Intent(this,MyAccountActivity::class.java)
                 startActivity(intent)
