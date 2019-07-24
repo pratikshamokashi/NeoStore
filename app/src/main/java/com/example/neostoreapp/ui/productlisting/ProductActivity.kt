@@ -27,7 +27,7 @@ class ProductActivity : BaseActivity(),ProductContract.ProductView{
     override val layout= R.layout.activity_product
 
     var  presenter = ProductPresenter(this,this)
-    override val getPresenter: BasePresenter
+    val getPresenter: BasePresenter
         get() = presenter
     override fun init() {
 

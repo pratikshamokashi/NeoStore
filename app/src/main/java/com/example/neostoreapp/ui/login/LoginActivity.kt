@@ -18,9 +18,9 @@ import com.example.neostoreapp.ui.base.BaseActivity as BaseActivity
 class LoginActivity: BaseActivity(), LoginContract.LoginView {
 
     override var layout= activity_login
-   var  presnter = LoginPresenter(this)
-    override val getPresenter: BasePresenter
-        get() = presnter
+  var  presnter = LoginPresenter(this)
+    //val getPresenter: BasePresenter
+    //    get() = presnter
     lateinit var sharedPreferences:SharedPreferences
     lateinit var editor:Editor
     override fun init() {

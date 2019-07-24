@@ -8,7 +8,7 @@ import com.example.neostoreapp.R.layout.activity_my_account
 import com.example.neostoreapp.ui.base.BaseActivity
 import com.example.neostoreapp.ui.base.BasePresenter
 import com.example.neostoreapp.ui.editprofile.EditProfileActivity
-import com.example.neostoreapp.ui.resetpassword.ResetPasswordActivity
+import com.example.neostoreapp.ui.resetpassword.Reset1PasswordActivity
 import kotlinx.android.synthetic.main.activity_my_account.*
 import kotlinx.android.synthetic.main.toolbar.*
 
@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.toolbar.*
 class MyAccountActivity:BaseActivity(),MyAccountContract.MyAccountView{
     override val layout = activity_my_account
     val presenter = MyAccountViewModel(this)
-    override val getPresenter: BasePresenter
+     val getPresenter: BasePresenter
         get() = presenter
     lateinit var sharedPreferences:SharedPreferences
     lateinit var editor: SharedPreferences.Editor
@@ -31,7 +31,7 @@ class MyAccountActivity:BaseActivity(),MyAccountContract.MyAccountView{
             finish()
         }
         btn_resetPassword1.setOnClickListener {
-            val intent=Intent(this,ResetPasswordActivity::class.java)
+            val intent=Intent(this,Reset1PasswordActivity::class.java)
             startActivity(intent)
         }
         btn_edit_profile.setOnClickListener {

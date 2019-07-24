@@ -11,14 +11,14 @@ import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.toolbar.*
 import com.example.neostoreapp.R
 import com.example.neostoreapp.ui.accountdetails.MyAccountActivity
+import com.example.neostoreapp.ui.resetpassword.Reset1PasswordActivity
 import com.example.neostoreapp.ui.login.LoginActivity
-import com.example.neostoreapp.ui.productdetails.ProductDetailActivity
 
 
 abstract class BaseActivity : AppCompatActivity(),BaseView, NavigationView.OnNavigationItemSelectedListener {
 
     abstract val layout:Int
-    abstract val getPresenter:BasePresenter
+   // private lateinit var  getPresenter:BasePresenter
     abstract fun init()
 
     private lateinit var sharedPreferences: SharedPreferences
@@ -49,8 +49,8 @@ abstract class BaseActivity : AppCompatActivity(),BaseView, NavigationView.OnNav
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         val id=item.itemId
         when(id){
-           /* R.id.table->{
-                val intent=Intent(this, ProductDetailActivity::class.java)
+          /*  R.id.table->{
+                val intent=Intent(this, Reset1PasswordActivity::class.java)
                 startActivity(intent)
             }*/
             R.id.myaccount->{
@@ -73,12 +73,12 @@ abstract class BaseActivity : AppCompatActivity(),BaseView, NavigationView.OnNav
 
     override fun onStart() {
         super.onStart()
-        getPresenter.start()
+        //getPresenter.start()
     }
 
     override fun onStop() {
         super.onStop()
-        getPresenter.stop()
+        //getPresenter.stop()
     }
     fun showToast(message: String?){
         Toast.makeText(applicationContext,message, Toast.LENGTH_SHORT).show()

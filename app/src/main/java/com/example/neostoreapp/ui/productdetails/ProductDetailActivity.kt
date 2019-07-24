@@ -20,7 +20,7 @@ class ProductDetailActivity : BaseActivity(),ProductDetailContract.ProductDetail
 
     override val layout: Int=R.layout.activity_product_detail
     var presenter =ProductDetailsPresenter(this,this)
-    override val getPresenter: BasePresenter
+     val getPresenter: BasePresenter
         get() =presenter
 
    private var list:List<ProductImagesItem>? =null

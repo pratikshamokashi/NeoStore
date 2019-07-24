@@ -26,7 +26,7 @@ class HomeActivity: BaseActivity(), LoginContract.LoginView  {
 
     override var layout= R.layout.activity_home
     var  presnter = LoginPresenter(this)
-    override val getPresenter: BasePresenter
+   // override val getPresenter: BasePresenter
      get() = presnter
 
     private var imageModelArrayList:ArrayList<ImageModel>?=null

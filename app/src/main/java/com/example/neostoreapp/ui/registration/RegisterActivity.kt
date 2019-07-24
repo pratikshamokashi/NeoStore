@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.toolbar.*
 
 class RegisterActivity : BaseActivity(),RegisterContract.RegisterView {
     override val layout= R.layout.activity_register
-    override var getPresenter: BasePresenter
+     var getPresenter: BasePresenter
         get() = presenter
         set(value) {}
     var presenter= RegisterPresenter(this)

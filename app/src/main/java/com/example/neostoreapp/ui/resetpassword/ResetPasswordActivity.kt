@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.toolbar.*
 
 class ResetPasswordActivity : BaseActivity(),ResetPasswordContract.ResetpasswordView{
     override val layout= R.layout.activity_reset_password
-    override var getPresenter: BasePresenter
+     var getPresenter: BasePresenter
         get() = presenter
         set(value) {}
     var presenter=ResetPasswordPresenter(this)
@@ -24,7 +24,7 @@ class ResetPasswordActivity : BaseActivity(),ResetPasswordContract.Resetpassword
         btn_resetPassword.setOnClickListener {
             val oldPassword=et_current_password.text.toString()
             val password=et_new_password.text.toString()
-            val newPassword=et_new_password.text.toString()
+            val newPassword=et_confirm_reset_password.text.toString()
             sharedPreferences = getSharedPreferences("myPref", 0)
             presenter.changepassword(sharedPreferences.getString("access_token",null),oldPassword,password,newPassword)
         }

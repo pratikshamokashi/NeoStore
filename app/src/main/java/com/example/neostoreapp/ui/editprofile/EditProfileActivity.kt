@@ -18,8 +18,8 @@ import java.net.URL
 class EditProfileActivity : BaseActivity(), EditProfileContract.EditProfileView {
     @RequiresApi(Build.VERSION_CODES.O)
     override val layout = R.layout.activity_edit_profile
-    val presenter = EditProfilePresenter(this)
-    override val getPresenter: BasePresenter
+      val presenter = EditProfilePresenter( this)
+         val getPresenter: BasePresenter
         get() = presenter
     val image = "https://www.gstatic.com/webp/gallery3/1.png"
     val data = image.toByteArray(charset("UTF-8"))
