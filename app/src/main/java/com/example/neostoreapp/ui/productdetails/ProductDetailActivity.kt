@@ -35,7 +35,7 @@ class ProductDetailActivity : BaseActivity(),ProductDetailContract.ProductDetail
         }
         if (intent.extras != null)
             presenter.productDetails(intent.extras.get("id").toString())
-        img_recycler_view.layoutManager =LinearLayoutManager(this,
+            img_recycler_view.layoutManager =LinearLayoutManager(this,
                 LinearLayoutManager.HORIZONTAL,
                 false)
        setAdapter(img_recycler_view)
@@ -54,11 +54,16 @@ class ProductDetailActivity : BaseActivity(),ProductDetailContract.ProductDetail
             bundle.putString("image", selectedImage)
             dialogFragment.setArguments(bundle)
             dialogFragment.show(fm, "ProductDialogFragment")
-
-
-
         }
-        // presenter.setAdapter(img_recycler_view)
+        btn_rate.setOnClickListener {
+            val fm = supportFragmentManager
+            val dialogFragment = RatingdialogFragment()
+            var  bundle = Bundle()
+            bundle.putString("title", mResponse?.data?.name);
+            bundle.putString("image", selectedImage)
+            dialogFragment.setArguments(bundle)
+            dialogFragment.show(fm, "RatingdialogFragment")
+        }
     }
 
     fun setAdapter(mRecyclerView: RecyclerView)
@@ -78,10 +83,9 @@ class ProductDetailActivity : BaseActivity(),ProductDetailContract.ProductDetail
     }
 
     override fun onClicked(position: Int) {
-        Log.d("tag1","onc: "+list?.get(position)?.image)
+       // Log.d("tag1","onc: "+list?.get(position)?.image)
         Picasso.with(this).load(list?.get(position)?.image).into(img_product)
         selectedImage = list?.get(position)?.image!!
-        Log.d("tag1","selected image: "+selectedImage)
     }
     override fun sucessProductDetails(response: ProductDetailsResponse?) {
         mResponse = response
@@ -92,17 +96,11 @@ class ProductDetailActivity : BaseActivity(),ProductDetailContract.ProductDetail
         txt_neostore1.setText(""+txt_productname.text)
         txt_neostore1.textSize= 25F
         txt_productcost.setText("Rs "+response.data.cost)
-       // txt_productcategory.setText("Rs "+response.data.cost)
         txt_producttype.text=response.data.producer
-       // Log.d("tag","onsucess2:"+response.data.rating!!.toFloat())
         rating_bar_productdetails.rating= response.data.rating!!.toFloat()
         txt_description.setText("Description: \n"+response.data.description  )
         Log.d("tag","img: "+response.data?.productImages.get(0).image)
         Picasso.with(this).load(response.data?.productImages.get(0).image).into(img_product)
-//        Picasso.with(context).load(data?.get(p1)?.image).into(p0.table_img)
-//
-        //response?.data?.productImages
-
     }
 
     override fun failureProductDetails(error: String) {
