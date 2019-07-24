@@ -1,5 +1,6 @@
 package com.example.neostoreapp.ui.productdetails
 
+import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
@@ -9,7 +10,10 @@ import com.example.neostoreapp.ui.base.BaseActivity
 import com.example.neostoreapp.ui.base.BasePresenter
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_product_detail.*
-import kotlinx.android.synthetic.main.activity_product_detail.view.*
+import kotlinx.android.synthetic.main.activity_product_detail.btn_buy
+import kotlinx.android.synthetic.main.activity_product_detail.img_product
+import kotlinx.android.synthetic.main.activity_product_detail.txt_productname
+import kotlinx.android.synthetic.main.dialog_fragment.*
 import kotlinx.android.synthetic.main.toolbar.*
 
 class ProductDetailActivity : BaseActivity(),ProductDetailContract.ProductDetailsView, ProductAdapter.onItemClick{
@@ -21,6 +25,8 @@ class ProductDetailActivity : BaseActivity(),ProductDetailContract.ProductDetail
 
    private var list:List<ProductImagesItem>? =null
     lateinit var myAdapter:ProductAdapter
+    private var mResponse: ProductDetailsResponse? = null
+    var selectedImage:String = ""
 
     override fun init() {
         menu_img.visibility=View.GONE
@@ -39,6 +45,18 @@ class ProductDetailActivity : BaseActivity(),ProductDetailContract.ProductDetail
             2->  txt_productcategory.setText("Category - Chairs")
             3 -> txt_productcategory.setText("Category - Sofas")
             4 -> txt_productcategory.setText("Category - Cupboards")
+        }
+        btn_buy.setOnClickListener {
+            val fm = supportFragmentManager
+            val dialogFragment = ProductDialogFragment()
+            var  bundle = Bundle()
+            bundle.putString("title", mResponse?.data?.name);
+            bundle.putString("image", selectedImage)
+            dialogFragment.setArguments(bundle)
+            dialogFragment.show(fm, "ProductDialogFragment")
+
+
+
         }
         // presenter.setAdapter(img_recycler_view)
     }
@@ -60,11 +78,13 @@ class ProductDetailActivity : BaseActivity(),ProductDetailContract.ProductDetail
     }
 
     override fun onClicked(position: Int) {
-        Log.d("tag","onc: "+list?.get(position)?.image)
+        Log.d("tag1","onc: "+list?.get(position)?.image)
         Picasso.with(this).load(list?.get(position)?.image).into(img_product)
-
+        selectedImage = list?.get(position)?.image!!
+        Log.d("tag1","selected image: "+selectedImage)
     }
     override fun sucessProductDetails(response: ProductDetailsResponse?) {
+        mResponse = response
         list = response?.data?.productImages as List<ProductImagesItem>
         Log.d("tag","onsucess2")
         passDatatoAdapter(list!!)
