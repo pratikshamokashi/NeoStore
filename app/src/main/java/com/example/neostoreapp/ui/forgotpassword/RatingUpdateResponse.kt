@@ -1,13 +1,13 @@
-package com.example.neostoreapp.ui.productdetails
+package com.example.neostoreapp.ui.forgotpassword
 
 import javax.annotation.Generated
 import com.google.gson.annotations.SerializedName
 
 @Generated("com.robohorse.robopojogenerator")
-data class ProductDetailsResponse(
+data class RatingUpdateResponse(
 
 	@field:SerializedName("data")
-	val data: Data,
+	val data: List<DataItem?>? = null,
 
 	@field:SerializedName("status")
 	val status: Int? = null

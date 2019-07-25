@@ -1,4 +1,4 @@
-package com.example.neostoreapp.ui.productdetails
+package com.example.neostoreapp.ui.forgotpassword
 
 import javax.annotation.Generated
 import com.google.gson.annotations.SerializedName

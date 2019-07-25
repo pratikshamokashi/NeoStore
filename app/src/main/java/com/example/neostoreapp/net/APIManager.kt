@@ -4,9 +4,9 @@ import com.example.neostoreapp.services.ApiClient
 import com.example.neostoreapp.ui.accountdetails.Response
 import com.example.neostoreapp.ui.editprofile.EditProfileResponse
 import com.example.neostoreapp.ui.productdetails.ProductDetailsResponse
+import com.example.neostoreapp.ui.productdetails.RatingResponse
 import com.example.neostoreapp.ui.productlisting.ProductResponse
 import com.example.neostoreapp.ui.registration.RegisterResponse
-import com.example.neostoreapp.ui.resetpassword.ResetResponse
 import retrofit2.Callback
 
 class APIManager {
@@ -36,10 +36,10 @@ class APIManager {
 
         apiClient.enqueue(callback)
     }
-    fun changePassword(accessToken: String?, old_password:String, password: String, confirm_password:String, callback: Callback<ResetResponse>) {
+   /* fun changePassword(accessToken: String?, old_password:String, password: String, confirm_password:String, callback: Callback<ResetResponse>) {
         val apiClient=ApiClient.instance.apiServices.changePassword(accessToken!!,old_password,password,confirm_password)
         apiClient.enqueue(callback)
-    }
+    }*/
     fun getAccountDetails(callback: Callback<Response>, accessToken: String?) {
         val apiClient=ApiClient.instance.apiServices.getAccountDetails(accessToken!!)
         apiClient.enqueue(callback)
@@ -48,8 +48,12 @@ class APIManager {
         val apiClient=ApiClient.instance.apiServices.editProfile(accessToken!!,firstName,lastName,email,dob,phoneNumber,profile_pic)
         apiClient.enqueue(callback)
     }
-    fun productDetails(product_id:String,callback:Callback<ProductDetailsResponse>)    {
+    fun productDetails(product_id: String, callback:Callback<ProductDetailsResponse>)    {
         val apiClient=ApiClient.instance.apiServices.productDetails(product_id)
+        apiClient.enqueue(callback)
+    }
+    fun setRating(product_id:String,rating:String,callback: Callback<RatingResponse>){
+        val apiClient = ApiClient.instance.apiServices.setRating(product_id,rating)
         apiClient.enqueue(callback)
     }
 }

@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/img_product"
+        android:id="@+id/img_product_selected"
         android:layout_width="321dp"
         android:layout_height="140dp"
         android:layout_marginTop="60dp"

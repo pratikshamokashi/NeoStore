@@ -21,11 +21,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/img_product"
+        android:id="@+id/img_product_rating"
         android:layout_width="321dp"
         android:layout_height="140dp"
         android:layout_marginTop="50dp"
-        android:elevation="@dimen/margin_small"
+        android:elevation="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txt_productname"
@@ -33,19 +33,21 @@
 
     <RatingBar
         android:id="@+id/rating_dialog"
-        android:layout_width="181dp"
-        android:layout_height="39dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="250dp"
+        android:stepSize="1"
+        android:theme="@style/RatingBar"
         app:layout_constraintBottom_toTopOf="@+id/img_product"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.46"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/img_product"
+        app:layout_constraintTop_toBottomOf="@id/img_product_rating"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.025" />
 
     <Button
-        android:id="@+id/btn_buy"
+        android:id="@+id/btn_set_rate"
         android:layout_width="140dp"
         android:layout_height="83dp"
         android:layout_marginTop="50dp"

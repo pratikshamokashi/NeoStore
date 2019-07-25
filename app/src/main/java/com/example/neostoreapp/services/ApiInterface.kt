@@ -6,9 +6,9 @@ import com.example.neostoreapp.ui.editprofile.EditProfileResponse
 import com.example.neostoreapp.ui.resetpassword.Reset1Response
 import com.example.neostoreapp.ui.login.LoginResponse
 import com.example.neostoreapp.ui.productdetails.ProductDetailsResponse
+import com.example.neostoreapp.ui.productdetails.RatingResponse
 import com.example.neostoreapp.ui.productlisting.ProductResponse
 import com.example.neostoreapp.ui.registration.RegisterResponse
-import com.example.neostoreapp.ui.resetpassword.ResetResponse
 import io.reactivex.Observable
 import retrofit2.Call
 import retrofit2.http.*
@@ -40,7 +40,7 @@ interface ApiInterface {
         @Query("page") page: String
     ): Call<ProductResponse>
 
-    @FormUrlEncoded
+    /*@FormUrlEncoded
     @POST("users/change")
     fun changePassword(
             @Header("access_token") token: String,
@@ -48,7 +48,7 @@ interface ApiInterface {
             @Field("password") password: String,
             @Field("confirm_password") confirm_password: String
            // accessToken: String
-    ): Call<ResetResponse>
+    ): Call<ResetResponse>*/
 
     @FormUrlEncoded
     @POST("users/change")
@@ -79,7 +79,14 @@ interface ApiInterface {
 
     @GET("products/getDetail")
     fun productDetails(
-            @Query("product_id") product_id: String):Call<ProductDetailsResponse>
+            @Query("product_id") product_id: String
+    ):Call<ProductDetailsResponse>
 
+    @FormUrlEncoded
+    @POST("products/setRating")
+    fun setRating(
+            @Field("product_id")product_id:String,
+            @Field("rating")rating:String
+    ):Call<RatingResponse>
 }
 

@@ -10,7 +10,6 @@ import com.example.neostoreapp.R
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_product_detail.*
 import kotlinx.android.synthetic.main.dialog_fragment.*
-import kotlinx.android.synthetic.main.dialog_fragment.img_product
 import kotlinx.android.synthetic.main.dialog_fragment.txt_productname
 
 class ProductDialogFragment:DialogFragment() {
@@ -25,10 +24,9 @@ class ProductDialogFragment:DialogFragment() {
         super.onActivityCreated(savedInstanceState)
         val image = arguments?.getString("image")
         val title = arguments?.getString("title")
-        Log.d("TAG","Title: "+title)
-        Log.d("tag","image::"+img_product)
+      //  Log.d("TAG","Title: "+title)
+        //Log.d("tag","image::"+img_product_selected)
         txt_productname.setText(title)
-        Picasso.with(context).load(image).into(img_product)
-        //image?.toInt()?.let { img_product.setImageResource(it) }
+        Picasso.with(context).load(image).into(img_product_selected)
     }
 }

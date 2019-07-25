@@ -6,11 +6,10 @@ import android.content.SharedPreferences.Editor
 import android.util.Log
 import android.view.View
 import com.example.neostoreapp.R.layout.activity_login
-import com.example.neostoreapp.ui.base.BasePresenter
 import com.example.neostoreapp.ui.base.MyApp
 import com.example.neostoreapp.ui.home.HomeActivity
 import com.example.neostoreapp.ui.registration.RegisterActivity
-import com.example.neostoreapp.ui.resetpassword.ResetPasswordActivity
+import com.example.neostoreapp.ui.resetpassword.Reset1PasswordActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.toolbar.*
 import com.example.neostoreapp.ui.base.BaseActivity as BaseActivity
@@ -59,7 +58,7 @@ class LoginActivity: BaseActivity(), LoginContract.LoginView {
                 startActivity(intent)
             }
             txt_forgot_password.setOnClickListener {
-                val intent = Intent(this, ResetPasswordActivity::class.java)
+                val intent = Intent(this, Reset1PasswordActivity::class.java)
                 startActivity(intent)
             }
         }

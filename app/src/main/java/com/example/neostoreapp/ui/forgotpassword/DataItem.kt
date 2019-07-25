@@ -1,13 +1,13 @@
-package com.example.neostoreapp.ui.productdetails
+package com.example.neostoreapp.ui.forgotpassword
 
 import javax.annotation.Generated
 import com.google.gson.annotations.SerializedName
 
 @Generated("com.robohorse.robopojogenerator")
-data class Data(
+data class DataItem(
 
 	@field:SerializedName("product_images")
-	val productImages: List<ProductImagesItemModel>? = null,
+	val productImages: List<ProductImagesItem?>? = null,
 
 	@field:SerializedName("cost")
 	val cost: Int? = null,

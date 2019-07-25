@@ -52,7 +52,7 @@ class ProductPresenter(productview: ProductContract.ProductView,context: Context
     }
 
     fun setAdapter(mRecyclerView: RecyclerView) {
-        myAdapter = MyAdapter(data,context)
+        myAdapter = MyAdapter(data, context)
         mRecyclerView.adapter = myAdapter
     }
 

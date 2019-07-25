@@ -1,11 +1,9 @@
 package com.example.neostoreapp.ui.productdetails
 
 import android.content.Context
-import android.support.v7.widget.RecyclerView
 import android.util.Log
 import com.example.neostoreapp.net.APICallback
 import com.example.neostoreapp.net.APIManager
-import com.example.neostoreapp.ui.productdetails.ProductAdapter.onItemClick
 import okhttp3.ResponseBody
 import org.json.JSONObject
 import retrofit2.Response
@@ -18,7 +16,7 @@ class ProductDetailsPresenter(productView:ProductDetailContract.ProductDetailsVi
     private var context:Context
   //  lateinit var myAdapter:ProductAdapter
 
-    private var data:List<ProductImagesItem>? = null
+    private var data:List<ProductImagesItemModel>? = null
 
     init {
         this.context=context
@@ -27,21 +25,44 @@ class ProductDetailsPresenter(productView:ProductDetailContract.ProductDetailsVi
         }
 
     override fun productDetails(product_id: String) {
-        APIManager().productDetails(product_id,object :APICallback<ProductDetailsResponse>()
+        Log.i("Pratiksha", "HERE.......1")
+        APIManager().productDetails(product_id, object :APICallback<ProductDetailsResponse>()
         {
             override fun onSucess(code: Int?, response: ProductDetailsResponse?) {
+                Log.i("Pratiksha", "HERE.......2")
+                Log.d("tag","onsucess........"+mView)
                 mView?.sucessProductDetails(response)
-                Log.d("tag","onsucess"+mView)
+
             }
 
             override fun onFail(code: Int?, response: Response<ProductDetailsResponse>?, errorBody: ResponseBody?, retrofit: Retrofit?) {
                 val jObjError = JSONObject(errorBody?.string())
+                Log.i("Pratiksha", "HERE.......3")
+                Log.d("tag","ERROR:"+jObjError.toString())
                 mView?.failureProductDetails("${jObjError.get("message")}")
             }
         })
     }
 
+    override fun setRating(product_id: String, rating: String) {
+        Log.d("tag","setRating1")
+        APIManager().setRating(product_id, rating, object :APICallback<RatingResponse>(){
+            override fun onSucess(code: Int?, response: RatingResponse?) {
+                Log.d("tag","setRating2")
+                if (response != null) {
 
+                    mView?.sucessRating(response)
+                }
+            }
+
+            override fun onFail(code: Int?, response: Response<RatingResponse>?, errorBody: ResponseBody?, retrofit: Retrofit?) {
+                val jObjError = JSONObject(errorBody?.string())
+                mView?.failureProductDetails("${jObjError.get("message")}")
+            }
+        }
+
+        )
+    }
 
 
     override fun start() {

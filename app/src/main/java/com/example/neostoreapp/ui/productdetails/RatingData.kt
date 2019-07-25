@@ -4,10 +4,10 @@ import javax.annotation.Generated
 import com.google.gson.annotations.SerializedName
 
 @Generated("com.robohorse.robopojogenerator")
-data class Data(
+data class RatingData(
 
 	@field:SerializedName("product_images")
-	val productImages: List<ProductImagesItemModel>? = null,
+	val productImages: String? = null,
 
 	@field:SerializedName("cost")
 	val cost: Int? = null,

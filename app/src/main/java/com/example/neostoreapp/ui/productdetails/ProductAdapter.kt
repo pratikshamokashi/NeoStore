@@ -7,18 +7,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import com.example.neostoreapp.R
 
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_product_detail.*
 
-class ProductAdapter(private var data: List<ProductImagesItem>?, context:Context, var listner:onItemClick): RecyclerView.Adapter<ProductAdapter.MyViewHolder>() {
+class ProductAdapter(private var data: List<ProductImagesItemModel>?, context:Context, var listner:onItemClick): RecyclerView.Adapter<ProductAdapter.MyViewHolder>() {
 
     private var context: Context? = context
 
    // var listener:onItemClick? = null
-    fun setToAdapter(data: List<ProductImagesItem>)
+    fun setToAdapter(data: List<ProductImagesItemModel>)
     {
         this.data=data
     }
