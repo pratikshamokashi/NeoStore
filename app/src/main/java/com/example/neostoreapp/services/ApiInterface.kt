@@ -63,7 +63,7 @@ interface ApiInterface {
     @GET("users/getUserData")
     fun getAccountDetails(
         @Header("access_token") token: String
-    ):Call<Response>
+    ):Observable<Response>
 
     @FormUrlEncoded
     @POST("users/update")

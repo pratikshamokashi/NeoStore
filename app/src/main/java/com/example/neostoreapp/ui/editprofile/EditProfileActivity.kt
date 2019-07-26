@@ -52,6 +52,7 @@ class EditProfileActivity : BaseActivity(), EditProfileContract.EditProfileView 
 
             var url: URL = URL("https://www.gstatic.com/webp/gallery3/1.png")
             var bufferedInputStream: BufferedInputStream = BufferedInputStream(url.openConnection().getInputStream())
+            sharedPreferences = getSharedPreferences("myPref", 0)
             presenter.editProfile(sharedPreferences.getString("access_token", null), firstName, lastName, email, dob, phone_no, bufferedInputStream.toString())
         }
     }

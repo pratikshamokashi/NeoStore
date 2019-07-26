@@ -1,47 +1,45 @@
 package com.example.neostoreapp.ui.accountdetails
 
+import android.arch.lifecycle.MutableLiveData
+import android.arch.lifecycle.ViewModel
 import android.util.Log
 import com.example.neostoreapp.net.APICallback
 import com.example.neostoreapp.net.APIManager
+import com.example.neostoreapp.services.ApiClient
+import com.example.neostoreapp.ui.forgotpassword.MyAccountContract
+import com.example.neostoreapp.ui.resetpassword.Reset1Response
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.rxkotlin.subscribeBy
+import io.reactivex.schedulers.Schedulers
 import okhttp3.ResponseBody
 import org.json.JSONObject
 import retrofit2.Response
 import retrofit2.Retrofit
 
-class MyAccountViewModel(myAccountView: MyAccountContract.MyAccountView):MyAccountContract.Presenter {
+open class MyAccountViewModel:ViewModel() {
 
-    var mView: MyAccountContract.MyAccountView?=null
-    init {
-        this.mView = myAccountView
-    }
+    private val accountDetails:MutableLiveData<com.example.neostoreapp.ui.accountdetails.Response> = MutableLiveData()
+    fun accountDetails():MutableLiveData<com.example.neostoreapp.ui.accountdetails.Response> = accountDetails
 
+    fun getAccountDetails(accessToken: String){
+        ApiClient().apiServices.getAccountDetails(accessToken).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeBy(
+                        onNext = {
+                            if(it != null)
+                            {
+                                accountDetails.postValue(it)
+                            }
+                        },onError = {
 
-    override fun getAccountDetails(accessToken: String?) {
-        APIManager().getAccountDetails(object :APICallback<com.example.neostoreapp.ui.accountdetails.Response>()
-        {
-            override fun onSucess(code: Int?, response: com.example.neostoreapp.ui.accountdetails.Response?) {
-                Log.d("tag","token check:"+mView)
-                mView?.myaccountSucess(response?.data)
-            }
+                                accountDetails.postValue(null)
+                         },
+                        onComplete = {
 
-            override fun onFail(
-                code: Int?,
-                response: Response<com.example.neostoreapp.ui.accountdetails.Response>?,
-                errorBody: ResponseBody?,
-                retrofit: Retrofit?
-            ) {
-                val jObjError = JSONObject(errorBody?.string())
-               mView?.myaccountFailure("${jObjError.get("message")}")
-            }
-        },accessToken)
+                        }
 
-            }
+                )
 
-
-    override fun start() {
-    }
-
-    override fun stop() {
     }
 
 

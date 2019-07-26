@@ -11,7 +11,6 @@ import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.toolbar.*
 import com.example.neostoreapp.R
 import com.example.neostoreapp.ui.accountdetails.MyAccountActivity
-import com.example.neostoreapp.ui.resetpassword.Reset1PasswordActivity
 import com.example.neostoreapp.ui.login.LoginActivity
 
 
@@ -54,7 +53,7 @@ abstract class BaseActivity : AppCompatActivity(),BaseView, NavigationView.OnNav
                 startActivity(intent)
             }*/
             R.id.myaccount->{
-                val intent=Intent(this,MyAccountActivity::class.java)
+                val intent=Intent(this, MyAccountActivity::class.java)
                 startActivity(intent)
             }
             R.id.logout->{

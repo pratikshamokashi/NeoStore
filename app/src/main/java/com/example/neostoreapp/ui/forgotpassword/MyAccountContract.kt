@@ -1,5 +1,6 @@
-package com.example.neostoreapp.ui.accountdetails
+package com.example.neostoreapp.ui.forgotpassword
 
+import com.example.neostoreapp.ui.accountdetails.Data
 import com.example.neostoreapp.ui.base.BasePresenter
 import com.example.neostoreapp.ui.base.BaseView
 
