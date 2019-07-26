@@ -45,14 +45,11 @@ class Reset1PasswordActivity : BaseActivity(){
                 sucessResetPassword(it)
             }
             else{
-                failure()
+
+
             }
         })
-
-        /* btn_resend.setOnClickListener {
-              val intent = Intent(this, RegisterActivity::class.java)
-              startActivity(intent)
-          } */   }
+  }
     private fun sucessResetPassword(response: Reset1Response)
     {
         showToast(response.message)

@@ -11,17 +11,13 @@ import retrofit2.Retrofit
 
 class ProductDetailsPresenter(productView:ProductDetailContract.ProductDetailsView,context: Context):ProductDetailContract.ProductDetailsPresenter {
 
-
     var mView:ProductDetailContract.ProductDetailsView?=null
     private var context:Context
   //  lateinit var myAdapter:ProductAdapter
-
     private var data:List<ProductImagesItemModel>? = null
-
     init {
         this.context=context
         this.mView=productView
-
         }
 
     override fun productDetails(product_id: String) {
@@ -37,8 +33,6 @@ class ProductDetailsPresenter(productView:ProductDetailContract.ProductDetailsVi
 
             override fun onFail(code: Int?, response: Response<ProductDetailsResponse>?, errorBody: ResponseBody?, retrofit: Retrofit?) {
                 val jObjError = JSONObject(errorBody?.string())
-                Log.i("Pratiksha", "HERE.......3")
-                Log.d("tag","ERROR:"+jObjError.toString())
                 mView?.failureProductDetails("${jObjError.get("message")}")
             }
         })
