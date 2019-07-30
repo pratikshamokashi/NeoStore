@@ -4,6 +4,7 @@ import com.example.neostoreapp.services.ApiClient
 import com.example.neostoreapp.ui.accountdetails.Response
 import com.example.neostoreapp.ui.editprofile.EditProfileResponse
 import com.example.neostoreapp.ui.productdetails.ProductDetailsResponse
+import com.example.neostoreapp.ui.productdetails.QuantityResponse
 import com.example.neostoreapp.ui.productdetails.RatingResponse
 import com.example.neostoreapp.ui.productlisting.ProductResponse
 import com.example.neostoreapp.ui.registration.RegisterResponse
@@ -55,6 +56,11 @@ class APIManager {
     fun setRating(product_id:String,rating:String,callback: Callback<RatingResponse>){
         val apiClient = ApiClient.instance.apiServices.setRating(product_id,rating)
         apiClient.enqueue(callback)
+    }
+    fun setQuantity(access_token:String,product_id:String,quantity:String,callback:Callback<QuantityResponse>){
+        val apiClient=ApiClient.instance.apiServices.setQuantity(access_token,product_id,quantity)
+        apiClient.enqueue(callback)
+
     }
 }
 

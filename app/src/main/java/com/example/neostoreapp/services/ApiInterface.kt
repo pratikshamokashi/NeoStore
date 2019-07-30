@@ -5,7 +5,9 @@ import com.example.neostoreapp.ui.accountdetails.Response
 import com.example.neostoreapp.ui.editprofile.EditProfileResponse
 import com.example.neostoreapp.ui.resetpassword.Reset1Response
 import com.example.neostoreapp.ui.login.LoginResponse
+import com.example.neostoreapp.ui.mycartlisting.MyCartResponse
 import com.example.neostoreapp.ui.productdetails.ProductDetailsResponse
+import com.example.neostoreapp.ui.productdetails.QuantityResponse
 import com.example.neostoreapp.ui.productdetails.RatingResponse
 import com.example.neostoreapp.ui.productlisting.ProductResponse
 import com.example.neostoreapp.ui.registration.RegisterResponse
@@ -88,5 +90,18 @@ interface ApiInterface {
             @Field("product_id")product_id:String,
             @Field("rating")rating:String
     ):Call<RatingResponse>
+
+    @FormUrlEncoded
+    @POST("addToCart")
+    fun setQuantity(
+            @Header("access_token")access_token:String,
+            @Field("product_id")product_id:String,
+            @Field("quantity")quantity:String
+    ):Call<QuantityResponse>
+
+    @GET("cart")
+    fun mycartList(
+            @Header("access_token")access_token:String
+    ):Observable<MyCartResponse>
 }
 

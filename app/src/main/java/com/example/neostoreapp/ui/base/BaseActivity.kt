@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.toolbar.*
 import com.example.neostoreapp.R
 import com.example.neostoreapp.ui.accountdetails.MyAccountActivity
 import com.example.neostoreapp.ui.login.LoginActivity
+import com.example.neostoreapp.ui.mycartlisting.MyCartActivity
 
 
 abstract class BaseActivity : AppCompatActivity(),BaseView, NavigationView.OnNavigationItemSelectedListener {
@@ -48,6 +49,11 @@ abstract class BaseActivity : AppCompatActivity(),BaseView, NavigationView.OnNav
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         val id=item.itemId
         when(id){
+
+              R.id.mycart ->{
+                  val intent=Intent(this,MyCartActivity::class.java)
+                  startActivity(intent)
+              }
           /*  R.id.table->{
                 val intent=Intent(this, Reset1PasswordActivity::class.java)
                 startActivity(intent)

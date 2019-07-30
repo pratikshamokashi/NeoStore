@@ -11,18 +11,6 @@ import kotlinx.android.synthetic.main.toolbar.*
 import java.lang.Integer.parseInt
 
 class ProductActivity : BaseActivity(),ProductContract.ProductView{
-    override fun showError() {
-    }
-
-    override fun failureProduct(errorMsg: String) {
-        showToast(errorMsg)
-    }
-
-    override fun sucessProduct(res: ProductResponse?) {
-        showToast("sucessful....!"+res)
-
-        presenter.passDataToAdapter(res?.data)
-    }
 
     override val layout= R.layout.activity_product
 
@@ -50,6 +38,18 @@ class ProductActivity : BaseActivity(),ProductContract.ProductView{
     }
 
     override fun showPasswordError() {
+    }
+    override fun showError() {
+    }
+
+    override fun failureProduct(errorMsg: String) {
+        showToast(errorMsg)
+    }
+
+    override fun sucessProduct(res: ProductResponse?) {
+        showToast("sucessful....!"+res)
+
+        presenter.passDataToAdapter(res?.data)
     }
 
     fun setData(){}

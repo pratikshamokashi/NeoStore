@@ -10,7 +10,7 @@ import io.reactivex.schedulers.Schedulers
 
 open class ResetViewModel:ViewModel() {
 
-    private val resetPassword:MutableLiveData<Reset1Response> = MutableLiveData()
+    private val resetPassword:MutableLiveData<Reset1Response> = MutableLiveData()//create object of live data
     fun forgotResponse(): MutableLiveData<Reset1Response> = resetPassword
     fun forgotPassword(accessToken: String,old_password: String, password: String, confirm_password: String)
     {
@@ -21,6 +21,7 @@ open class ResetViewModel:ViewModel() {
                         onNext = {
                             if (it!=null)
                             {
+                                //update the objects of the LiveData and  value will be updated whenever the main thread will be executed.
                                 resetPassword.postValue(it)
                             }
                         },

@@ -9,11 +9,13 @@ interface ProductDetailContract {
         fun sucessProductDetails(response: ProductDetailsResponse?)
         fun failureProductDetails(error:String)
         fun sucessRating(response: RatingResponse)
+        fun sucessToSetQuantity(response: QuantityResponse)
 
     }
     interface ProductDetailsPresenter:BasePresenter
     {
         fun productDetails(product_id:String)
         fun setRating(product_id:String,rating:String)
+        fun setQuantity(access_token: String, product_id: String, quantity: String)
     }
 }

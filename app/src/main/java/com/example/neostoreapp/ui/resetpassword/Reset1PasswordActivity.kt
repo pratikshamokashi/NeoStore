@@ -25,31 +25,34 @@ class Reset1PasswordActivity : BaseActivity(){
         menu_img.visibility= View.GONE
         search_img.visibility= View.GONE
         Log.d("Tag","init")
-        viewModel=ViewModelProviders.of(this).get(ResetViewModel::class.java)
+
         btn_resetPassword.setOnClickListener {
             Log.d("Tag","butonClick")
             val oldPassword=et_current_password.text.toString()
             val password=et_new_password.text.toString()
             val confirm_password=et_confirm_reset_password1.text.toString()
-           sharedPreferences = getSharedPreferences("myPref", 0)
+            sharedPreferences = getSharedPreferences("myPref", 0)
             viewModel.forgotPassword(sharedPreferences.getString("access_token",null),oldPassword,password,confirm_password)
 
         }
-        ab_back_white.setOnClickListener {
-            finish()
-        }
-
+        viewModel=ViewModelProviders.of(this).get(ResetViewModel::class.java)//2.observe the live data object and get viewmodel
+        //LiveData notifies the update only when the data is changed and also, only to the active observers.
+        // Observe the LiveData, passing in this activity and obsever
         viewModel.forgotResponse().observe(this,Observer<Reset1Response>{
+            //3. Create the observer which updates the UI.
             if(it!=null)
-            {
                 sucessResetPassword(it)
-            }
             else{
-
 
             }
         })
-  }
+        ab_back_white.setOnClickListener {
+            finish()
+        }
+    }
+
+
+
     private fun sucessResetPassword(response: Reset1Response)
     {
         showToast(response.message)

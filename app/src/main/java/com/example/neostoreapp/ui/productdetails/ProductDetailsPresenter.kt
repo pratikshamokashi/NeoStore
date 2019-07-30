@@ -53,11 +53,28 @@ class ProductDetailsPresenter(productView:ProductDetailContract.ProductDetailsVi
                 val jObjError = JSONObject(errorBody?.string())
                 mView?.failureProductDetails("${jObjError.get("message")}")
             }
-        }
-
-        )
+        })
     }
 
+  override fun setQuantity(access_token:String,product_id:String,quantity:String){
+      Log.d("tag","setQuantity1"+quantity)
+      APIManager().setQuantity(access_token,product_id,quantity,object :APICallback<QuantityResponse>()
+      {
+          override fun onSucess(code: Int?, response: QuantityResponse?) {
+              Log.d("tag","setQuantity2")
+              if (response != null) {
+                  mView?.sucessToSetQuantity(response)
+              }
+          }
+
+          override fun onFail(code: Int?, response: Response<QuantityResponse>?,
+                              errorBody: ResponseBody?, retrofit: Retrofit?) {
+           Log.d("tag","failQ")
+              val jObjError = JSONObject(errorBody?.string())
+              mView?.failureProductDetails("${jObjError.get("message")}")
+          }
+      })
+  }
 
     override fun start() {
     }

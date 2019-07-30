@@ -14,18 +14,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.productdetails.ProductDetailActivity"></activity>
-        <activity android:name=".ui.editprofile.EditProfileActivity"></activity>
-        <activity android:name=".ui.accountdetails.MyAccountActivity"></activity>
-        <activity android:name=".ui.resetpassword.ResetPasswordActivity"></activity>
-        <activity android:name=".ui.product.ProductActivity"></activity>
-        <activity android:name=".ui.productlisting.ProductActivity"></activity>
+        <activity android:name=".ui.mycartlisting.MyCartActivity"></activity>
+        <activity android:name=".ui.productdetails.ProductDetailActivity" />
+        <activity android:name=".ui.editprofile.EditProfileActivity" />
+        <activity android:name=".ui.accountdetails.MyAccountActivity" />
+        <activity android:name=".ui.resetpassword.ResetPasswordActivity" />
+        <activity android:name=".ui.product.ProductActivity" />
+        <activity android:name=".ui.productlisting.ProductActivity" />
         <activity
             android:name=".Navigation"
             android:label="@string/title_activity_navigation"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".ui.home.HomeActivity"></activity>
-        <activity android:name=".ui.base.BaseActivity"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ui.home.HomeActivity" />
+        <activity android:name=".ui.base.BaseActivity" />
         <activity android:name=".ui.registration.RegisterActivity" />
         <activity android:name=".ui.resetpassword.Reset1PasswordActivity" />
         <activity

@@ -13,17 +13,14 @@ import kotlinx.android.synthetic.main.dialog_fragment.txt_productname
 import kotlinx.android.synthetic.main.rating_dialog_fragment.*
 import kotlinx.android.synthetic.main.row_layout.*
 
-class RatingdialogFragment() : DialogFragment() {
+class RatingdialogFragment : DialogFragment() {
     lateinit var product_id: String
     lateinit var mListener: DialogRatingContract
     lateinit var image: String
     lateinit var title: String
     lateinit var rating: String
 
-    /* constructor(listener: DialogRatingContract,product_id: String) {
-        this.product_id=product_id
-        this. mListener=listener
-     }*/
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, data: Bundle?): View? {
         val view = inflater.inflate(R.layout.rating_dialog_fragment, container, false)
         image = arguments?.getString("img").toString()

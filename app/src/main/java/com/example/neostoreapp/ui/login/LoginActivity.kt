@@ -26,12 +26,7 @@ class LoginActivity: BaseActivity(), LoginContract.LoginView {
         sharedPreferences = getSharedPreferences("myPref", 0)
         editor= sharedPreferences.edit()
 
-        /* var appComponent=
-            DaggerAppComponent.builder().appModule(AppModule(app = Application()))*/
 
-        /* private fun initDagger(app: WikiApplication): AppComponent =
-             DaggerAppComponent.builder().appModule(AppModule(app)).build()*/
-        // (application as WikiApplication).wikiComponent.inject(LoginActivity())
         linear_layout.visibility = View.GONE
 
         if (sharedPreferences.getBoolean("isLogin",false)) {
@@ -39,7 +34,7 @@ class LoginActivity: BaseActivity(), LoginContract.LoginView {
             startActivity(intent)
             finish()
         }
-            btn_login.setOnClickListener() {
+            btn_login.setOnClickListener {
                 val email = et_email.text.toString()
                 val password = et_password.text.toString()
                 sharedPreferences= getSharedPreferences("myPref",0)

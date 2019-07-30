@@ -1,5 +1,6 @@
 package com.example.neostoreapp.ui.productdetails
 
+import android.content.ClipData
 import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.util.Log
@@ -7,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import com.example.neostoreapp.R
 
 import com.squareup.picasso.Picasso
@@ -28,11 +30,9 @@ class ProductAdapter(private var data: List<ProductImagesItemModel>?, context:Co
 
 
     override fun getItemCount(): Int {
-        Log.d("tag","count1()"+data)
         if (data == null) {
             return 0
         } else {
-            Log.d("tag","count2()"+data)
            return data!!.size
         }
     }
@@ -54,7 +54,6 @@ class ProductAdapter(private var data: List<ProductImagesItemModel>?, context:Co
         init {
           //  table_img = itemView.findViewById<View>(R.id.img_productlist) as ImageView
             img_productlist=itemView.findViewById<View>(R.id.img_productlist)as ImageView
-
         }
     }
     interface onItemClick{
