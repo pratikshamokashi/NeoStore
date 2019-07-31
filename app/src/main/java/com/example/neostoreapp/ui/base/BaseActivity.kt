@@ -54,8 +54,8 @@ abstract class BaseActivity : AppCompatActivity(),BaseView, NavigationView.OnNav
                   val intent=Intent(this,MyCartActivity::class.java)
                   startActivity(intent)
               }
-          /*  R.id.table->{
-                val intent=Intent(this, Reset1PasswordActivity::class.java)
+           /* R.id.table->{
+                val intent=Intent(this, AddressActivity::class.java)
                 startActivity(intent)
             }*/
             R.id.myaccount->{
