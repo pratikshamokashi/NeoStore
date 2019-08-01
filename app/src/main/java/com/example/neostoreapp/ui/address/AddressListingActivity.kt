@@ -28,7 +28,7 @@ class AddressListingActivity :BaseActivity() {
             Log.d("tag", "in thread")
             val mAddress=db.empDao().reademp()
                 myadapter.addAdress(mAddress)
-                myadapter.notifyDataSetChanged()
+               // myadapter.notifyDataSetChanged()
 
         }.start()
 
