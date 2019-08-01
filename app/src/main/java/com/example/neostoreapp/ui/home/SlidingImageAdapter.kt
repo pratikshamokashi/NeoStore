@@ -2,7 +2,7 @@ package com.example.neostoreapp.ui.home
 
 import android.content.Context
 import android.os.Parcelable
-import android.support.v4.view.PagerAdapter
+import androidx.viewpager.widget.PagerAdapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +11,7 @@ import com.example.neostoreapp.R
 import java.util.ArrayList
 
     class SlidingImageAdapter(private val context: Context, private val imageModelArraylist: ArrayList<ImageModel>):
-        PagerAdapter() {
+        androidx.viewpager.widget.PagerAdapter() {
         private val inflater: LayoutInflater
         init {
             inflater = LayoutInflater.from(context)

@@ -3,8 +3,8 @@ package com.example.neostoreapp.ui.productlisting
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.content.ContextCompat.startActivity
-import android.support.v7.widget.RecyclerView
+import androidx.core.content.ContextCompat.startActivity
+import androidx.recyclerview.widget.RecyclerView
 import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
@@ -18,7 +18,7 @@ import com.example.neostoreapp.ui.productdetails.ProductDetailActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.row_layout.*
 
-class MyAdapter(private var data1: List<Data1>?, context: Context) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
+class MyAdapter(private var data1: List<Data1>?, context: Context) : androidx.recyclerview.widget.RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
     private var context: Context = context
 
@@ -61,7 +61,7 @@ class MyAdapter(private var data1: List<Data1>?, context: Context) : RecyclerVie
         this.data1 = data1
     }
 
-    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class MyViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
         internal var tv_table1: TextView
         internal var tv_table2: TextView
         internal var tv_cost: TextView

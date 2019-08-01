@@ -4,8 +4,8 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
-import android.support.v4.content.ContextCompat.startActivity
-import android.support.v4.view.ViewPager
+import androidx.core.content.ContextCompat.startActivity
+import androidx.viewpager.widget.ViewPager
 import android.util.Log
 import android.view.Menu
 import android.view.View
@@ -32,7 +32,7 @@ class HomeActivity: BaseActivity(), LoginContract.LoginView  {
     private var imageModelArrayList:ArrayList<ImageModel>?=null
     private val myimagelist= intArrayOf(R.drawable.slider_img1,R.drawable.slider_img2,R.drawable.slider_img3,R.drawable.slider_img4)
 
-    internal lateinit var viewPager: ViewPager
+    internal lateinit var viewPager: androidx.viewpager.widget.ViewPager
       //  var search = findViewById(R.id.search_img) as ImageView
     override fun init() {
       ab_back_white.visibility=View.GONE
@@ -98,7 +98,7 @@ class HomeActivity: BaseActivity(), LoginContract.LoginView  {
 
     private fun showPager()
     {
-        var mPager=findViewById(R.id.viewPager) as ViewPager
+        var mPager=findViewById(R.id.viewPager) as androidx.viewpager.widget.ViewPager
         mPager.adapter=SlidingImageAdapter(this,this.imageModelArrayList!!)
         val indicator=findViewById(R.id.indicator) as CirclePageIndicator
         indicator.setViewPager(mPager)
@@ -122,7 +122,7 @@ class HomeActivity: BaseActivity(), LoginContract.LoginView  {
         },1000,1000)
 
 
-        indicator.setOnPageChangeListener(object :ViewPager.OnPageChangeListener
+        indicator.setOnPageChangeListener(object : androidx.viewpager.widget.ViewPager.OnPageChangeListener
         {
             override fun onPageScrollStateChanged(p0: Int) {
             }
@@ -137,7 +137,7 @@ class HomeActivity: BaseActivity(), LoginContract.LoginView  {
     }
     companion object {
 
-        private var mPager: ViewPager? = null
+        private var mPager: androidx.viewpager.widget.ViewPager? = null
         private var currentPage = 0
         private var NUM_PAGES = 0
     }

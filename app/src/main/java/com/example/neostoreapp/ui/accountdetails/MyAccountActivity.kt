@@ -1,7 +1,7 @@
 package com.example.neostoreapp.ui.accountdetails
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.content.SharedPreferences
 import android.util.Log

@@ -1,7 +1,7 @@
 package com.example.neostoreapp.ui.productlisting
 
 import android.content.Context
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import com.example.neostoreapp.net.APICallback
 import com.example.neostoreapp.net.APIManager
 import com.example.neostoreapp.ui.productlisting.ProductContract.ProductView
@@ -51,7 +51,7 @@ class ProductPresenter(productview: ProductContract.ProductView,context: Context
         myAdapter.notifyDataSetChanged()
     }
 
-    fun setAdapter(mRecyclerView: RecyclerView) {
+    fun setAdapter(mRecyclerView: androidx.recyclerview.widget.RecyclerView) {
         myAdapter = MyAdapter(data, context)
         mRecyclerView.adapter = myAdapter
     }

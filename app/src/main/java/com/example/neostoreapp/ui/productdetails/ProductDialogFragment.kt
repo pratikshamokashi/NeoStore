@@ -3,7 +3,7 @@ package com.example.neostoreapp.ui.productdetails
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.support.v4.app.DialogFragment
+import androidx.fragment.app.DialogFragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +12,7 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.dialog_fragment.*
 import kotlinx.android.synthetic.main.dialog_fragment.txt_productname
 
-class ProductDialogFragment:DialogFragment() {
+class ProductDialogFragment: androidx.fragment.app.DialogFragment() {
     lateinit var product_id: String
     lateinit var mListener:DialogSetQuantityContract
     lateinit var image: String

@@ -1,7 +1,7 @@
 package com.example.neostoreapp.ui.mycartlisting
 
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import android.util.Log
 import com.example.neostoreapp.services.ApiClient
 import com.example.neostoreapp.ui.accountdetails.Response

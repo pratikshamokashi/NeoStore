@@ -3,14 +3,15 @@ package com.example.neostoreapp.ui.base
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.support.design.widget.NavigationView
-import android.support.v7.app.AppCompatActivity
+import com.google.android.material.navigation.NavigationView
+import androidx.appcompat.app.AppCompatActivity
 import android.view.*
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.toolbar.*
 import com.example.neostoreapp.R
 import com.example.neostoreapp.ui.accountdetails.MyAccountActivity
+import com.example.neostoreapp.ui.address.AddressDataActivity
 import com.example.neostoreapp.ui.login.LoginActivity
 import com.example.neostoreapp.ui.mycartlisting.MyCartActivity
 
@@ -54,8 +55,8 @@ abstract class BaseActivity : AppCompatActivity(),BaseView, NavigationView.OnNav
                   val intent=Intent(this,MyCartActivity::class.java)
                   startActivity(intent)
               }
-           /* R.id.table->{
-                val intent=Intent(this, AddressActivity::class.java)
+            /*R.id.table->{
+                val intent=Intent(this, AddressDataActivity::class.java)
                 startActivity(intent)
             }*/
             R.id.myaccount->{

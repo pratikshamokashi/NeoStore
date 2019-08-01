@@ -2,8 +2,8 @@ package com.example.neostoreapp.ui.productdetails
 
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.activity_product_detail.img_product
 import kotlinx.android.synthetic.main.activity_product_detail.txt_productname
 import kotlinx.android.synthetic.main.dialog_fragment.*
 import kotlinx.android.synthetic.main.toolbar.*
-import android.support.v4.view.MenuItemCompat
+import androidx.core.view.MenuItemCompat
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_base.*
 
@@ -55,8 +55,8 @@ class ProductDetailActivity : BaseActivity(), ProductDetailContract.ProductDetai
         if (intent.extras != null)
             Log.i("Pratiksha", "HERE.......")
             presenter.productDetails(intent.extras.get("id").toString())
-        img_recycler_view.layoutManager = LinearLayoutManager(this,
-                LinearLayoutManager.HORIZONTAL,
+        img_recycler_view.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this,
+                androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL,
                 false)
         setAdapter(img_recycler_view)
 
@@ -95,7 +95,7 @@ class ProductDetailActivity : BaseActivity(), ProductDetailContract.ProductDetai
         }
     }
 
-    fun setAdapter(mRecyclerView: RecyclerView) {
+    fun setAdapter(mRecyclerView: androidx.recyclerview.widget.RecyclerView) {
         myAdapter = ProductAdapter(list, this, this)
         mRecyclerView.adapter = myAdapter
     }

@@ -1,15 +1,17 @@
 package com.example.neostoreapp.ui.mycartlisting
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import android.content.SharedPreferences
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import com.example.neostoreapp.R
+import com.example.neostoreapp.ui.address.AddressDataActivity
 import com.example.neostoreapp.ui.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_my_cart.*
 import kotlinx.android.synthetic.main.mycart_row_layout.*
@@ -49,12 +51,17 @@ class MyCartActivity : BaseActivity() {
             }
         })
 
+        btn_order_now.setOnClickListener{
+            val intent=Intent(this, AddressDataActivity::class.java)
+            startActivity(intent)
+        }
+
     }
         fun setAdapter(res:MyCartResponse)
         {
             Log.d("tag","adpter"+res)
             myadapter =MyCartAdapter(res.data,this)
-            mycart_recycler_view.layoutManager=LinearLayoutManager(this)
+            mycart_recycler_view.layoutManager= androidx.recyclerview.widget.LinearLayoutManager(this)
             mycart_recycler_view.adapter=myadapter
             myadapter!!.notifyDataSetChanged()
         }

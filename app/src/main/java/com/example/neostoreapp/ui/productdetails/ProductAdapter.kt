@@ -2,7 +2,7 @@ package com.example.neostoreapp.ui.productdetails
 
 import android.content.ClipData
 import android.content.Context
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +13,7 @@ import com.example.neostoreapp.R
 
 import com.squareup.picasso.Picasso
 
-class ProductAdapter(private var data: List<ProductImagesItemModel>?, context:Context, var listner:onItemClick): RecyclerView.Adapter<ProductAdapter.MyViewHolder>() {
+class ProductAdapter(private var data: List<ProductImagesItemModel>?, context:Context, var listner:onItemClick): androidx.recyclerview.widget.RecyclerView.Adapter<ProductAdapter.MyViewHolder>() {
 
     private var context: Context? = context
 
@@ -47,7 +47,7 @@ class ProductAdapter(private var data: List<ProductImagesItemModel>?, context:Co
 
     }
 
-       inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+       inner class MyViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
        // internal var table_img: ImageView
            internal var img_productlist:ImageView
 

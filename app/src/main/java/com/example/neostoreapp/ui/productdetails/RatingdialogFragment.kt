@@ -2,7 +2,7 @@ package com.example.neostoreapp.ui.productdetails
 
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.app.DialogFragment
+import androidx.fragment.app.DialogFragment
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.dialog_fragment.txt_productname
 import kotlinx.android.synthetic.main.rating_dialog_fragment.*
 import kotlinx.android.synthetic.main.row_layout.*
 
-class RatingdialogFragment : DialogFragment() {
+class RatingdialogFragment : androidx.fragment.app.DialogFragment() {
     lateinit var product_id: String
     lateinit var mListener: DialogRatingContract
     lateinit var image: String

@@ -1,7 +1,7 @@
 package com.example.neostoreapp.ui.resetpassword
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import android.content.SharedPreferences
 import android.util.Log
 import android.view.View

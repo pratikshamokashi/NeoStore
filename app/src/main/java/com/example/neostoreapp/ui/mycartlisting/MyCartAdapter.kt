@@ -1,7 +1,7 @@
 package com.example.neostoreapp.ui.mycartlisting
 
 import android.content.Context
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,8 +10,7 @@ import android.widget.TextView
 import com.example.neostoreapp.R
 import com.squareup.picasso.Picasso
 
-class MyCartAdapter(private var data: List<DataItem>?, context: Context):
-                                RecyclerView.Adapter<MyCartAdapter.MyViewHolder>() {
+class MyCartAdapter(private var data: List<DataItem>?, context: Context):RecyclerView.Adapter<MyCartAdapter.MyViewHolder>() {
 
     private var context: Context = context
 
