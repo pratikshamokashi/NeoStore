@@ -1,14 +1,14 @@
 package com.example.neostoreapp.ui.address
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.room.Room
 import com.example.neostoreapp.R
 import com.example.neostoreapp.ui.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_address.*
+import kotlinx.android.synthetic.main.activity_address_listing.*
+import kotlinx.android.synthetic.main.activity_my_cart.*
 import kotlinx.android.synthetic.main.toolbar.*
 
 class AddressDataActivity : BaseActivity() {
@@ -34,16 +34,26 @@ class AddressDataActivity : BaseActivity() {
                 address.zipcode=et_zipcode.text.toString()
                 address.country=et_country.text.toString()
                 db.empDao().saveData(address)
-                val intent= Intent(this,AddressListingActivity::class.java)
-                startActivity(intent)
 
-                db.empDao().reademp().forEach {
+
+               /* db.empDao().reademp().forEach {
+
                     Log.d("tag", "employe data" + it.address)
                     Log.d("tag", "employe data2" + it.city1)
-                }
+                }*/
             }.start()
+            et_address.setText("")
+            et_city1.setText("")
+            et_city2.setText("")
+            et_state.setText("")
+            et_country.setText("")
+            et_zipcode.setText("")
+
+            val intent= Intent(this,AddressListingActivity::class.java)
+            startActivity(intent)
         }
     }
+
 
 }
 
