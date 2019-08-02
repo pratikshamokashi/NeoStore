@@ -20,5 +20,7 @@ import androidx.room.PrimaryKey
         var zipcode :String=""
         @ColumnInfo(name = "country")
         var country :String=""
+        @ColumnInfo(name = "addressView")
+        var addressView:String=""
 
     }

@@ -26,21 +26,21 @@ class AddressDataActivity : BaseActivity() {
         }
         btn_save_address.setOnClickListener {
             Thread {
-                val address = AddressEntity()
-                address.address = et_address.text.toString()
-                address.city1 = et_city1.text.toString()
-                address.city2 =et_city2.text.toString()
-                address.state=et_state.text.toString()
-                address.zipcode=et_zipcode.text.toString()
-                address.country=et_country.text.toString()
-                db.empDao().saveData(address)
+                val adsEntity = AddressEntity()
+                adsEntity.address = et_address.text.toString()
+                adsEntity.city1 = et_city1.text.toString()
+                adsEntity.city2 =et_city2.text.toString()
+                adsEntity.state=et_state.text.toString()
+                adsEntity.zipcode=et_zipcode.text.toString()
+                adsEntity.country=et_country.text.toString()
+                db.empDao().saveData(adsEntity)
 
 
-               /* db.empDao().reademp().forEach {
+                db.empDao().reademp().forEach {
 
-                    Log.d("tag", "employe data" + it.address)
+                    Log.d("tag", "ads" + it.address)
                     Log.d("tag", "employe data2" + it.city1)
-                }*/
+                }
             }.start()
             et_address.setText("")
             et_city1.setText("")

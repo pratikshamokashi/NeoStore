@@ -25,8 +25,9 @@ class AddressListAdapter( private var aList:MutableList<AddressEntity>,var conte
         val viewHolder:MyViewHolder
         val view = LayoutInflater.from(p2?.context).inflate(R.layout.address_row_layout, p2, false)
         viewHolder= MyViewHolder(view)
-        val address =aList[position]
-        viewHolder.address.text=String.format("%s %s %s %s %s",address.address,address.city1,address.state,address.country,address.zipcode)
+        val adsList =aList[position]
+        Log.d("tag","ads:"+adsList.address)
+        viewHolder.addressView.text=String.format("%s %s %s %s %s %s",adsList.address,adsList.city1,adsList.city2,adsList.state,adsList.country,adsList.zipcode)
         return view
         }
     override fun getItem(p0: Int): Any {
@@ -42,7 +43,7 @@ class AddressListAdapter( private var aList:MutableList<AddressEntity>,var conte
     }
     inner class MyViewHolder(itemView: View)
     {
-        var address: TextView = itemView.findViewById<View>(R.id.tv_address_list) as TextView
+        var addressView: TextView = itemView.findViewById<View>(R.id.tv_address_list) as TextView
     }
 }
 

@@ -41,10 +41,10 @@ class Reset1PasswordActivity : BaseActivity(){
         viewModel.forgotResponse().observe(this,Observer<Reset1Response>{
             //3. Create the observer which updates the UI.
             if(it!=null)
-                sucessResetPassword(it)
-            else{
+            sucessResetPassword(it)
+        else{
 
-            }
+        }
         })
         ab_back_white.setOnClickListener {
             finish()

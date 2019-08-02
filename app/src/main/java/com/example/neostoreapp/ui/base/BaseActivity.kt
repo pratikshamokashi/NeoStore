@@ -14,6 +14,7 @@ import com.example.neostoreapp.ui.accountdetails.MyAccountActivity
 import com.example.neostoreapp.ui.address.AddressDataActivity
 import com.example.neostoreapp.ui.login.LoginActivity
 import com.example.neostoreapp.ui.mycartlisting.MyCartActivity
+import com.example.neostoreapp.ui.myorder.MyOderListActivity
 
 
 abstract class BaseActivity : AppCompatActivity(),BaseView, NavigationView.OnNavigationItemSelectedListener {
@@ -55,6 +56,10 @@ abstract class BaseActivity : AppCompatActivity(),BaseView, NavigationView.OnNav
                   val intent=Intent(this,MyCartActivity::class.java)
                   startActivity(intent)
               }
+            R.id.myorder ->{
+                val intent=Intent(this,MyOderListActivity::class.java)
+                startActivity(intent)
+            }
             /*R.id.table->{
                 val intent=Intent(this, AddressDataActivity::class.java)
                 startActivity(intent)

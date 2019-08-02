@@ -2,10 +2,13 @@ package com.example.neostoreapp.services
 
 
 import com.example.neostoreapp.ui.accountdetails.Response
+import com.example.neostoreapp.ui.address.AddressEntity
+import com.example.neostoreapp.ui.address.OrderResponse
 import com.example.neostoreapp.ui.editprofile.EditProfileResponse
 import com.example.neostoreapp.ui.resetpassword.Reset1Response
 import com.example.neostoreapp.ui.login.LoginResponse
 import com.example.neostoreapp.ui.mycartlisting.MyCartResponse
+import com.example.neostoreapp.ui.myorder.MyOrderResponse
 import com.example.neostoreapp.ui.productdetails.ProductDetailsResponse
 import com.example.neostoreapp.ui.productdetails.QuantityResponse
 import com.example.neostoreapp.ui.productdetails.RatingResponse
@@ -103,5 +106,18 @@ interface ApiInterface {
     fun mycartList(
             @Header("access_token")access_token:String
     ):Observable<MyCartResponse>
+
+    @FormUrlEncoded
+    @POST("order")
+    fun orderPlaced(
+            @Header("access_token")access_token: String,
+            @Field("address")address: String
+            ):Observable<OrderResponse>
+
+    @GET("orderList")
+    fun myorderList(
+            @Header("access_token")access_token:String
+    ):Observable<MyOrderResponse>
+
 }
 
