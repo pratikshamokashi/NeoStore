@@ -12,8 +12,8 @@
 
         <ImageView
             android:id="@+id/mycart_tbl1_img"
-            android:layout_width="59dp"
-            android:layout_height="56dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
             />

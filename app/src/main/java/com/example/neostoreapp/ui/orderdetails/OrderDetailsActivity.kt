@@ -29,39 +29,40 @@ class OrderDetailsActivity : BaseActivity() {
     private var myadapter: OrderDetailsAdapter? = null
     lateinit var list: List<OrderDetailsItem>
     override fun init() {
-         txt_neostore1.setText(intent.extras.get("id").toString())
-       menu_img.visibility = View.GONE
-       search_img.visibility = View.GONE
-       Log.d("Tag", "init")
+        var orderId=intent.extras.get("id").toString()
+        txt_neostore1.setText("Order ID : "+orderId)
+        menu_img.visibility = View.GONE
+       //search_img.visibility = View.GONE
+         Log.d("Tag", "init")
 
-       viewModel = ViewModelProviders.of(this).get(OrderDetailsViewModel::class.java)
-       sharedPreferences = getSharedPreferences("myPref", 0)
-       viewModel.orderDetails(sharedPreferences.getString("access_token", null),intent.extras.get("id").toString())
-       ab_back_white.setOnClickListener {
-           finish()
-       }
+         viewModel = ViewModelProviders.of(this).get(OrderDetailsViewModel::class.java)
+         sharedPreferences = getSharedPreferences("myPref", 0)
+         viewModel.orderDetails(sharedPreferences.getString("access_token", null),orderId)
+        ab_back_white.setOnClickListener {
+            finish()
+         }
 
        viewModel.orderDetails().observe(this, Observer<OrderDetailsResponse> {
            if (it != null) {
                Log.d("tag","sucess102: "+it)
                setAdapter(it)
-              //orderDetailSucess(it)
-
+               success(it)
 
            } else {
                //failure()
            }
        })
-
     }
-    fun setAdapter(res: OrderDetailsResponse)
-    {
+    fun setAdapter(res: OrderDetailsResponse) {
         Log.d("tag","adpter")
         myadapter = OrderDetailsAdapter(this,res.data?.orderDetails)
         myorderDetail_recycler_view.layoutManager= androidx.recyclerview.widget.LinearLayoutManager(this)
         myorderDetail_recycler_view.adapter=myadapter
         myadapter!!.notifyDataSetChanged()
     }
-
+    private fun success(res: OrderDetailsResponse)
+    {
+        tv_ordertotal1.setText("Rs:"+res.data?.cost.toString())
+    }
 }
 

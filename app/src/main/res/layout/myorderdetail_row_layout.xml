@@ -28,6 +28,7 @@
                 android:layout_toRightOf="@id/myorder_tbl1_img"
                 android:textSize="20dp"
                 android:textStyle="bold"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:textAlignment="center"
                 android:textColor="#4F4F4F"></TextView>
@@ -35,6 +36,7 @@
                 android:id="@+id/myorder_tv_tbl2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:layout_below="@id/myorder_tv_tbl1"
                 android:layout_toRightOf="@id/myorder_tbl1_img"
                 />
@@ -43,8 +45,8 @@
                 android:id="@+id/myorder_rs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="150dp"
-                android:layout_marginTop="35dp"
+                android:layout_marginLeft="170dp"
+                android:layout_marginTop="45dp"
                 android:layout_toRightOf="@id/myorder_tv_tbl2"
                 />
             <TextView
@@ -52,6 +54,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@id/myorder_tbl1_img"
                 android:layout_below="@id/myorder_tv_tbl2"
                 />

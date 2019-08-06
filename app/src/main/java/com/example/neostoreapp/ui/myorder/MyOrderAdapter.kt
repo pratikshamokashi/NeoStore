@@ -29,8 +29,9 @@ class MyOrderAdapter(context: Context, private var list: List<DataItem>): Recycl
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.tv_order_id.text = list.get(position).id.toString()
-        holder.tv_order_cost.text=list.get(position).cost.toString()
+        holder.tv_order_cost.setText(" Rs: "+list.get(position).cost.toString())
         holder.tv_order_date.text=list.get(position).created.toString()
+
         holder.myorder_row_layout.setOnClickListener{
             val bundle =Bundle()
             bundle.putString("id",list.get(position).id.toString())
