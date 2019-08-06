@@ -55,8 +55,7 @@ class ProductDetailActivity : BaseActivity(), ProductDetailContract.ProductDetai
         if (intent.extras != null)
             Log.i("Pratiksha", "HERE.......")
             presenter.productDetails(intent.extras.get("id").toString())
-        img_recycler_view.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this,
-                androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL,
+        img_recycler_view.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,
                 false)
         setAdapter(img_recycler_view)
 
@@ -95,7 +94,7 @@ class ProductDetailActivity : BaseActivity(), ProductDetailContract.ProductDetai
         }
     }
 
-    fun setAdapter(mRecyclerView: androidx.recyclerview.widget.RecyclerView) {
+    fun setAdapter(mRecyclerView:RecyclerView) {
         myAdapter = ProductAdapter(list, this, this)
         mRecyclerView.adapter = myAdapter
     }

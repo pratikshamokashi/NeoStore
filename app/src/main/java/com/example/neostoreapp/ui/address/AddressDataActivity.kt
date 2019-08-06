@@ -42,12 +42,12 @@ class AddressDataActivity : BaseActivity() {
                     Log.d("tag", "employe data2" + it.city1)
                 }
             }.start()
-            et_address.setText("")
+           /* et_address.setText("")
             et_city1.setText("")
             et_city2.setText("")
             et_state.setText("")
             et_country.setText("")
-            et_zipcode.setText("")
+            et_zipcode.setText("")*/
 
             val intent= Intent(this,AddressListingActivity::class.java)
             startActivity(intent)

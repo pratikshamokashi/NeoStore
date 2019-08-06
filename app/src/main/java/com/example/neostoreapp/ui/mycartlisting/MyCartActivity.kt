@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
+import androidx.recyclerview.widget.RecyclerView
 import com.example.neostoreapp.R
 import com.example.neostoreapp.ui.address.AddressDataActivity
 import com.example.neostoreapp.ui.base.BaseActivity
@@ -61,7 +62,7 @@ class MyCartActivity : BaseActivity() {
         {
             Log.d("tag","adpter"+res)
             myadapter =MyCartAdapter(res.data,this)
-            mycart_recycler_view.layoutManager= androidx.recyclerview.widget.LinearLayoutManager(this)
+            mycart_recycler_view.layoutManager= LinearLayoutManager(this)
             mycart_recycler_view.adapter=myadapter
             myadapter!!.notifyDataSetChanged()
         }

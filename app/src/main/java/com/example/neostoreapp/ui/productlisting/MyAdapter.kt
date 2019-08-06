@@ -55,6 +55,7 @@ class MyAdapter(private var data1: List<Data1>?, context: Context) : androidx.re
            intent.putExtras(bundle)
            startActivity(context,intent,null)
         }
+
     }
 
     fun setToAdapter(data1: List<Data1>?) {

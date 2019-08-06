@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.myorder.MyOderListActivity"></activity>
+        <activity android:name=".ui.orderdetails.OrderDetailsActivity"></activity>
+        <activity android:name=".ui.myorder.MyOderListActivity" />
         <activity android:name=".ui.address.AddressListingActivity" />
         <activity android:name=".ui.address.AddressDataActivity" />
         <activity android:name=".ui.mycartlisting.MyCartActivity" />

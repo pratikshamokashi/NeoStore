@@ -9,6 +9,7 @@ import com.example.neostoreapp.ui.resetpassword.Reset1Response
 import com.example.neostoreapp.ui.login.LoginResponse
 import com.example.neostoreapp.ui.mycartlisting.MyCartResponse
 import com.example.neostoreapp.ui.myorder.MyOrderResponse
+import com.example.neostoreapp.ui.orderdetails.OrderDetailsResponse
 import com.example.neostoreapp.ui.productdetails.ProductDetailsResponse
 import com.example.neostoreapp.ui.productdetails.QuantityResponse
 import com.example.neostoreapp.ui.productdetails.RatingResponse
@@ -118,6 +119,11 @@ interface ApiInterface {
     fun myorderList(
             @Header("access_token")access_token:String
     ):Observable<MyOrderResponse>
+
+    @GET("orderDetail")
+    fun orderDetails(@Header("access_token")access_token:String,
+                       @Query("order_id")order_id:String
+    ):Observable<OrderDetailsResponse>
 
 }
 
