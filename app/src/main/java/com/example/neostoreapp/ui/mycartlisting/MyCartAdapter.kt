@@ -31,7 +31,7 @@ class MyCartAdapter(private var data: List<DataItem>?, context: Context):Recycle
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.tv_table1.text= data!!.get(position).product?.name
         holder.tv_table2.text= data!!.get(position).product?.productCategory
-        holder.tv_table3.text= data!!.get(position).product?.cost.toString()
+        holder.tv_table3.setText("Rs:"+data!!.get(position).product?.cost.toString())
         Picasso.with(context).load(data!!.get(position).product?.productImages).into(holder.table_img)
 
     }

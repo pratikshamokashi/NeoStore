@@ -27,7 +27,7 @@ class ProductActivity : BaseActivity(),ProductContract.ProductView{
         presenter.setAdapter(my_recycler_view)
         when(parseInt(intent.extras.get("product_id").toString())){
              1 -> txt_neostore1.setText("Table")
-             2-> txt_neostore1.setText("Chairs")
+             2 -> txt_neostore1.setText("Chairs")
              3 -> txt_neostore1.setText("Sofas")
              4 -> txt_neostore1.setText("Cupboard")
         }
@@ -51,8 +51,6 @@ class ProductActivity : BaseActivity(),ProductContract.ProductView{
 
         presenter.passDataToAdapter(res?.data)
     }
-
-    fun setData(){}
 
 }
 

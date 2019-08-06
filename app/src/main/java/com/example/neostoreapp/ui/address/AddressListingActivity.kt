@@ -46,7 +46,7 @@ class AddressListingActivity :BaseActivity() {
         }
         btn_place_order.setOnClickListener{
 
-            var address =tv_address_list.text.toString()
+            var address =address_layout.toString()
             sharedPreferences = getSharedPreferences("myPref", 0)
             viewModel.orderPlaced(sharedPreferences.getString("access_token",null),address)
         }

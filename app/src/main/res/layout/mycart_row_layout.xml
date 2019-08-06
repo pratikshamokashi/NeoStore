@@ -24,12 +24,14 @@
             android:layout_toRightOf="@id/mycart_tbl1_img"
             android:textSize="20dp"
             android:textStyle="bold"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:textAlignment="center"
             android:textColor="#4F4F4F"></TextView>
         <TextView
             android:id="@+id/mycart_tv_tbl2"
             android:layout_width="wrap_content"
+            android:layout_marginLeft="10dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/mycart_tv_tbl1"
             android:layout_toRightOf="@id/mycart_tbl1_img"

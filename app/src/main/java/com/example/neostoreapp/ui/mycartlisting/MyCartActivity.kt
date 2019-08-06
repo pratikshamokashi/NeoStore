@@ -42,10 +42,8 @@ class MyCartActivity : BaseActivity() {
 
             viewModel.mycartList().observe(this, Observer<MyCartResponse> {
             if (it != null) {
-                Log.d("tag","sucess102: "+it)
-               setAdapter(it)
-                mycartSucess(it)
-
+                   setAdapter(it)
+                   mycartSucess(it)
 
             } else {
                 failure()
@@ -60,7 +58,6 @@ class MyCartActivity : BaseActivity() {
     }
         fun setAdapter(res:MyCartResponse)
         {
-            Log.d("tag","adpter"+res)
             myadapter =MyCartAdapter(res.data,this)
             mycart_recycler_view.layoutManager= LinearLayoutManager(this)
             mycart_recycler_view.adapter=myadapter
@@ -68,10 +65,7 @@ class MyCartActivity : BaseActivity() {
         }
 
     private fun mycartSucess(response: MyCartResponse){
-       // mycart_rs.text=response.total.toString()
         tv_total.setText("Rs:"+response.total.toString())
-
-
     }
     private fun failure(){
 
