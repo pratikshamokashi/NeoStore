@@ -1,5 +1,6 @@
 package com.example.neostoreapp.ui.address
 
+import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,6 +11,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.room.Room
 import com.example.neostoreapp.R
 import com.example.neostoreapp.ui.base.BaseActivity
+import com.example.neostoreapp.ui.mycartlisting.MyCartActivity
 import com.example.neostoreapp.ui.resetpassword.Reset1Response
 import com.example.neostoreapp.ui.resetpassword.ResetViewModel
 import kotlinx.android.synthetic.main.activity_address_listing.*
@@ -62,6 +64,11 @@ class AddressListingActivity :BaseActivity() {
     private fun orderSucess(res:OrderResponse)
     {
       showToast(res.userMsg)
+
+        val intent = Intent(this, MyCartActivity::class.java)
+        startActivity(intent)
+        finish()
+
     }
 
 }

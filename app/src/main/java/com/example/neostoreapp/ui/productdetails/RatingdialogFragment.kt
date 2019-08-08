@@ -35,8 +35,7 @@ class RatingdialogFragment : androidx.fragment.app.DialogFragment() {
         if (context is DialogRatingContract) {
             mListener = context
         } else {
-            throw ClassCastException(
-                    context.toString() + " must implement OnDogSelected.")
+            throw ClassCastException(context.toString() + " must implement OnDogSelected.")
         }
     }
 

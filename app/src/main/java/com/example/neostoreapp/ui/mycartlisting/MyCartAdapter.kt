@@ -1,19 +1,27 @@
 package com.example.neostoreapp.ui.mycartlisting
 
 import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.RelativeLayout
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import com.example.neostoreapp.R
+import com.example.neostoreapp.ui.productdetails.ProductAdapter
+import com.example.neostoreapp.ui.productdetails.ProductDetailActivity
 import com.squareup.picasso.Picasso
 
-class MyCartAdapter(private var data: List<DataItem>?, context: Context):RecyclerView.Adapter<MyCartAdapter.MyViewHolder>() {
+class MyCartAdapter( var data: ArrayList<DataItem>?, context: Context):RecyclerView.Adapter<MyCartAdapter.MyViewHolder>() {
 
     private var context: Context = context
-
+    lateinit var access_token:String
+    lateinit var product_id: String
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): MyViewHolder {
         val view = LayoutInflater.from(p0.context).inflate(R.layout.mycart_row_layout, p0, false)
@@ -34,12 +42,31 @@ class MyCartAdapter(private var data: List<DataItem>?, context: Context):Recycle
         holder.tv_table3.setText("Rs:"+data!!.get(position).product?.cost.toString())
         Picasso.with(context).load(data!!.get(position).product?.productImages).into(holder.table_img)
 
+
+       /* holder.mycart_row_layout.setOnClickListener {
+
+            val bundle= Bundle()
+            bundle.putString("id", data!!.get(position).productId.toString())
+            val intent= Intent(context, MyCartActivity::class.java)
+            intent.putExtras(bundle)
+            ContextCompat.startActivity(context, intent, null)
+            mListener.deleteItem(access_token, product_id)
+        }*/
+
     }
+    fun removeAt(viewHolder: RecyclerView.ViewHolder) {
+            data?.removeAt(viewHolder.adapterPosition)
+            notifyItemRemoved(viewHolder.adapterPosition)
+        data?.size?.let { notifyItemRangeChanged(viewHolder.adapterPosition, it) }
+        }
+
        inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         internal var tv_table1: TextView
         internal var tv_table2: TextView
         internal var table_img: ImageView
         internal var tv_table3: TextView
+        internal var mycart_row_layout:RelativeLayout
+
 
 
         init {
@@ -47,7 +74,11 @@ class MyCartAdapter(private var data: List<DataItem>?, context: Context):Recycle
             tv_table2 = itemView.findViewById<View>(R.id.mycart_tv_tbl2) as TextView
             table_img = itemView.findViewById<View>(R.id.mycart_tbl1_img) as ImageView
             tv_table3 = itemView.findViewById<View>(R.id.mycart_rs) as TextView
+            mycart_row_layout=itemView.findViewById<View>(R.id.mycart_row_layout)as RelativeLayout
         }
+    }
+    interface DeleteContract {
+        fun deleteItem(access_token:String,product_id: String)
     }
 }
 

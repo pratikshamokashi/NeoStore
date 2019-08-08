@@ -10,6 +10,7 @@
         android:id="@+id/img_productlist"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:background="@drawable/selected_img"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.352"
         app:layout_constraintStart_toStartOf="parent"

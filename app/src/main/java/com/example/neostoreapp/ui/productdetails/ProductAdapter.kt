@@ -2,6 +2,7 @@ package com.example.neostoreapp.ui.productdetails
 
 import android.content.ClipData
 import android.content.Context
+import android.graphics.Color
 import androidx.recyclerview.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
@@ -52,7 +53,6 @@ class ProductAdapter(private var data: List<ProductImagesItemModel>?, context:Co
            internal var img_productlist:ImageView
 
         init {
-          //  table_img = itemView.findViewById<View>(R.id.img_productlist) as ImageView
             img_productlist=itemView.findViewById<View>(R.id.img_productlist)as ImageView
         }
     }

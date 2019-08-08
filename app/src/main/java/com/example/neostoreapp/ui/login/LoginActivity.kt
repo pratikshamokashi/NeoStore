@@ -11,6 +11,7 @@ import com.example.neostoreapp.ui.home.HomeActivity
 import com.example.neostoreapp.ui.registration.RegisterActivity
 import com.example.neostoreapp.ui.resetpassword.Reset1PasswordActivity
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.header_layout.*
 import kotlinx.android.synthetic.main.toolbar.*
 import com.example.neostoreapp.ui.base.BaseActivity as BaseActivity
 
@@ -18,15 +19,12 @@ class LoginActivity: BaseActivity(), LoginContract.LoginView {
 
     override var layout= activity_login
   var  presnter = LoginPresenter(this)
-    //val getPresenter: BasePresenter
-    //    get() = presnter
+
     lateinit var sharedPreferences:SharedPreferences
     lateinit var editor:Editor
     override fun init() {
         sharedPreferences = getSharedPreferences("myPref", 0)
         editor= sharedPreferences.edit()
-
-
         linear_layout.visibility = View.GONE
 
         if (sharedPreferences.getBoolean("isLogin",false)) {
@@ -37,6 +35,7 @@ class LoginActivity: BaseActivity(), LoginContract.LoginView {
             btn_login.setOnClickListener {
                 val email = et_email.text.toString()
                 val password = et_password.text.toString()
+                val firstName=header_txt.text.toString()
                 sharedPreferences= getSharedPreferences("myPref",0)
                 editor.putString("Email",email)
                 editor.putString("Password",password)
@@ -47,7 +46,6 @@ class LoginActivity: BaseActivity(), LoginContract.LoginView {
                     presnter.login(email, password)
                 }
             }
-            //}
             btn_plus.setOnClickListener() {
                 val intent = Intent(this, RegisterActivity::class.java)
                 startActivity(intent)
@@ -63,9 +61,11 @@ class LoginActivity: BaseActivity(), LoginContract.LoginView {
         showToast(res?.message)
         MyApp.instance.acess_token= res?.data?.accessToken.toString()
         editor.putString("access_token",res?.data?.accessToken.toString())
+        editor.putString("firstName",res?.data?.firstName)
+        editor.putString("lastName",res?.data?.lastName)
         editor.putBoolean("isLogin",true)
         editor.apply()
-        //Log.d("tag","Token: "+res?.data?.access_token)
+        header_txt.setText(res?.data?.firstName)
             et_email.setText("")
             et_password.setText("")
             val intent = Intent(this, HomeActivity::class.java)
@@ -85,5 +85,4 @@ class LoginActivity: BaseActivity(), LoginContract.LoginView {
         et_password.error = "Password is required"
         et_password.requestFocus()
     }
-
 }

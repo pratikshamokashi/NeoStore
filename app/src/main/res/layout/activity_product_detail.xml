@@ -42,18 +42,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <TextView
-        android:id="@+id/txt_productcost"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:layout_marginTop="88dp"
-        android:textColor="@color/red"
-        android:textSize="30sp"
-        android:layout_marginLeft="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.132"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
 
     <TextView
         android:id="@+id/txt_producttype"
@@ -67,6 +56,35 @@
         app:layout_constraintHorizontal_bias="0.131"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints">
+
+    <TextView
+        android:id="@+id/txt_productcost"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginTop="88dp"
+        android:textColor="@color/red"
+        android:textSize="30sp"
+        android:layout_marginLeft="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.132"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/shareicn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="fitXY"
+            android:layout_marginLeft="180dp"
+            android:layout_marginTop="88dp"
+            android:src="@drawable/share"
+            android:layout_marginRight="7dp"
+            />
+    </LinearLayout>
 
     <RatingBar
         android:id="@+id/rating_bar_productdetails"
@@ -74,7 +92,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:stepSize="0.5"
+        android:stepSize="1"
         android:theme="@style/RatingBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.923"
@@ -84,9 +102,13 @@
 
     <ImageView
         android:id="@+id/img_product"
-        android:layout_width="319dp"
-        android:layout_height="133dp"
-        android:layout_marginTop="152dp"
+        android:layout_width="300dp"
+        android:layout_height="183dp"
+        android:layout_marginTop="142dp"
+        android:padding="1dp"
+        android:adjustViewBounds = "true"
+        android:scaleType="fitXY"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.27"
         app:layout_constraintStart_toStartOf="parent"
@@ -97,7 +119,7 @@
         android:id="@+id/img_recycler_view"
         android:layout_width="wrap_content"
         android:layout_height="80dp"
-        android:layout_marginTop="308dp"
+        android:layout_marginTop="328dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.315"
         app:layout_constraintStart_toStartOf="parent"
@@ -109,7 +131,7 @@
         android:id="@+id/txt_description"
         android:layout_width="300dp"
         android:layout_height="120dp"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="410dp"
         android:textColor="#111111"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"

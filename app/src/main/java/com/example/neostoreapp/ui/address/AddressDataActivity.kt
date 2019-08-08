@@ -45,6 +45,7 @@ class AddressDataActivity : BaseActivity() {
 
             val intent= Intent(this,AddressListingActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 

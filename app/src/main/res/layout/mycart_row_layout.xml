@@ -45,7 +45,16 @@
             android:layout_marginTop="35dp"
             android:layout_toRightOf="@id/mycart_tv_tbl2"
             />
-
+      <!--  <ImageButton
+            android:id="@+id/layout_list_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="350dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:contentDescription="Delete"
+            android:src="@drawable/delete" />-->
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

@@ -10,7 +10,7 @@ import org.json.JSONObject
 import retrofit2.Response
 import retrofit2.Retrofit
 
-class ProductPresenter(productview: ProductContract.ProductView,context: Context) : ProductContract.Presenter {
+class ProductPresenter(productview: ProductView,context: Context) : ProductContract.Presenter {
     lateinit var myAdapter: MyAdapter
     private var data:List<Data1>? = null
     var mView: ProductView? = null
@@ -34,7 +34,6 @@ class ProductPresenter(productview: ProductContract.ProductView,context: Context
                 errorBody: ResponseBody?,
                 retrofit: Retrofit?
             ) {
-                // super.onFail(code, response, errorBody, retrofit)
                 val jObjError = JSONObject(errorBody?.string())
                 mView?.failureProduct("${jObjError.get("message")}")
             }
@@ -51,7 +50,7 @@ class ProductPresenter(productview: ProductContract.ProductView,context: Context
         myAdapter.notifyDataSetChanged()
     }
 
-    fun setAdapter(mRecyclerView: androidx.recyclerview.widget.RecyclerView) {
+    fun setAdapter(mRecyclerView: RecyclerView) {
         myAdapter = MyAdapter(data, context)
         mRecyclerView.adapter = myAdapter
     }

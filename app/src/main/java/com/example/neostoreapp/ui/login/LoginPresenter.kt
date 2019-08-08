@@ -50,9 +50,6 @@ class LoginPresenter(loginView: LoginContract.LoginView) : LoginContract.Present
         }
 
         override fun login(email: String, password: String) {
-            //ApiClient.instance.apiServices.login(email, password)
-
-
             ApiClient().apiServices.login(email, password).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeBy(
@@ -99,15 +96,3 @@ class LoginPresenter(loginView: LoginContract.LoginView) : LoginContract.Present
                 }
             })
         }*/
-
-
-/*
-private fun Unit.observeOn(mainThread: Scheduler?): Any {
-
-}
-
-private fun <T> Observable<T>.subscribeOn(io: Scheduler) {
-
-}
-*/
-

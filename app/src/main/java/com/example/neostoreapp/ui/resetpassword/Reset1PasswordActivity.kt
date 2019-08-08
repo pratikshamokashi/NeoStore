@@ -27,7 +27,6 @@ class Reset1PasswordActivity : BaseActivity(){
         Log.d("Tag","init")
 
         btn_resetPassword.setOnClickListener {
-            Log.d("Tag","butonClick")
             val oldPassword=et_current_password.text.toString()
             val password=et_new_password.text.toString()
             val confirm_password=et_confirm_reset_password1.text.toString()

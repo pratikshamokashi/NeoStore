@@ -11,6 +11,7 @@ import com.example.neostoreapp.ui.base.BaseActivity
 import com.example.neostoreapp.ui.base.BasePresenter
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_edit_profile.*
+import kotlinx.android.synthetic.main.header_layout.*
 import kotlinx.android.synthetic.main.toolbar.*
 import java.io.BufferedInputStream
 import java.net.URL
@@ -25,7 +26,7 @@ class EditProfileActivity : BaseActivity(), EditProfileContract.EditProfileView 
     val data = image.toByteArray(charset("UTF-8"))
     lateinit var base64: String
     private lateinit var sharedPreferences: SharedPreferences
-
+    lateinit var editor: SharedPreferences.Editor
     override fun init() {
         val data = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             base64 = Base64.encodeToString(data, Base64.DEFAULT)
@@ -33,7 +34,8 @@ class EditProfileActivity : BaseActivity(), EditProfileContract.EditProfileView 
         } else {
             android.util.Base64.decode(data, android.util.Base64.DEFAULT)
         }
-
+        sharedPreferences = getSharedPreferences("myPref", 0)
+        editor= sharedPreferences.edit()
         Picasso.with(this).load(image).into(img_profilepic)
         Log.d("tag", "editCheck1")
         //Picasso.with(this).load("https://www.gstatic.com/webp/gallery3/1.png").into(img_profilepic)
@@ -58,7 +60,12 @@ class EditProfileActivity : BaseActivity(), EditProfileContract.EditProfileView 
     }
 
     override fun editprofileSuccess(res: EditProfileResponse?) {
-        Log.d("tag", "check2")
+        Log.d("tag", "check2"+res?.data?.firstName)
+       // header_txt.setText(res?.data?.lastName)
+        editor.putString("firstName",res?.data?.firstName)
+        editor.putString("lastName",res?.data?.lastName)
+        editor.apply()
+       // header_txt.text=res?.data?.firstName + res?.data?.lastName
         showToast("sucessful " + res?.message)
 
     }

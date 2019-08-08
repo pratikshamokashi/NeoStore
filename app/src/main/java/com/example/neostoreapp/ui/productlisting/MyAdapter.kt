@@ -18,7 +18,7 @@ import com.example.neostoreapp.ui.productdetails.ProductDetailActivity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.row_layout.*
 
-class MyAdapter(private var data1: List<Data1>?, context: Context) : androidx.recyclerview.widget.RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
+class MyAdapter(private var data1: List<Data1>?, context: Context) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
     private var context: Context = context
 
@@ -35,17 +35,17 @@ class MyAdapter(private var data1: List<Data1>?, context: Context) : androidx.re
         }
     }
 
-    override fun onBindViewHolder(p0: MyViewHolder, position: Int) {
-        p0.tv_table1.text = data1!!.get(position).name
-        p0.ratingbar.rating = data1!!.get(position).rating!!.toFloat()
-        p0.tv_table2.text = data1!!.get(position).producer
-        p0.tv_cost.text = data1!!.get(position).cost.toString()
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        holder.tv_table1.text = data1!!.get(position).name
+        holder.ratingbar.rating = data1!!.get(position).rating!!.toFloat()
+        holder.tv_table2.text = data1!!.get(position).producer
+        holder.tv_cost.setText("Rs. "+data1!!.get(position).cost.toString())
 
-        Picasso.with(context).load(data1!!.get(position).productImages).into(p0.table_img)
+        Picasso.with(context).load(data1!!.get(position).productImages).into(holder.table_img)
         //p0.tv_login.text = mDataList[p1].login
 
 
-       p0.rowLayout.setOnClickListener(){
+        holder.rowLayout.setOnClickListener{
            val bundle= Bundle()
            bundle.putString("id", data1!!.get(position).id.toString())
            bundle.putString("product_id", data1!!.get(position).productCategoryId.toString())

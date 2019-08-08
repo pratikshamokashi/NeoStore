@@ -36,28 +36,20 @@ class ProductDetailActivity : BaseActivity(), ProductDetailContract.ProductDetai
     var selectedImage: String = ""
     var position: Int = 0
 
-   /* var mycart = MenuItemCompat.getActionView(navigationView.getMenu().
-            findItem(com.example.neostoreapp.R.id.mycart)) as TextView*/
-    //var mycart = MenuItemCompat.getActionProvider(navigationView.menu.getItem(0)) as TextView
-
     override fun init() {
 
         position = intent.extras.getInt("position")
         sharedPreferences = getSharedPreferences("myPref", 0)
-        var access_token:String=sharedPreferences.getString("access_token",null)
+        val access_token:String=sharedPreferences.getString("access_token",null)
         menu_img.visibility = View.GONE
         ab_back_white.setOnClickListener {
             finish()
         }
-
-
-        // presenter.setRating(intent.extras.get("id").toString(),)
         if (intent.extras != null)
-            Log.i("Pratiksha", "HERE.......")
             presenter.productDetails(intent.extras.get("id").toString())
-        img_recycler_view.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,
-                false)
-        setAdapter(img_recycler_view)
+            img_recycler_view.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,
+                    false)
+            setAdapter(img_recycler_view)
 
         when (Integer.parseInt(intent.extras.get("product_id").toString())) {
             1 -> txt_productcategory.setText("Category - Tables")
@@ -66,12 +58,10 @@ class ProductDetailActivity : BaseActivity(), ProductDetailContract.ProductDetai
             4 -> txt_productcategory.setText("Category - Cupboards")
         }
         btn_buy.setOnClickListener {
-
-
             Log.d("title", "Title: " + mResponse?.data?.name)
             val fm = supportFragmentManager
             val dialogFragment = ProductDialogFragment()
-            var bundle = Bundle()
+            val bundle = Bundle()
             bundle.putString("title", mResponse?.data?.name)
             bundle.putString("image", selectedImage)
             bundle.putString("quantity", mResponse?.data?.viewCount.toString())
@@ -113,7 +103,6 @@ class ProductDetailActivity : BaseActivity(), ProductDetailContract.ProductDetai
         Picasso.with(this).load(list?.get(position)?.image).into(img_product)
         selectedImage = list?.get(position)?.image!!
     }
-
     override fun sucessProductDetails(response: ProductDetailsResponse?) {
 
         Toast.makeText(this, "HERE", Toast.LENGTH_SHORT).show()
@@ -127,14 +116,16 @@ class ProductDetailActivity : BaseActivity(), ProductDetailContract.ProductDetai
         txt_productname.text = response.data.name
         txt_neostore1.setText("" + txt_productname.text)
         txt_neostore1.textSize = 25F
-        txt_productcost.setText("Rs " + response.data.cost)
-        txt_producttype.text = response.data.producer
+        txt_productcost.setText("    Rs. " + response.data.cost)
+        txt_producttype.setText(response.data.producer)
         rating_bar_productdetails.rating = response.data.rating!!.toFloat()
         txt_description.setText("Description: \n" + response.data.description)
         if (list != null) {
             Picasso.with(this).load(list?.get(0)?.image).into(img_product)
+
         }
         selectedImage = list?.get(0)?.image.toString()
+
     }
 
     override fun applyRating(product_id: String, rating: String) {
@@ -145,10 +136,7 @@ class ProductDetailActivity : BaseActivity(), ProductDetailContract.ProductDetai
     override fun sucessRating(response: RatingResponse) {
         rating_bar_productdetails.rating = response.ratingData?.rating?.toFloat()!!
     }
-    /*override fun setQuantity(access_token: String, product_id: String, quantity: Unit) {
-        sharedPreferences=getSharedPreferences("myPref", 0)
-        presenter.setQuantity(sharedPreferences.getString("access_token", null),product_id, quantity.toString())
-    }*/
+
     override fun setQuantity(access_token: String, product_id: String, quantity: String) {
         Log.d("tag","Quqntity1")
         presenter.setQuantity(access_token, product_id, quantity)

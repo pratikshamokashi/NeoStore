@@ -18,21 +18,19 @@ class ProductActivity : BaseActivity(),ProductContract.ProductView{
     val getPresenter: BasePresenter
         get() = presenter
     override fun init() {
-
+        val productId=intent.extras.get("product_id").toString()
         menu_img.visibility= View.GONE
         ab_back_white.setOnClickListener {
             finish()
         }
-        presenter.productlisting(intent.extras.get("product_id").toString(),"10","1")
+        presenter.productlisting(productId,"10","1")
         presenter.setAdapter(my_recycler_view)
-        when(parseInt(intent.extras.get("product_id").toString())){
-             1 -> txt_neostore1.setText("Table")
+        when(parseInt(productId)){
+             1 -> txt_neostore1.setText("Tables")
              2 -> txt_neostore1.setText("Chairs")
              3 -> txt_neostore1.setText("Sofas")
-             4 -> txt_neostore1.setText("Cupboard")
+             4 -> txt_neostore1.setText("Cupboards")
         }
-
-
     }
     override fun showEmailError() {
     }
@@ -48,7 +46,6 @@ class ProductActivity : BaseActivity(),ProductContract.ProductView{
 
     override fun sucessProduct(res: ProductResponse?) {
         showToast("sucessful....!"+res)
-
         presenter.passDataToAdapter(res?.data)
     }
 

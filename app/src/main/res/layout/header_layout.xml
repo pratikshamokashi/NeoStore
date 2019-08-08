@@ -22,7 +22,6 @@
             android:textAlignment="center"
             android:textSize="30dp"
             android:textColor="@color/white"
-            android:text="Pratiksha Mokashi"
             android:textStyle="bold"
     />
     <TextView

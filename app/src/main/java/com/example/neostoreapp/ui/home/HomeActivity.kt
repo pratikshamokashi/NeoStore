@@ -26,14 +26,12 @@ class HomeActivity: BaseActivity(), LoginContract.LoginView  {
 
     override var layout= R.layout.activity_home
     var  presnter = LoginPresenter(this)
-   // override val getPresenter: BasePresenter
      get() = presnter
 
     private var imageModelArrayList:ArrayList<ImageModel>?=null
     private val myimagelist= intArrayOf(R.drawable.slider_img1,R.drawable.slider_img2,R.drawable.slider_img3,R.drawable.slider_img4)
 
-    internal lateinit var viewPager: androidx.viewpager.widget.ViewPager
-      //  var search = findViewById(R.id.search_img) as ImageView
+    internal lateinit var viewPager: ViewPager
     override fun init() {
       ab_back_white.visibility=View.GONE
           imageModelArrayList= ArrayList()
@@ -46,7 +44,6 @@ class HomeActivity: BaseActivity(), LoginContract.LoginView  {
               val intent = Intent(this, ProductActivity::class.java)
               intent.putExtras(bundle)
               startActivity(intent)
-             // txt_neostore1.setText("Table")
           }
           sofaicn.setOnClickListener {
               val bundle=Bundle()
@@ -54,7 +51,6 @@ class HomeActivity: BaseActivity(), LoginContract.LoginView  {
               val intent = Intent(this, ProductActivity::class.java)
               intent.putExtras(bundle)
               startActivity(intent)
-             // txt_neostore1.setText("Sofas")
           }
           chairicn.setOnClickListener {
               val bundle=Bundle()
@@ -62,7 +58,6 @@ class HomeActivity: BaseActivity(), LoginContract.LoginView  {
               val intent = Intent(this, ProductActivity::class.java)
               intent.putExtras(bundle)
               startActivity(intent)
-            //  txt_neostore1.setText("Chairs")
           }
           cupboardicn.setOnClickListener {
               val bundle=Bundle()
@@ -70,7 +65,6 @@ class HomeActivity: BaseActivity(), LoginContract.LoginView  {
               val intent = Intent(this, ProductActivity::class.java)
               intent.putExtras(bundle)
               startActivity(intent)
-              //txt_neostore1.setText("Cupboard")
           }
 
 /*
@@ -98,11 +92,10 @@ class HomeActivity: BaseActivity(), LoginContract.LoginView  {
 
     private fun showPager()
     {
-        var mPager=findViewById(R.id.viewPager) as androidx.viewpager.widget.ViewPager
+        var mPager=findViewById(R.id.viewPager) as ViewPager
         mPager.adapter=SlidingImageAdapter(this,this.imageModelArrayList!!)
         val indicator=findViewById(R.id.indicator) as CirclePageIndicator
         indicator.setViewPager(mPager)
-       // val density=resources.displayMetrics.density
         indicator.radius
         NUM_PAGES = imageModelArrayList!!.size
 
@@ -122,7 +115,7 @@ class HomeActivity: BaseActivity(), LoginContract.LoginView  {
         },1000,1000)
 
 
-        indicator.setOnPageChangeListener(object : androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        indicator.setOnPageChangeListener(object :ViewPager.OnPageChangeListener
         {
             override fun onPageScrollStateChanged(p0: Int) {
             }
@@ -136,8 +129,7 @@ class HomeActivity: BaseActivity(), LoginContract.LoginView  {
         })
     }
     companion object {
-
-        private var mPager: androidx.viewpager.widget.ViewPager? = null
+       // private var mPager: ViewPager? = null
         private var currentPage = 0
         private var NUM_PAGES = 0
     }

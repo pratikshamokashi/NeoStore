@@ -7,6 +7,7 @@ import androidx.fragment.app.DialogFragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.neostoreapp.R
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.dialog_fragment.*
@@ -53,11 +54,16 @@ class ProductDialogFragment: androidx.fragment.app.DialogFragment() {
 
 
 
-        btn_buySetQuantity.setOnClickListener({
+        btn_buySetQuantity.setOnClickListener {
             quantity=et_enterQuantity.text.toString()
-            mListener.setQuantity(access_token,product_id,quantity)
-            dialog.dismiss()
-        })
+            if (quantity > "8") {
+                Toast.makeText(context,"Quantity must be 1 to 8",Toast.LENGTH_SHORT).show()
+            }else
+            {
+                mListener.setQuantity(access_token, product_id, quantity)
+                dialog.dismiss()
+            }
+        }
     }
 
     interface DialogSetQuantityContract {

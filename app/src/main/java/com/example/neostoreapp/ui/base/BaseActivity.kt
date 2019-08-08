@@ -16,6 +16,8 @@ import com.example.neostoreapp.ui.login.LoginActivity
 import com.example.neostoreapp.ui.mycartlisting.MyCartActivity
 import com.example.neostoreapp.ui.myorder.MyOderListActivity
 import com.example.neostoreapp.ui.productlisting.ProductActivity
+import kotlinx.android.synthetic.main.activity_edit_profile.*
+import kotlinx.android.synthetic.main.header_layout.*
 
 
 abstract class BaseActivity : AppCompatActivity(),BaseView, NavigationView.OnNavigationItemSelectedListener {
@@ -42,9 +44,12 @@ abstract class BaseActivity : AppCompatActivity(),BaseView, NavigationView.OnNav
         }
 
        init()
-
+        sharedPreferences = getSharedPreferences("myPref", 0)
+        val firstName=sharedPreferences.getString("firstName",null)
+        val lastName=sharedPreferences.getString("lastName",null)
         menu_img.setOnClickListener{
             drawer_layout.openDrawer(Gravity.LEFT)
+            header_txt.setText(firstName+" "+lastName)
 
         }
 

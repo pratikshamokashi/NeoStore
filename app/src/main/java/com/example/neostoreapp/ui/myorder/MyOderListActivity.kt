@@ -18,7 +18,7 @@ class MyOderListActivity : BaseActivity() {
     private var myadapter: MyOrderAdapter? = null
     lateinit var list:List<DataItem>
     override fun init() {
-        txt_neostore1.setText("My Order")
+        txt_neostore1.setText("My Orders")
         menu_img.visibility = View.GONE
         viewModel = ViewModelProviders.of(this).get(MyOrderViewModel::class.java)
         sharedPreferences = getSharedPreferences("myPref", 0)
