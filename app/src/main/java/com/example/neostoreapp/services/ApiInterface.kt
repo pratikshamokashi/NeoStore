@@ -5,6 +5,7 @@ import com.example.neostoreapp.ui.accountdetails.Response
 import com.example.neostoreapp.ui.address.AddressEntity
 import com.example.neostoreapp.ui.address.OrderResponse
 import com.example.neostoreapp.ui.editprofile.EditProfileResponse
+import com.example.neostoreapp.ui.forgetpassword.ForgotPasswordResponse
 import com.example.neostoreapp.ui.resetpassword.Reset1Response
 import com.example.neostoreapp.ui.login.LoginResponse
 import com.example.neostoreapp.ui.mycartlisting.DeleteResponse
@@ -131,6 +132,10 @@ interface ApiInterface {
     fun deleteItem(@Header("access_token")access_token:String,
                    @Field("product_id")product_id: String
     ):Observable<DeleteResponse>
+
+    @FormUrlEncoded
+    @POST("users/forgot")
+    fun forgotPassword(@Field("email")email:String):Observable<ForgotPasswordResponse>
 
 }
 

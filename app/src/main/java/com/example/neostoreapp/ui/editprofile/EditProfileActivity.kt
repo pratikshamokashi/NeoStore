@@ -32,7 +32,7 @@ class EditProfileActivity : BaseActivity(), EditProfileContract.EditProfileView 
             base64 = Base64.encodeToString(data, Base64.DEFAULT)
 //            Base64.getDecoder().decode(base64)
         } else {
-            android.util.Base64.decode(data, android.util.Base64.DEFAULT)
+            Base64.decode(data,Base64.DEFAULT)
         }
         sharedPreferences = getSharedPreferences("myPref", 0)
         editor= sharedPreferences.edit()
@@ -52,8 +52,8 @@ class EditProfileActivity : BaseActivity(), EditProfileContract.EditProfileView 
             val phone_no = et_editphn_no.text.toString()
             // val picasso=img_profilepic.borderColor.toString()
 
-            var url: URL = URL("https://www.gstatic.com/webp/gallery3/1.png")
-            var bufferedInputStream: BufferedInputStream = BufferedInputStream(url.openConnection().getInputStream())
+            val url: URL = URL("https://www.gstatic.com/webp/gallery3/1.png")
+            val bufferedInputStream: BufferedInputStream = BufferedInputStream(url.openConnection().getInputStream())
             sharedPreferences = getSharedPreferences("myPref", 0)
             presenter.editProfile(sharedPreferences.getString("access_token", null), firstName, lastName, email, dob, phone_no, bufferedInputStream.toString())
         }
@@ -66,7 +66,7 @@ class EditProfileActivity : BaseActivity(), EditProfileContract.EditProfileView 
         editor.putString("lastName",res?.data?.lastName)
         editor.apply()
        // header_txt.text=res?.data?.firstName + res?.data?.lastName
-        showToast("sucessful " + res?.message)
+        showToast(res?.message)
 
     }
 

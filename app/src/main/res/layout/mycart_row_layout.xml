@@ -34,8 +34,18 @@
             android:layout_marginLeft="10dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/mycart_tv_tbl1"
-            android:layout_toRightOf="@id/mycart_tbl1_img"
-            />
+            android:layout_toRightOf="@id/mycart_tbl1_img"/>
+        <Spinner
+                android:id="@+id/sp_spinner1"
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_below="@id/mycart_tv_tbl2"
+                android:layout_toRightOf="@id/mycart_tbl1_img"
+
+                android:padding="20dp">
+
+        </Spinner>
 
         <TextView
             android:id="@+id/mycart_rs"

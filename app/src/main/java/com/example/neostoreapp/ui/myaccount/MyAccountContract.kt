@@ -1,4 +1,4 @@
-package com.example.neostoreapp.ui.forgotpassword
+package com.example.neostoreapp.ui.myaccount
 
 import com.example.neostoreapp.ui.accountdetails.Data
 import com.example.neostoreapp.ui.base.BasePresenter

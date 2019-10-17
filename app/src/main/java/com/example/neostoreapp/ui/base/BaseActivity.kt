@@ -18,6 +18,8 @@ import com.example.neostoreapp.ui.myorder.MyOderListActivity
 import com.example.neostoreapp.ui.productlisting.ProductActivity
 import kotlinx.android.synthetic.main.activity_edit_profile.*
 import kotlinx.android.synthetic.main.header_layout.*
+import androidx.core.view.MenuItemCompat.getActionView
+import android.widget.TextView
 
 
 abstract class BaseActivity : AppCompatActivity(),BaseView, NavigationView.OnNavigationItemSelectedListener {
@@ -28,7 +30,6 @@ abstract class BaseActivity : AppCompatActivity(),BaseView, NavigationView.OnNav
 
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var editor: SharedPreferences.Editor
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
        super.onCreate(savedInstanceState)
@@ -50,6 +51,9 @@ abstract class BaseActivity : AppCompatActivity(),BaseView, NavigationView.OnNav
         menu_img.setOnClickListener{
             drawer_layout.openDrawer(Gravity.LEFT)
             header_txt.setText(firstName+" "+lastName)
+           /* val count = navigationView.menu.findItem(R.id.mycart).actionView as TextView
+
+            count.setText("10")*/
 
         }
 
@@ -58,7 +62,7 @@ abstract class BaseActivity : AppCompatActivity(),BaseView, NavigationView.OnNav
         val id=item.itemId
         when(id){
 
-              R.id.mycart ->{
+             R.id.mycart ->{
                   val intent=Intent(this,MyCartActivity::class.java)
                   startActivity(intent)
               }
@@ -70,7 +74,7 @@ abstract class BaseActivity : AppCompatActivity(),BaseView, NavigationView.OnNav
                 val intent=Intent(this, ProductActivity::class.java)
                 startActivity(intent)
             }
-            R.id.myaccount->{
+           R.id.myaccount->{
                 val intent=Intent(this, MyAccountActivity::class.java)
                 startActivity(intent)
             }

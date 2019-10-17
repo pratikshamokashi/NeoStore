@@ -3,14 +3,12 @@ package com.example.neostoreapp.ui.mycartlisting
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.RelativeLayout
-import android.widget.TextView
+import android.widget.*
 import androidx.core.content.ContextCompat
 import com.example.neostoreapp.R
 import com.example.neostoreapp.ui.productdetails.ProductAdapter
@@ -40,6 +38,7 @@ class MyCartAdapter( var data: ArrayList<DataItem>?, context: Context):RecyclerV
         holder.tv_table1.text= data!!.get(position).product?.name
         holder.tv_table2.text= data!!.get(position).product?.productCategory
         holder.tv_table3.setText("Rs:"+data!!.get(position).product?.cost.toString())
+       // holder.sp_qty.dropDownWidth= data!!.get(position).quantity!!
         Picasso.with(context).load(data!!.get(position).product?.productImages).into(holder.table_img)
 
 
@@ -65,6 +64,7 @@ class MyCartAdapter( var data: ArrayList<DataItem>?, context: Context):RecyclerV
         internal var tv_table2: TextView
         internal var table_img: ImageView
         internal var tv_table3: TextView
+        internal var sp_qty:Spinner
         internal var mycart_row_layout:RelativeLayout
 
 
@@ -74,7 +74,25 @@ class MyCartAdapter( var data: ArrayList<DataItem>?, context: Context):RecyclerV
             tv_table2 = itemView.findViewById<View>(R.id.mycart_tv_tbl2) as TextView
             table_img = itemView.findViewById<View>(R.id.mycart_tbl1_img) as ImageView
             tv_table3 = itemView.findViewById<View>(R.id.mycart_rs) as TextView
+            sp_qty = itemView.findViewById<View>(R.id.sp_spinner1) as Spinner
             mycart_row_layout=itemView.findViewById<View>(R.id.mycart_row_layout)as RelativeLayout
+
+            val options = arrayOf("1", "2", "3", "4")
+            sp_qty.adapter = ArrayAdapter<String>(context, R.layout.support_simple_spinner_dropdown_item, options)
+            sp_qty.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                override fun onNothingSelected(p0: AdapterView<*>?) {
+                   // result.text = "Please select option"
+                }
+
+                override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
+                    //sp_qty.setSelection(position)
+                    Log.d("tag","pos: "+p1)
+                    sp_qty.setSelection(options.get(position).toInt(),true)
+                   //options.get(position)
+                }
+
+            }
+
         }
     }
     interface DeleteContract {

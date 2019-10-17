@@ -14,7 +14,6 @@ import kotlinx.android.synthetic.main.toolbar.*
 class AddressDataActivity : BaseActivity() {
     override val layout=R.layout.activity_address
 
-
     override fun init() {
         txt_neostore1.setText("Add Address")
         menu_img.visibility= View.GONE

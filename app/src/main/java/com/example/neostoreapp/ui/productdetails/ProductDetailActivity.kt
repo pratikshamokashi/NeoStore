@@ -104,14 +104,9 @@ class ProductDetailActivity : BaseActivity(), ProductDetailContract.ProductDetai
         selectedImage = list?.get(position)?.image!!
     }
     override fun sucessProductDetails(response: ProductDetailsResponse?) {
-
-        Toast.makeText(this, "HERE", Toast.LENGTH_SHORT).show()
-        Log.d("Pratiksha", "onsucess: " + response)
-
         mResponse = response
         list = response?.data?.productImages as List<ProductImagesItemModel>
         Log.d("PRA", "IMage list:" + list)
-        Log.d("tag", "onsucess2")
         passDatatoAdapter(list!!)
         txt_productname.text = response.data.name
         txt_neostore1.setText("" + txt_productname.text)

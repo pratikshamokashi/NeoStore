@@ -37,7 +37,7 @@ class Reset1PasswordActivity : BaseActivity(){
         viewModel=ViewModelProviders.of(this).get(ResetViewModel::class.java)//2.observe the live data object and get viewmodel
         //LiveData notifies the update only when the data is changed and also, only to the active observers.
         // Observe the LiveData, passing in this activity and obsever
-        viewModel.forgotResponse().observe(this,Observer<Reset1Response>{
+        viewModel.forgotResponse().observe(this,Observer{
             //3. Create the observer which updates the UI.
             if(it!=null)
             sucessResetPassword(it)

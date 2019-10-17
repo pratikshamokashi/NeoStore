@@ -10,16 +10,14 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import android.util.Log
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Spinner
-import android.widget.Toast
+import android.widget.*
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.neostoreapp.R
 import com.example.neostoreapp.ui.address.AddressDataActivity
 import com.example.neostoreapp.ui.base.BaseActivity
+import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.activity_my_cart.*
 import kotlinx.android.synthetic.main.mycart_row_layout.*
 import kotlinx.android.synthetic.main.toolbar.*
@@ -27,10 +25,10 @@ import kotlinx.android.synthetic.main.toolbar.*
 class MyCartActivity : BaseActivity() {
 
 
-    override val layout=R.layout.activity_my_cart
+    override val layout = R.layout.activity_my_cart
     private lateinit var sharedPreferences: SharedPreferences
 
-    lateinit  var viewModel: MyCartViewModel
+    lateinit var viewModel: MyCartViewModel
     private var myadapter: MyCartAdapter? = null
     lateinit var list: List<Product>
 
@@ -38,23 +36,17 @@ class MyCartActivity : BaseActivity() {
         txt_neostore1.setText("My Cart")
         menu_img.visibility = View.GONE
         search_img.visibility = View.GONE
-        Log.d("Tag", "init")
+    viewModel = ViewModelProviders.of(this).get(MyCartViewModel::class.java)
+    sharedPreferences = getSharedPreferences("myPref", 0)
+    viewModel.mycartList(sharedPreferences.getString("access_token", null))
 
-        viewModel = ViewModelProviders.of(this).get(MyCartViewModel::class.java)
-        sharedPreferences = getSharedPreferences("myPref", 0)
-        viewModel.mycartList(sharedPreferences.getString("access_token", null))
-
-        ab_back_white.setOnClickListener {
-         finish()
-       }
-
-
-
+    ab_back_white.setOnClickListener   {
+        finish()
+    }
             viewModel.mycartList().observe(this, Observer<MyCartResponse> {
             if (it != null) {
                    setAdapter(it)
                    mycartSucess(it)
-
 
             } else {
                 failure()
@@ -78,6 +70,7 @@ class MyCartActivity : BaseActivity() {
 
     private fun mycartSucess(response: MyCartResponse){
         tv_total.setText("Rs:"+response.total.toString())
+
 
     }
     private fun failure(){
